@@ -2,10 +2,10 @@ import pytesseract
 from pdf2image import convert_from_path
 import os
 
-# Tesseract 경로 설정
+# Tesseract 경로 설정 (MacOS에서 Homebrew로 설치된 경로)
 pytesseract.pytesseract.tesseract_cmd = "/opt/homebrew/bin/tesseract"
 
-def pdf_to_text(file_path, output_folder="images", lang="eng", start_page=1, end_page=2, dpi=150):
+def pdf_to_text(file_path, output_folder="images", lang="eng", start_page=None, end_page=None, dpi=150):
     """
     PDF 파일에서 텍스트를 추출.
 
@@ -13,8 +13,8 @@ def pdf_to_text(file_path, output_folder="images", lang="eng", start_page=1, end
         file_path (str): PDF 파일 경로.
         output_folder (str): 페이지 이미지를 저장할 폴더.
         lang (str): Tesseract 언어 설정 (기본값은 영어).
-        start_page (int): 처리할 시작 페이지.
-        end_page (int): 처리할 마지막 페이지.
+        start_page (int): 처리할 시작 페이지 (None이면 전체 처리).
+        end_page (int): 처리할 마지막 페이지 (None이면 전체 처리).
         dpi (int): 이미지 해상도 설정.
     Returns:
         str: PDF에서 추출된 전체 텍스트.
@@ -59,30 +59,6 @@ def extract_section_from_text(text, section_name):
     section_excerpt = "\n".join(section_text.split("\n")[:10])  # 상위 10줄만 추출
     return section_excerpt
 
-def extract_conclusion_from_text(text):
-    """
-    텍스트에서 '결론' 섹션을 추출.
-    
-    Args:
-        text (str): PDF에서 추출된 전체 텍스트.
-    Returns:
-        str: '결론' 섹션의 텍스트.
-    """
-    # 탐색할 결론 관련 키워드 목록
-    keywords = ["conclusion", "summary", "discussion", "future work"]
-
-    # 텍스트를 소문자로 변환하여 탐색
-    text_lower = text.lower()
-    for keyword in keywords:
-        section_start = text_lower.find(keyword)
-        if section_start != -1:
-            # 섹션 이후 텍스트 가져오기
-            section_text = text[section_start:]
-            section_excerpt = "\n".join(section_text.split("\n")[:10])  # 상위 10줄만 추출
-            return section_excerpt
-
-    return "결론 섹션을 찾을 수 없습니다."
-
 # 경로 설정
 pdf_file = "/Users/juni/Desktop/python_KDT/downloads/example.pdf"
 output_folder = "/Users/juni/Desktop/python_KDT/downloads/images"
@@ -91,16 +67,16 @@ output_folder = "/Users/juni/Desktop/python_KDT/downloads/images"
 try:
     print("PDF에서 텍스트 추출 중...")
 
-    # Abstract와 Conclusion 섹션이 첫 두 페이지에 있다고 가정
-    text = pdf_to_text(pdf_file, output_folder=output_folder, lang="eng", start_page=1, end_page=2)
+    # PDF 전체 텍스트 처리
+    text = pdf_to_text(pdf_file, output_folder=output_folder, lang="eng")
 
-    # Abstract 부분 추출
-    abstract = extract_section_from_text(text, "abstract")
+    # Abstract 부분 추출 (다음 섹션이 Introduction으로 가정)
+    abstract = extract_section_from_text(text, "abstract", next_section="introduction")
     print("\nAbstract 부분:")
     print(abstract)
 
-    # Conclusion 부분 추출
-    conclusion = extract_conclusion_from_text(text)
+    # Conclusion 부분 추출 (다음 섹션이 References로 가정)
+    conclusion = extract_section_from_text(text, "conclusion", next_section="references")
     print("\nConclusion 부분:")
     print(conclusion)
 
