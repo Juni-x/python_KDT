@@ -1,0 +1,91 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{wagner2015subdimensional}
+G.~Wagner and H.~Choset, ``Subdimensional expansion for multirobot path
+  planning,'' \emph{Artificial intelligence}, vol. 219, pp. 1--24, 2015.
+
+\bibitem{solovey2016finding}
+K.~Solovey, O.~Salzman, and D.~Halperin, ``Finding a needle in an exponential
+  haystack: Discrete rrt for exploration of implicit roadmaps in multi-robot
+  motion planning,'' \emph{The International Journal of Robotics Research},
+  vol.~35, pp. 501--513, 2016.
+
+\bibitem{sigurdson2018multi}
+D.~Sigurdson, V.~Bulitko, W.~Yeoh, C.~Hern{\'a}ndez, and S.~Koenig,
+  ``Multi-agent pathfinding with real-time heuristic search,'' in \emph{2018
+  IEEE conference on computational intelligence and games (CIG)}.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, 2018, pp. 1--8.
+
+\bibitem{okumura2023offline}
+K.~Okumura, F.~Bonnet, Y.~Tamura, and X.~D{\'e}fago, ``Offline time-independent
+  multiagent path planning,'' \emph{IEEE Transactions on Robotics}, vol.~39,
+  no.~4, pp. 2720--2737, 2023.
+
+\bibitem{okumura2022priority}
+K.~Okumura, M.~Machida, X.~D{\'e}fago, and Y.~Tamura, ``Priority inheritance
+  with backtracking for iterative multi-agent path finding,'' \emph{Artificial
+  Intelligence}, vol. 310, p. 103752, 2022.
+
+\bibitem{huang2019platoon}
+Z.~Huang, D.~Chu, C.~Wu, and Y.~He, ``Path planning and cooperative control for
+  automated vehicle platoon using hybrid automata,'' \emph{IEEE Transactions on
+  Intelligent Transportation Systems}, vol.~20, pp. 959--974, 2019.
+
+\bibitem{shojaei2019tracking}
+K.~Shojaei and M.~R. Yousefi, ``Tracking control of a convoy of autonomous
+  robotic cars with a prescribed performance,'' \emph{Transactions of the
+  Institute of Measurement and Control}, vol.~41, pp. 3725--3741, 2019.
+
+\bibitem{qian2016mpcautonomousvehicles}
+X.~Qian, A.~de~La~Fortelle, and F.~Moutarde, ``A hierarchical model predictive
+  control framework for on-road formation control of autonomous vehicles,'' in
+  \emph{2016 IEEE Intelligent Vehicles Symposium (IV)}, 2016, pp. 376--381.
+
+\bibitem{gao2019multilane}
+L.~Gao, D.~Chu, Y.~Cao, L.~Lu, and C.~Wu, ``Multi-lane convoy control for
+  autonomous vehicles based on distributed graph and potential field,'' in
+  \emph{2019 IEEE Intelligent Transportation Systems Conference (ITSC)}, 2019,
+  pp. 2463--2469.
+
+\bibitem{zhao2017design}
+X.~Zhao, W.~Yao, N.~Li, and Y.~Wang, ``Design of leader's path following system
+  for multi-vehicle autonomous convoy,'' in \emph{2017 ieee international
+  conference on unmanned systems (icus)}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 2017, pp. 132--138.
+
+\bibitem{ma2019searching}
+H.~Ma, D.~Harabor, P.~J. Stuckey, J.~Li, and S.~Koenig, ``Searching with
+  consistent prioritization for multi-agent path finding,'' in
+  \emph{Proceedings of the AAAI conference on artificial intelligence},
+  vol.~33, 2019, pp. 7643--7650.
+
+\bibitem{van2005prioritized}
+J.~P. Van Den~Berg and M.~H. Overmars, ``Prioritized motion planning for
+  multiple robots,'' in \emph{2005 IEEE/RSJ International Conference on
+  Intelligent Robots and Systems}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE,
+  2005, pp. 430--435.
+
+\bibitem{bui2024multi}
+H.-D. Bui, E.~Plaku, and G.~J. Stein, ``Multi-robot guided sampling-based
+  motion planning with dynamics in partially mapped environments,'' \emph{IEEE
+  Access}, 2024.
+
+\end{thebibliography}

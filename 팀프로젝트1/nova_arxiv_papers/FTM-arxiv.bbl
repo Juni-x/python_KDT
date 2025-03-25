@@ -1,0 +1,724 @@
+\begin{thebibliography}{88}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Agarwal et~al.(2018)Agarwal, Beygelzimer, Dudik, Langford, and
+  Wallach]{pmlr-v80-agarwal18a}
+Alekh Agarwal, Alina Beygelzimer, Miroslav Dudik, John Langford, and Hanna
+  Wallach.
+\newblock A reductions approach to fair classification.
+\newblock In Jennifer Dy and Andreas Krause (eds.), \emph{Proceedings of the
+  35th International Conference on Machine Learning}, volume~80 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  60--69. PMLR, 10--15
+  Jul 2018.
+\newblock URL \url{https://proceedings.mlr.press/v80/agarwal18a.html}.
+
+\bibitem[Agarwal et~al.(2019)Agarwal, Dud{\'{\i}}k, and Wu]{ADW19}
+Alekh Agarwal, Miroslav Dud{\'{\i}}k, and Zhiwei~Steven Wu.
+\newblock Fair regression: Quantitative definitions and reduction-based
+  algorithms.
+\newblock In \emph{Proceedings of the 36th International Conference on Machine
+  Learning, {ICML} 2019, 9-15 June 2019, Long Beach, California, {USA}}, 2019.
+\newblock URL \url{http://proceedings.mlr.press/v97/agarwal19d.html}.
+
+\bibitem[Angwin et~al.(2016)Angwin, Larson, Mattu, and
+  Kirchner]{angwin2016machine}
+Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner.
+\newblock Machine bias.
+\newblock \emph{ProPublica, May}, 23:\penalty0 2016, 2016.
+
+\bibitem[Barata et~al.(2021)Barata, Takes, van~den Herik, and
+  Veenman]{barata2021fair}
+António~Pereira Barata, Frank~W. Takes, H.~Jaap van~den Herik, and Cor~J.
+  Veenman.
+\newblock Fair tree classifier using strong demographic parity, 2021.
+
+\bibitem[Barocas \& Selbst(2016)Barocas and Selbst]{barocas2016big}
+Solon Barocas and Andrew~D Selbst.
+\newblock Big data's disparate impact.
+\newblock \emph{Calif. L. Rev.}, 104:\penalty0 671, 2016.
+
+\bibitem[Bellamy et~al.(2018)Bellamy, Dey, Hind, Hoffman, Houde, Kannan, Lohia,
+  Martino, Mehta, Mojsilovic, Nagar, Ramamurthy, Richards, Saha, Sattigeri,
+  Singh, Varshney, and Zhang]{aif360-oct-2018}
+Rachel K.~E. Bellamy, Kuntal Dey, Michael Hind, Samuel~C. Hoffman, Stephanie
+  Houde, Kalapriya Kannan, Pranay Lohia, Jacquelyn Martino, Sameep Mehta,
+  Aleksandra Mojsilovic, Seema Nagar, Karthikeyan~Natesan Ramamurthy, John
+  Richards, Diptikalyan Saha, Prasanna Sattigeri, Moninder Singh, Kush~R.
+  Varshney, and Yunfeng Zhang.
+\newblock {AI Fairness} 360: An extensible toolkit for detecting,
+  understanding, and mitigating unwanted algorithmic bias, October 2018.
+\newblock URL \url{https://arxiv.org/abs/1810.01943}.
+
+\bibitem[Bird et~al.(2020)Bird, Dudík, Edgar, Horn, Lutz, Milan, Sameki,
+  Wallach, and Walker]{bird2020fairlearn}
+Sarah Bird, Miro Dudík, Richard Edgar, Brandon Horn, Roman Lutz, Vanessa
+  Milan, Mehrnoosh Sameki, Hanna Wallach, and Kathleen Walker.
+\newblock Fairlearn: A toolkit for assessing and improving fairness in ai.
+\newblock Technical Report MSR-TR-2020-32, Microsoft, May 2020.
+
+\bibitem[Buyl \& Bie(2022)Buyl and Bie]{buyl2022optimal}
+Maarten Buyl and Tijl~De Bie.
+\newblock Optimal transport of classifiers to fairness.
+\newblock In Alice~H. Oh, Alekh Agarwal, Danielle Belgrave, and Kyunghyun Cho
+  (eds.), \emph{Advances in Neural Information Processing Systems}, 2022.
+\newblock URL \url{https://openreview.net/forum?id=-welFirjMss}.
+
+\bibitem[Calders et~al.(2009)Calders, Kamiran, and
+  Pechenizkiy]{calders2009building}
+Toon Calders, Faisal Kamiran, and Mykola Pechenizkiy.
+\newblock Building classifiers with independency constraints.
+\newblock In \emph{2009 IEEE International Conference on Data Mining
+  Workshops}, pp.\  13--18. IEEE, 2009.
+
+\bibitem[Carvalho et~al.(2022)Carvalho, Pradelski, and
+  Williams]{carvalho2022affirmative}
+Jean-Paul Carvalho, Bary Pradelski, and Cole Williams.
+\newblock Affirmative action with multidimensional identities.
+\newblock \emph{Available at SSRN 4070930}, 2022.
+
+\bibitem[Celis et~al.(2019)Celis, Huang, Keswani, and
+  Vishnoi]{celis2019classification}
+L~Elisa Celis, Lingxiao Huang, Vijay Keswani, and Nisheeth~K Vishnoi.
+\newblock Classification with fairness constraints: A meta-algorithm with
+  provable guarantees.
+\newblock In \emph{Proceedings of the Conference on Fairness, Accountability,
+  and Transparency}, pp.\  319--328, 2019.
+
+\bibitem[Chiappa \& Gillam(2018)Chiappa and
+  Gillam]{https://doi.org/10.48550/arxiv.1802.08139}
+Silvia Chiappa and Thomas P.~S. Gillam.
+\newblock Path-specific counterfactual fairness, 2018.
+\newblock URL \url{https://arxiv.org/abs/1802.08139}.
+
+\bibitem[Chizat et~al.(2020)Chizat, Roussillon, L\'{e}ger, Vialard, and
+  Peyr\'{e}]{10.5555/3495724.3495914}
+L\'{e}na\"{\i}c Chizat, Pierre Roussillon, Flavien L\'{e}ger,
+  Fran\c{c}ois-Xavier Vialard, and Gabriel Peyr\'{e}.
+\newblock Faster wasserstein distance estimation with the sinkhorn divergence.
+\newblock In \emph{Proceedings of the 34th International Conference on Neural
+  Information Processing Systems}, NIPS '20, Red Hook, NY, USA, 2020. Curran
+  Associates Inc.
+\newblock ISBN 9781713829546.
+
+\bibitem[Chouldechova(2016)]{https://doi.org/10.48550/arxiv.1610.07524}
+Alexandra Chouldechova.
+\newblock Fair prediction with disparate impact: A study of bias in recidivism
+  prediction instruments, 2016.
+\newblock URL \url{https://arxiv.org/abs/1610.07524}.
+
+\bibitem[Chuang \& Mroueh(2021)Chuang and Mroueh]{chuang2021fair}
+Ching-Yao Chuang and Youssef Mroueh.
+\newblock Fair mixup: Fairness via interpolation.
+\newblock In \emph{International Conference on Learning Representations}, 2021.
+\newblock URL \url{https://openreview.net/forum?id=DNl5s5BXeBn}.
+
+\bibitem[Chzhen et~al.(2019)Chzhen, Denis, Hebiri, Oneto, and
+  Pontil]{chzhen2019leveraging}
+Evgenii Chzhen, Christophe Denis, Mohamed Hebiri, Luca Oneto, and Massimiliano
+  Pontil.
+\newblock Leveraging labeled and unlabeled data for consistent fair binary
+  classification.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pp.\
+  12760--12770, 2019.
+
+\bibitem[Chzhen et~al.(2020)Chzhen, Denis, Hebiri, Oneto, and
+  Pontil]{NEURIPS2020_51cdbd26}
+Evgenii Chzhen, Christophe Denis, Mohamed Hebiri, Luca Oneto, and Massimiliano
+  Pontil.
+\newblock Fair regression with wasserstein barycenters.
+\newblock In H.~Larochelle, M.~Ranzato, R.~Hadsell, M.F. Balcan, and H.~Lin
+  (eds.), \emph{Advances in Neural Information Processing Systems}, volume~33,
+  pp.\  7321--7331. Curran Associates, Inc., 2020.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2020/file/51cdbd2611e844ece5d80878eb770436-Paper.pdf}.
+
+\bibitem[Corbett-Davies et~al.(2017)Corbett-Davies, Pierson, Feller, Goel, and
+  Huq]{corbett2017algorithmic}
+Sam Corbett-Davies, Emma Pierson, Avi Feller, Sharad Goel, and Aziz Huq.
+\newblock Algorithmic decision making and the cost of fairness.
+\newblock In \emph{Proceedings of the 23rd acm sigkdd international conference
+  on knowledge discovery and data mining}, pp.\  797--806, 2017.
+
+\bibitem[Cotter et~al.(2019)Cotter, Jiang, and
+  Sridharan]{Cotter2019TwoPlayerGF}
+Andrew Cotter, Heinrich Jiang, and Karthik Sridharan.
+\newblock Two-player games for efficient non-convex constrained optimization.
+\newblock In \emph{ALT}, 2019.
+
+\bibitem[Creager et~al.(2019)Creager, Madras, Jacobsen, Weis, Swersky, Pitassi,
+  and Zemel]{creager2019flexibly}
+Elliot Creager, David Madras, J{\"o}rn-Henrik Jacobsen, Marissa Weis, Kevin
+  Swersky, Toniann Pitassi, and Richard Zemel.
+\newblock Flexibly fair representation learning by disentanglement.
+\newblock In \emph{International Conference on Machine Learning}, pp.\
+  1436--1445. PMLR, 2019.
+
+\bibitem[Cuturi(2013)]{NIPS2013_af21d0c9}
+Marco Cuturi.
+\newblock Sinkhorn distances: Lightspeed computation of optimal transport.
+\newblock In C.J. Burges, L.~Bottou, M.~Welling, Z.~Ghahramani, and K.Q.
+  Weinberger (eds.), \emph{Advances in Neural Information Processing Systems},
+  volume~26. Curran Associates, Inc., 2013.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2013/file/af21d0c97db2e27e13572cbf59eb343d-Paper.pdf}.
+
+\bibitem[Damodaran et~al.(2018)Damodaran, Kellenberger, Flamary, Tuia, and
+  Courty]{10.1007/978-3-030-01225-0_28}
+Bharath~Bhushan Damodaran, Benjamin Kellenberger, R\'{e}mi Flamary, Devis Tuia,
+  and Nicolas Courty.
+\newblock Deepjdot: Deep joint distribution optimal transport for unsupervised
+  domain adaptation.
+\newblock In \emph{Computer Vision – ECCV 2018: 15th European Conference,
+  Munich, Germany, September 8-14, 2018, Proceedings, Part IV}, pp.\
+  467–483, Berlin, Heidelberg, 2018. Springer-Verlag.
+\newblock ISBN 978-3-030-01224-3.
+\newblock \doi{10.1007/978-3-030-01225-0_28}.
+\newblock URL \url{https://doi.org/10.1007/978-3-030-01225-0_28}.
+
+\bibitem[Deb et~al.(2021)Deb, Ghosal, and Sen]{Deb2021RatesOE}
+Nabarun Deb, Promit Ghosal, and Bodhisattva Sen.
+\newblock Rates of estimation of optimal transport maps using plug-in
+  estimators via barycentric projections.
+\newblock In \emph{NeurIPS}, 2021.
+
+\bibitem[Donini et~al.(2018)Donini, Oneto, Ben-David, Shawe-Taylor, and
+  Pontil]{donini2018empirical}
+Michele Donini, Luca Oneto, Shai Ben-David, John~S Shawe-Taylor, and
+  Massimiliano Pontil.
+\newblock Empirical risk minimization under fairness constraints.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pp.\
+  2791--2801, 2018.
+
+\bibitem[Dua \& Graff(2017)Dua and Graff]{Dua:2019}
+Dheeru Dua and Casey Graff.
+\newblock {UCI} machine learning repository, 2017.
+\newblock URL \url{http://archive.ics.uci.edu/ml}.
+
+\bibitem[Dwork et~al.(2012)Dwork, Hardt, Pitassi, Reingold, and
+  Zemel]{10.1145/2090236.2090255}
+Cynthia Dwork, Moritz Hardt, Toniann Pitassi, Omer Reingold, and Richard Zemel.
+\newblock Fairness through awareness.
+\newblock In \emph{Proceedings of the 3rd Innovations in Theoretical Computer
+  Science Conference}, ITCS '12, pp.\  214–226, New York, NY, USA, 2012.
+  Association for Computing Machinery.
+\newblock ISBN 9781450311151.
+\newblock \doi{10.1145/2090236.2090255}.
+\newblock URL \url{https://doi.org/10.1145/2090236.2090255}.
+
+\bibitem[Edwards \& Storkey(2016)Edwards and
+  Storkey]{9aa5ba8a091248d597ff7cf0173da151}
+Harrison Edwards and Amos Storkey.
+\newblock Censoring representations with an adversary.
+\newblock In \emph{International Conference in Learning Representations
+  (ICLR2016)}, pp.\  1--14, May 2016.
+\newblock URL
+  \url{https://iclr.cc/archive/www/doku.php%3Fid=iclr2016:main.html}.
+\newblock 4th International Conference on Learning Representations, ICLR 2016 ;
+  Conference date: 02-05-2016 Through 04-05-2016.
+
+\bibitem[Feldman et~al.(2015)Feldman, Friedler, Moeller, Scheidegger, and
+  Venkatasubramanian]{feldman2015certifying}
+Michael Feldman, Sorelle~A Friedler, John Moeller, Carlos Scheidegger, and
+  Suresh Venkatasubramanian.
+\newblock Certifying and removing disparate impact.
+\newblock In \emph{proceedings of the 21th ACM SIGKDD international conference
+  on knowledge discovery and data mining}, pp.\  259--268, 2015.
+
+\bibitem[Fish et~al.(2016)Fish, Kun, and Lelkes]{fish2016confidence}
+Benjamin Fish, Jeremy Kun, and {\'A}d{\'a}m~D Lelkes.
+\newblock A confidence-based approach for balancing fairness and accuracy.
+\newblock In \emph{Proceedings of the 2016 SIAM International Conference on
+  Data Mining}, pp.\  144--152. SIAM, 2016.
+
+\bibitem[Flamary et~al.(2021)Flamary, Courty, Gramfort, Alaya, Boisbunon,
+  Chambon, Chapel, Corenflos, Fatras, Fournier, Gautheron, Gayraud, Janati,
+  Rakotomamonjy, Redko, Rolet, Schutz, Seguy, Sutherland, Tavenard, Tong, and
+  Vayer]{flamary2021pot}
+R{\'e}mi Flamary, Nicolas Courty, Alexandre Gramfort, Mokhtar~Z. Alaya,
+  Aur{\'e}lie Boisbunon, Stanislas Chambon, Laetitia Chapel, Adrien Corenflos,
+  Kilian Fatras, Nemo Fournier, L{\'e}o Gautheron, Nathalie~T.H. Gayraud,
+  Hicham Janati, Alain Rakotomamonjy, Ievgen Redko, Antoine Rolet, Antony
+  Schutz, Vivien Seguy, Danica~J. Sutherland, Romain Tavenard, Alexander Tong,
+  and Titouan Vayer.
+\newblock Pot: Python optimal transport.
+\newblock \emph{Journal of Machine Learning Research}, 22\penalty0
+  (78):\penalty0 1--8, 2021.
+\newblock URL \url{http://jmlr.org/papers/v22/20-451.html}.
+
+\bibitem[Forrow et~al.(2019)Forrow, H\"{u}tter, Nitzan, Rigollet, Schiebinger,
+  and Weed]{pmlr-v89-forrow19a}
+Aden Forrow, Jan-Christian H\"{u}tter, Mor Nitzan, Philippe Rigollet, Geoffrey
+  Schiebinger, and Jonathan Weed.
+\newblock Statistical optimal transport via factored couplings.
+\newblock In Kamalika Chaudhuri and Masashi Sugiyama (eds.), \emph{Proceedings
+  of the Twenty-Second International Conference on Artificial Intelligence and
+  Statistics}, volume~89 of \emph{Proceedings of Machine Learning Research},
+  pp.\  2454--2465. PMLR, 16--18 Apr 2019.
+\newblock URL \url{https://proceedings.mlr.press/v89/forrow19a.html}.
+
+\bibitem[Genevay et~al.(2016)Genevay, Cuturi, Peyr\'{e}, and
+  Bach]{10.5555/3157382.3157482}
+Aude Genevay, Marco Cuturi, Gabriel Peyr\'{e}, and Francis Bach.
+\newblock Stochastic optimization for large-scale optimal transport.
+\newblock In \emph{Proceedings of the 30th International Conference on Neural
+  Information Processing Systems}, NIPS'16, pp.\  3440–3448, Red Hook, NY,
+  USA, 2016. Curran Associates Inc.
+\newblock ISBN 9781510838819.
+
+\bibitem[Goh et~al.(2016)Goh, Cotter, Gupta, and
+  Friedlander]{goh2016satisfying}
+Gabriel Goh, Andrew Cotter, Maya Gupta, and Michael~P Friedlander.
+\newblock Satisfying real-world goals with dataset constraints.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pp.\
+  2415--2423, 2016.
+
+\bibitem[Goodfellow et~al.(2014)Goodfellow, Pouget-Abadie, Mirza, Xu,
+  Warde-Farley, Ozair, Courville, and Bengio]{NIPS2014_5ca3e9b1}
+Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley,
+  Sherjil Ozair, Aaron Courville, and Yoshua Bengio.
+\newblock Generative adversarial nets.
+\newblock In Z.~Ghahramani, M.~Welling, C.~Cortes, N.~Lawrence, and K.Q.
+  Weinberger (eds.), \emph{Advances in Neural Information Processing Systems},
+  volume~27. Curran Associates, Inc., 2014.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1afccf3-Paper.pdf}.
+
+\bibitem[Gordaliza et~al.(2019)Gordaliza, Barrio, Fabrice, and
+  Loubes]{pmlr-v97-gordaliza19a}
+Paula Gordaliza, Eustasio~Del Barrio, Gamboa Fabrice, and Jean-Michel Loubes.
+\newblock Obtaining fairness using optimal transport theory.
+\newblock In Kamalika Chaudhuri and Ruslan Salakhutdinov (eds.),
+  \emph{Proceedings of the 36th International Conference on Machine Learning},
+  volume~97 of \emph{Proceedings of Machine Learning Research}, pp.\
+  2357--2365. PMLR, 09--15 Jun 2019.
+\newblock URL \url{https://proceedings.mlr.press/v97/gordaliza19a.html}.
+
+\bibitem[Hardt et~al.(2016{\natexlab{a}})Hardt, Price, Price, and
+  Srebro]{NIPS2016_9d268236}
+Moritz Hardt, Eric Price, Eric Price, and Nati Srebro.
+\newblock Equality of opportunity in supervised learning.
+\newblock In D.~Lee, M.~Sugiyama, U.~Luxburg, I.~Guyon, and R.~Garnett (eds.),
+  \emph{Advances in Neural Information Processing Systems}, volume~29. Curran
+  Associates, Inc., 2016{\natexlab{a}}.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2016/file/9d2682367c3935defcb1f9e247a97c0d-Paper.pdf}.
+
+\bibitem[Hardt et~al.(2016{\natexlab{b}})Hardt, Price, and
+  Srebro]{hardt2016equality}
+Moritz Hardt, Eric Price, and Nati Srebro.
+\newblock Equality of opportunity in supervised learning.
+\newblock In \emph{Advances in neural information processing systems}, pp.\
+  3315--3323, 2016{\natexlab{b}}.
+
+\bibitem[Hellman(2019)]{Hellman2019MeasuringAF}
+Deborah Hellman.
+\newblock Measuring algorithmic fairness.
+\newblock \emph{Criminal Procedure eJournal}, 2019.
+\newblock URL \url{https://api.semanticscholar.org/CorpusID:199002104}.
+
+\bibitem[H{\"u}tter \& Rigollet(2021)H{\"u}tter and
+  Rigollet]{10.1214/20-AOS1997}
+Jan-Christian H{\"u}tter and Philippe Rigollet.
+\newblock {Minimax estimation of smooth optimal transport maps}.
+\newblock \emph{The Annals of Statistics}, 49\penalty0 (2):\penalty0 1166 --
+  1194, 2021.
+\newblock \doi{10.1214/20-AOS1997}.
+\newblock URL \url{https://doi.org/10.1214/20-AOS1997}.
+
+\bibitem[Ingold \& Soper(2016)Ingold and Soper]{ingold2016amazon}
+David Ingold and Spencer Soper.
+\newblock Amazon doesn’t consider the race of its customers. should it.
+\newblock \emph{Bloomberg, April}, 1, 2016.
+
+\bibitem[Jiang et~al.(2020{\natexlab{a}})Jiang, Pacchiano, Stepleton, Jiang,
+  and Chiappa]{jiang2020wasserstein}
+Ray Jiang, Aldo Pacchiano, Tom Stepleton, Heinrich Jiang, and Silvia Chiappa.
+\newblock Wasserstein fair classification.
+\newblock In \emph{Uncertainty in Artificial Intelligence}, pp.\  862--872.
+  PMLR, 2020{\natexlab{a}}.
+
+\bibitem[Jiang et~al.(2020{\natexlab{b}})Jiang, Pacchiano, Stepleton, Jiang,
+  and Chiappa]{pmlr-v115-jiang20a}
+Ray Jiang, Aldo Pacchiano, Tom Stepleton, Heinrich Jiang, and Silvia Chiappa.
+\newblock Wasserstein fair classification.
+\newblock In Ryan~P. Adams and Vibhav Gogate (eds.), \emph{Proceedings of The
+  35th Uncertainty in Artificial Intelligence Conference}, volume 115 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  862--872. PMLR, 22--25
+  Jul 2020{\natexlab{b}}.
+\newblock URL \url{https://proceedings.mlr.press/v115/jiang20a.html}.
+
+\bibitem[Kamiran et~al.(2012)Kamiran, Karim, and Zhang]{kamiran2012decision}
+Faisal Kamiran, Asim Karim, and Xiangliang Zhang.
+\newblock Decision theory for discrimination-aware classification.
+\newblock In \emph{2012 IEEE 12th International Conference on Data Mining},
+  pp.\  924--929. IEEE, 2012.
+
+\bibitem[Kamishima et~al.(2012)Kamishima, Akaho, Asoh, and
+  Sakuma]{kamishima2012fairness}
+Toshihiro Kamishima, Shotaro Akaho, Hideki Asoh, and Jun Sakuma.
+\newblock Fairness-aware classifier with prejudice remover regularizer.
+\newblock In \emph{Joint European Conference on Machine Learning and Knowledge
+  Discovery in Databases}, pp.\  35--50. Springer, 2012.
+
+\bibitem[Kantorovich(2006)]{Kantorovich2006OnTT}
+Lev Kantorovich.
+\newblock On the translocation of masses.
+\newblock \emph{Journal of Mathematical Sciences}, 133:\penalty0 1381--1382,
+  2006.
+
+\bibitem[Kearns et~al.(2018{\natexlab{a}})Kearns, Neel, Roth, and
+  Wu]{kearns2018empirical}
+Michael Kearns, Seth Neel, Aaron Roth, and Zhiwei~Steven Wu.
+\newblock An empirical study of rich subgroup fairness for machine learning,
+  2018{\natexlab{a}}.
+
+\bibitem[Kearns et~al.(2018{\natexlab{b}})Kearns, Neel, Roth, and
+  Wu]{pmlr-v80-kearns18a}
+Michael Kearns, Seth Neel, Aaron Roth, and Zhiwei~Steven Wu.
+\newblock Preventing fairness gerrymandering: Auditing and learning for
+  subgroup fairness.
+\newblock In Jennifer Dy and Andreas Krause (eds.), \emph{Proceedings of the
+  35th International Conference on Machine Learning}, volume~80 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  2564--2572. PMLR,
+  10--15 Jul 2018{\natexlab{b}}.
+\newblock URL \url{https://proceedings.mlr.press/v80/kearns18a.html}.
+
+\bibitem[Kim et~al.(2022{\natexlab{a}})Kim, Kim, Kong, Ohn, and
+  Kim]{pmlr-v162-kim22b}
+Dongha Kim, Kunwoong Kim, Insung Kong, Ilsang Ohn, and Yongdai Kim.
+\newblock Learning fair representation with a parametric integral probability
+  metric.
+\newblock In Kamalika Chaudhuri, Stefanie Jegelka, Le~Song, Csaba Szepesvari,
+  Gang Niu, and Sivan Sabato (eds.), \emph{Proceedings of the 39th
+  International Conference on Machine Learning}, volume 162 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  11074--11101. PMLR,
+  17--23 Jul 2022{\natexlab{a}}.
+\newblock URL \url{https://proceedings.mlr.press/v162/kim22b.html}.
+
+\bibitem[Kim et~al.(2022{\natexlab{b}})Kim, Ohn, Kim, and Kim]{KIM2022441}
+Kunwoong Kim, Ilsang Ohn, Sara Kim, and Yongdai Kim.
+\newblock Slide: A surrogate fairness constraint to ensure fairness
+  consistency.
+\newblock \emph{Neural Networks}, 154:\penalty0 441--454, 2022{\natexlab{b}}.
+\newblock ISSN 0893-6080.
+\newblock \doi{https://doi.org/10.1016/j.neunet.2022.07.027}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0893608022002891}.
+
+\bibitem[Kingma \& Ba(2014)Kingma and
+  Ba]{https://doi.org/10.48550/arxiv.1412.6980}
+Diederik~P. Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization, 2014.
+\newblock URL \url{https://arxiv.org/abs/1412.6980}.
+
+\bibitem[Kleinberg et~al.(2018)Kleinberg, Ludwig, Mullainathan, and
+  Rambachan]{kleinberg2018algorithmic}
+Jon Kleinberg, Jens Ludwig, Sendhil Mullainathan, and Ashesh Rambachan.
+\newblock Algorithmic fairness.
+\newblock In \emph{Aea papers and proceedings}, volume 108, pp.\  22--27, 2018.
+
+\bibitem[Knott \& Smith(1984)Knott and Smith]{Knott1984OnTO}
+Martin Knott and C.~S. Smith.
+\newblock On the optimal mapping of distributions.
+\newblock \emph{Journal of Optimization Theory and Applications}, 43:\penalty0
+  39--49, 1984.
+
+\bibitem[Kusner et~al.(2017)Kusner, Loftus, Russell, and
+  Silva]{https://doi.org/10.48550/arxiv.1703.06856}
+Matt~J. Kusner, Joshua~R. Loftus, Chris Russell, and Ricardo Silva.
+\newblock Counterfactual fairness, 2017.
+\newblock URL \url{https://arxiv.org/abs/1703.06856}.
+
+\bibitem[Li et~al.(2015)Li, Swersky, and Zemel]{pmlr-v37-li15}
+Yujia Li, Kevin Swersky, and Rich Zemel.
+\newblock Generative moment matching networks.
+\newblock In Francis Bach and David Blei (eds.), \emph{Proceedings of the 32nd
+  International Conference on Machine Learning}, volume~37 of \emph{Proceedings
+  of Machine Learning Research}, pp.\  1718--1727, Lille, France, 07--09 Jul
+  2015. PMLR.
+\newblock URL \url{https://proceedings.mlr.press/v37/li15.html}.
+
+\bibitem[Madras et~al.(2018)Madras, Creager, Pitassi, and
+  Zemel]{Madras2018LearningAF}
+David Madras, Elliot Creager, Toniann Pitassi, and Richard~S. Zemel.
+\newblock Learning adversarially fair and transferable representations.
+\newblock In \emph{ICML}, 2018.
+
+\bibitem[Mehrabi et~al.(2019)Mehrabi, Morstatter, Saxena, Lerman, and
+  Galstyan]{mehrabi2019survey}
+Ninareh Mehrabi, Fred Morstatter, Nripsuta Saxena, Kristina Lerman, and Aram
+  Galstyan.
+\newblock A survey on bias and fairness in machine learning.
+\newblock \emph{arXiv preprint arXiv:1908.09635}, 2019.
+
+\bibitem[Mehrotra et~al.(2022)Mehrotra, Pradelski, and
+  Vishnoi]{10.1145/3531146.3533124}
+Anay Mehrotra, Bary S.~R. Pradelski, and Nisheeth~K. Vishnoi.
+\newblock Selection in the presence of implicit bias: The advantage of
+  intersectional constraints.
+\newblock In \emph{Proceedings of the 2022 ACM Conference on Fairness,
+  Accountability, and Transparency}, FAccT '22, pp.\  599–609, New York, NY,
+  USA, 2022. Association for Computing Machinery.
+\newblock ISBN 9781450393522.
+\newblock \doi{10.1145/3531146.3533124}.
+\newblock URL \url{https://doi.org/10.1145/3531146.3533124}.
+
+\bibitem[Molina \& Loiseau(2022)Molina and Loiseau]{molina2022bounding}
+Mathieu Molina and Patrick Loiseau.
+\newblock Bounding and approximating intersectional fairness through marginal
+  fairness.
+\newblock In Alice~H. Oh, Alekh Agarwal, Danielle Belgrave, and Kyunghyun Cho
+  (eds.), \emph{Advances in Neural Information Processing Systems}, 2022.
+\newblock URL \url{https://openreview.net/forum?id=LffWuGtC9BE}.
+
+\bibitem[Monge(1781)]{monge1781memoire}
+Gaspard Monge.
+\newblock \emph{M{\'e}moire sur la th{\'e}orie des d{\'e}blais et des
+  remblais}.
+\newblock De l'Imprimerie Royale, 1781.
+
+\bibitem[Moro et~al.(2014)Moro, Cortez, and Rita]{MORO201422}
+Sérgio Moro, Paulo Cortez, and Paulo Rita.
+\newblock A data-driven approach to predict the success of bank telemarketing.
+\newblock \emph{Decision Support Systems}, 62:\penalty0 22--31, 2014.
+\newblock ISSN 0167-9236.
+\newblock \doi{https://doi.org/10.1016/j.dss.2014.03.001}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S016792361400061X}.
+
+\bibitem[Mougan et~al.(2024)Mougan, Ferrara, State, Ruggieri, and
+  Staab]{mougan2024beyond}
+Carlos Mougan, Antonio Ferrara, Laura State, Salvatore Ruggieri, and Steffen
+  Staab.
+\newblock Beyond demographic parity: Redefining equal treatment, 2024.
+\newblock URL \url{https://openreview.net/forum?id=cVea4KQ4xm}.
+
+\bibitem[Nilforoshan et~al.(2022)Nilforoshan, Gaebler, Shroff, and
+  Goel]{pmlr-v162-nilforoshan22a}
+Hamed Nilforoshan, Johann~D Gaebler, Ravi Shroff, and Sharad Goel.
+\newblock Causal conceptions of fairness and their consequences.
+\newblock In Kamalika Chaudhuri, Stefanie Jegelka, Le~Song, Csaba Szepesvari,
+  Gang Niu, and Sivan Sabato (eds.), \emph{Proceedings of the 39th
+  International Conference on Machine Learning}, volume 162 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  16848--16887. PMLR,
+  17--23 Jul 2022.
+\newblock URL \url{https://proceedings.mlr.press/v162/nilforoshan22a.html}.
+
+\bibitem[Olkin \& Pukelsheim(1982)Olkin and Pukelsheim]{OLKIN1982257}
+I.~Olkin and F.~Pukelsheim.
+\newblock The distance between two random vectors with given dispersion
+  matrices.
+\newblock \emph{Linear Algebra and its Applications}, 48:\penalty0 257--263,
+  1982.
+\newblock ISSN 0024-3795.
+\newblock \doi{https://doi.org/10.1016/0024-3795(82)90112-4}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/0024379582901124}.
+
+\bibitem[Petersen et~al.(2021)Petersen, Mukherjee, Sun, and
+  Yurochkin]{https://doi.org/10.48550/arxiv.2110.13796}
+Felix Petersen, Debarghya Mukherjee, Yuekai Sun, and Mikhail Yurochkin.
+\newblock Post-processing for individual fairness, 2021.
+\newblock URL \url{https://arxiv.org/abs/2110.13796}.
+
+\bibitem[Pleiss et~al.(2017)Pleiss, Raghavan, Wu, Kleinberg, and
+  Weinberger]{pleiss2017fairness}
+Geoff Pleiss, Manish Raghavan, Felix Wu, Jon Kleinberg, and Kilian~Q
+  Weinberger.
+\newblock On fairness and calibration.
+\newblock In \emph{Advances in Neural Information Processing Systems}, pp.\
+  5680--5689, 2017.
+
+\bibitem[Quy et~al.(2022)Quy, Roy, Iosifidis, Zhang, and Ntoutsi]{Le_Quy_2022}
+Tai~Le Quy, Arjun Roy, Vasileios Iosifidis, Wenbin Zhang, and Eirini Ntoutsi.
+\newblock A survey on datasets for fairness-aware machine learning.
+\newblock \emph{{WIREs} Data Mining and Knowledge Discovery}, 12\penalty0 (3),
+  mar 2022.
+\newblock \doi{10.1002/widm.1452}.
+\newblock URL \url{https://doi.org/10.1002%2Fwidm.1452}.
+
+\bibitem[Rachev \& R{\"u}schendorf(1998)Rachev and
+  R{\"u}schendorf]{rachev1998mass}
+Svetlozar~T Rachev and Ludger R{\"u}schendorf.
+\newblock \emph{Mass Transportation Problems: Volume I: Theory}, volume~1.
+\newblock Springer Science \& Business Media, 1998.
+
+\bibitem[Salimans et~al.(2018)Salimans, Zhang, Radford, and
+  Metaxas]{salimans2018improving}
+Tim Salimans, Han Zhang, Alec Radford, and Dimitris Metaxas.
+\newblock Improving gans using optimal transport, 2018.
+
+\bibitem[Shui et~al.(2022)Shui, Xu, CHEN, Li, Ling, Arbel, Wang, and
+  Gagn{\'e}]{shui2022on}
+Changjian Shui, Gezheng Xu, Qi~CHEN, Jiaqi Li, Charles Ling, Tal Arbel, Boyu
+  Wang, and Christian Gagn{\'e}.
+\newblock On learning fairness and accuracy on multiple subgroups.
+\newblock In Alice~H. Oh, Alekh Agarwal, Danielle Belgrave, and Kyunghyun Cho
+  (eds.), \emph{Advances in Neural Information Processing Systems}, 2022.
+\newblock URL \url{https://openreview.net/forum?id=YsRH6uVcx2l}.
+
+\bibitem[Silvia et~al.(2020)Silvia, Ray, Tom, Aldo, Heinrich, and
+  John]{Silvia_Ray_Tom_Aldo_Heinrich_John_2020}
+Chiappa Silvia, Jiang Ray, Stepleton Tom, Pacchiano Aldo, Jiang Heinrich, and
+  Aslanides John.
+\newblock A general approach to fairness with optimal transport.
+\newblock \emph{Proceedings of the AAAI Conference on Artificial Intelligence},
+  34\penalty0 (04):\penalty0 3633--3640, Apr. 2020.
+\newblock \doi{10.1609/aaai.v34i04.5771}.
+\newblock URL \url{https://ojs.aaai.org/index.php/AAAI/article/view/5771}.
+
+\bibitem[Simons et~al.(2021)Simons, Adams~Bhatti, and
+  Weller]{10.1145/3461702.3462556}
+Joshua Simons, Sophia Adams~Bhatti, and Adrian Weller.
+\newblock Machine learning and the meaning of equal treatment.
+\newblock In \emph{Proceedings of the 2021 AAAI/ACM Conference on AI, Ethics,
+  and Society}, AIES '21, pp.\  956–966, New York, NY, USA, 2021. Association
+  for Computing Machinery.
+\newblock ISBN 9781450384735.
+\newblock \doi{10.1145/3461702.3462556}.
+\newblock URL \url{https://doi.org/10.1145/3461702.3462556}.
+
+\bibitem[Su et~al.(2015)Su, Wang, Shi, Zeng, Sun, Luo, and Gu]{7053911}
+Zhengyu Su, Yalin Wang, Rui Shi, Wei Zeng, Jian Sun, Feng Luo, and Xianfeng Gu.
+\newblock Optimal mass transport for shape matching and comparison.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 37\penalty0 (11):\penalty0 2246--2259, 2015.
+\newblock \doi{10.1109/TPAMI.2015.2408346}.
+
+\bibitem[Van~der Laan(2001)]{dutch}
+Paul Van~der Laan.
+\newblock \emph{The 2001 Census in the Netherlands: Integration of Registers
+  and Surveys}, pp.\  39--52.
+\newblock 12 2001.
+
+\bibitem[Villani(2008)]{villani2008optimal}
+C.~Villani.
+\newblock \emph{Optimal Transport: Old and New}.
+\newblock Grundlehren der mathematischen Wissenschaften. Springer Berlin
+  Heidelberg, 2008.
+\newblock ISBN 9783540710509.
+\newblock URL \url{https://books.google.co.kr/books?id=hV8o5R7\_5tkC}.
+
+\bibitem[von K{\"u}gelgen et~al.(2022)von K{\"u}gelgen, Karimi, Bhatt, Valera,
+  Weller, and Sch{\"o}lkopf]{Kugelgen20}
+J.~von K{\"u}gelgen, A.-H. Karimi, U.~Bhatt, I.~Valera, A.~Weller, and
+  B.~Sch{\"o}lkopf.
+\newblock On the fairness of causal algorithmic recourse.
+\newblock In \emph{Proceedings of the 36th AAAI Conference on Artificial
+  Intelligence (AAAI)}, pp.\  9584--9594. AAAI Press, February 2022.
+\newblock URL \url{https://sites.google.com/view/recourse21/home}.
+\newblock *also at ICML 2021 Workshop Algorithmic Recourse and NeurIPS 2020
+  Workshop Algorithmic Fairness through the Lens of Causality and
+  Interpretability (AFCI).
+
+\bibitem[Wachter et~al.(2020)Wachter, Mittelstadt, and
+  Russell]{wachter2020bias}
+Sandra Wachter, Brent Mittelstadt, and Chris Russell.
+\newblock Bias preservation in machine learning: the legality of fairness
+  metrics under eu non-discrimination law.
+\newblock \emph{W. Va. L. Rev.}, 123:\penalty0 735, 2020.
+
+\bibitem[Webster et~al.(2018)Webster, Recasens, Axelrod, and
+  Baldridge]{webster2018mind}
+Kellie Webster, Marta Recasens, Vera Axelrod, and Jason Baldridge.
+\newblock Mind the gap: A balanced corpus of gendered ambiguous pronouns.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  6:\penalty0 605--617, 2018.
+
+\bibitem[Wei et~al.(2020)Wei, Ramamurthy, and Calmon]{wei20a}
+Dennis Wei, Karthikeyan~Natesan Ramamurthy, and Flavio Calmon.
+\newblock Optimized score transformation for fair classification.
+\newblock volume 108 of \emph{Proceedings of Machine Learning Research}, pp.\
+  1673--1683, Online, 26--28 Aug 2020. PMLR.
+\newblock URL \url{http://proceedings.mlr.press/v108/wei20a.html}.
+
+\bibitem[Wu et~al.(2019)Wu, Zhang, and Wu]{onconvexand}
+Yongkai Wu, Lu~Zhang, and Xintao Wu.
+\newblock On convexity and bounds of fairness-aware classification.
+\newblock In \emph{The World Wide Web Conference}, WWW '19, pp.\  3356–3362,
+  New York, NY, USA, 2019. Association for Computing Machinery.
+\newblock ISBN 9781450366748.
+\newblock \doi{10.1145/3308558.3313723}.
+\newblock URL \url{https://doi.org/10.1145/3308558.3313723}.
+
+\bibitem[Xu et~al.(2018)Xu, Yuan, Zhang, and Wu]{xu2018fairgan}
+Depeng Xu, Shuhan Yuan, Lu~Zhang, and Xintao Wu.
+\newblock Fairgan: Fairness-aware generative adversarial networks.
+\newblock In \emph{2018 IEEE International Conference on Big Data (Big Data)},
+  pp.\  570--575. IEEE, 2018.
+
+\bibitem[Yona \& Rothblum(2018)Yona and Rothblum]{pmlr-v80-yona18a}
+Gal Yona and Guy Rothblum.
+\newblock Probably approximately metric-fair learning.
+\newblock In Jennifer Dy and Andreas Krause (eds.), \emph{Proceedings of the
+  35th International Conference on Machine Learning}, volume~80 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  5680--5688. PMLR,
+  10--15 Jul 2018.
+\newblock URL \url{https://proceedings.mlr.press/v80/yona18a.html}.
+
+\bibitem[Yurochkin \& Sun(2021)Yurochkin and Sun]{yurochkin2021sensei}
+Mikhail Yurochkin and Yuekai Sun.
+\newblock Sensei: Sensitive set invariance for enforcing individual fairness.
+\newblock In \emph{International Conference on Learning Representations}, 2021.
+\newblock URL \url{https://openreview.net/forum?id=DktZb97_Fx}.
+
+\bibitem[Yurochkin et~al.(2020)Yurochkin, Bower, and
+  Sun]{Yurochkin2020Training}
+Mikhail Yurochkin, Amanda Bower, and Yuekai Sun.
+\newblock Training individually fair ml models with sensitive subspace
+  robustness.
+\newblock In \emph{International Conference on Learning Representations}, 2020.
+\newblock URL \url{https://openreview.net/forum?id=B1gdkxHFDH}.
+
+\bibitem[Zafar et~al.(2017)Zafar, Valera, Rogriguez, and
+  Gummadi]{zafar2017fairness}
+Muhammad~Bilal Zafar, Isabel Valera, Manuel~Gomez Rogriguez, and Krishna~P
+  Gummadi.
+\newblock Fairness constraints: Mechanisms for fair classification.
+\newblock In \emph{Artificial Intelligence and Statistics}, pp.\  962--970,
+  2017.
+
+\bibitem[Zafar et~al.(2019)Zafar, Valera, Gomez-Rodriguez, and
+  Gummadi]{zafar2019fairness}
+Muhammad~Bilal Zafar, Isabel Valera, Manuel Gomez-Rodriguez, and Krishna~P
+  Gummadi.
+\newblock Fairness {C}onstraints: A {F}lexible {A}pproach for {F}air
+  {C}lassification.
+\newblock \emph{J. Mach. Learn. Res.}, 20\penalty0 (75):\penalty0 1--42, 2019.
+
+\bibitem[Zemel et~al.(2013)Zemel, Wu, Swersky, Pitassi, and
+  Dwork]{pmlr-v28-zemel13}
+Rich Zemel, Yu~Wu, Kevin Swersky, Toni Pitassi, and Cynthia Dwork.
+\newblock Learning fair representations.
+\newblock In Sanjoy Dasgupta and David McAllester (eds.), \emph{Proceedings of
+  the 30th International Conference on Machine Learning}, volume~28 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  325--333, Atlanta,
+  Georgia, USA, 17--19 Jun 2013. PMLR.
+\newblock URL \url{https://proceedings.mlr.press/v28/zemel13.html}.
+
+\bibitem[Zhang et~al.(2018)Zhang, Lemoine, and
+  Mitchell]{10.1145/3278721.3278779}
+Brian~Hu Zhang, Blake Lemoine, and Margaret Mitchell.
+\newblock Mitigating unwanted biases with adversarial learning.
+\newblock In \emph{Proceedings of the 2018 AAAI/ACM Conference on AI, Ethics,
+  and Society}, AIES '18, pp.\  335–340, New York, NY, USA, 2018. Association
+  for Computing Machinery.
+\newblock ISBN 9781450360128.
+\newblock \doi{10.1145/3278721.3278779}.
+\newblock URL \url{https://doi.org/10.1145/3278721.3278779}.
+
+\bibitem[Zhou et~al.(2021)Zhou, Huang, Fries, Youssef, Amrhein, Chang,
+  Banerjee, Rubin, Xing, Shah, and
+  Lungren]{https://doi.org/10.48550/arxiv.2111.11665}
+Yuyin Zhou, Shih-Cheng Huang, Jason~Alan Fries, Alaa Youssef, Timothy~J.
+  Amrhein, Marcello Chang, Imon Banerjee, Daniel Rubin, Lei Xing, Nigam Shah,
+  and Matthew~P. Lungren.
+\newblock Radfusion: Benchmarking performance and fairness for multimodal
+  pulmonary embolism detection from ct and ehr, 2021.
+\newblock URL \url{https://arxiv.org/abs/2111.11665}.
+
+\end{thebibliography}

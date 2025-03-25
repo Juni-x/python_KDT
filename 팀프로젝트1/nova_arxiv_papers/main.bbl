@@ -1,0 +1,246 @@
+\begin{thebibliography}{34}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Agarwal et~al.(2020)Agarwal, Henaff, Kakade, and Sun}]{agarwal2020pc}
+Agarwal, A.; Henaff, M.; Kakade, S.; and Sun, W. 2020.
+\newblock {PC-PG}: {P}olicy Cover Directed Exploration for Provable Policy
+  Gradient Learning.
+\newblock In \emph{Proc. of the Annual Conference on Neural Information
+  Processing Systems (NeurIPS)}.
+
+\bibitem[{Burda et~al.(2019)Burda, Edwards, Storkey, and
+  Klimov}]{burda2018exploration}
+Burda, Y.; Edwards, H.; Storkey, A.; and Klimov, O. 2019.
+\newblock Exploration by Random Network Distillation.
+\newblock In \emph{Proc. of the International Conference on Learning
+  Representations (ICLR)}.
+
+\bibitem[{Casper et~al.(2024)Casper, Ezell, Siegmann, Kolt, Curtis, Bucknall,
+  Haupt, Wei, Scheurer, Hobbhahn et~al.}]{casper2024black}
+Casper, S.; Ezell, C.; Siegmann, C.; Kolt, N.; Curtis, T.~L.; Bucknall, B.;
+  Haupt, A.; Wei, K.; Scheurer, J.; Hobbhahn, M.; et~al. 2024.
+\newblock Black-Box Access Is Insufficient for Rigorous AI Audits.
+\newblock In \emph{Proc. of the ACM Conference on Fairness, Accountability, and
+  Transparency}.
+
+\bibitem[{Casper et~al.(2023)Casper, Lin, Kwon, Culp, and
+  Hadfield-Menell}]{casper2023explore}
+Casper, S.; Lin, J.; Kwon, J.; Culp, G.; and Hadfield-Menell, D. 2023.
+\newblock Explore, Establish, Exploit: {R}ed Teaming Language Models from
+  Scratch.
+\newblock arXiv:2306.09442.
+
+\bibitem[{Cohen et~al.(2023)Cohen, Hamri, Geva, and Globerson}]{cohen2023lm}
+Cohen, R.; Hamri, M.; Geva, M.; and Globerson, A. 2023.
+\newblock {LM vs LM}: {D}etecting Factual Errors via Cross Examination.
+\newblock In \emph{Proc. of the Conference on Empirical Methods in Natural
+  Language Processing (EMNLP)}.
+
+\bibitem[{Deng et~al.(2022)Deng, Wang, Hsieh, Wang, Guo, Shu, Song, Xing, and
+  Hu}]{deng2022rlprompt}
+Deng, M.; Wang, J.; Hsieh, C.-P.; Wang, Y.; Guo, H.; Shu, T.; Song, M.; Xing,
+  E.~P.; and Hu, Z. 2022.
+\newblock {RLPrompt}: {O}ptimizing Discrete Text Prompts with Reinforcement
+  Learning.
+\newblock In \emph{Proc. of the Conference on Empirical Methods in Natural
+  Language Processing (EMNLP)}.
+
+\bibitem[{Flet-Berliac et~al.(2021)Flet-Berliac, Ferret, Pietquin, Preux, and
+  Geist}]{flet2021adversarially}
+Flet-Berliac, Y.; Ferret, J.; Pietquin, O.; Preux, P.; and Geist, M. 2021.
+\newblock Adversarially Guided Actor-Critic.
+\newblock In \emph{Proc. of the International Conference on Learning
+  Representations (ICLR)}.
+
+\bibitem[{Frank, Wolfe et~al.(1956)}]{frank1956algorithm}
+Frank, M.; Wolfe, P.; et~al. 1956.
+\newblock An Algorithm for Quadratic Programming.
+\newblock \emph{Naval Research Logistics Quarterly}.
+
+\bibitem[{Gehman et~al.(2020)Gehman, Gururangan, Sap, Choi, and
+  Smith}]{gehman2020realtoxicityprompts}
+Gehman, S.; Gururangan, S.; Sap, M.; Choi, Y.; and Smith, N.~A. 2020.
+\newblock {RealToxicityPrompts}: {E}valuating Neural Toxic Degeneration in
+  Language Models.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP}.
+
+\bibitem[{Hazan et~al.(2019)Hazan, Kakade, Singh, and
+  Van~Soest}]{hazan2019provably}
+Hazan, E.; Kakade, S.; Singh, K.; and Van~Soest, A. 2019.
+\newblock Provably Efficient Maximum Entropy Exploration.
+\newblock In \emph{Proc. of the International Conference on Machine Learning
+  (ICML)}.
+
+\bibitem[{Hong et~al.(2024)Hong, Shenfeld, Wang, Chuang, Pareja, Glass,
+  Srivastava, and Agrawal}]{hong2024curiosity}
+Hong, Z.-W.; Shenfeld, I.; Wang, T.-H.; Chuang, Y.-S.; Pareja, A.; Glass, J.;
+  Srivastava, A.; and Agrawal, P. 2024.
+\newblock Curiosity-Driven Red-Teaming for Large Language Models.
+\newblock In \emph{Proc. of the International Conference on Learning
+  Representations (ICLR)}.
+
+\bibitem[{Jones et~al.(2023)Jones, Dragan, Raghunathan, and
+  Steinhardt}]{jones2023automatically}
+Jones, E.; Dragan, A.; Raghunathan, A.; and Steinhardt, J. 2023.
+\newblock Automatically Auditing Large Language Models via Discrete
+  Optimization.
+\newblock In \emph{Proc. of the International Conference on Machine Learning
+  (ICML)}.
+
+\bibitem[{Liu and Abbeel(2021)}]{liu2021aps}
+Liu, H.; and Abbeel, P. 2021.
+\newblock {APS}: {A}ctive Pretraining with Successor Features.
+\newblock In \emph{Proc. of the International Conference on Machine Learning
+  (ICML)}.
+
+\bibitem[{Mazeika et~al.(2024)Mazeika, Phan, Yin, Zou, Wang, Mu, Sakhaee, Li,
+  Basart, Li et~al.}]{mazeika2024harmbench}
+Mazeika, M.; Phan, L.; Yin, X.; Zou, A.; Wang, Z.; Mu, N.; Sakhaee, E.; Li, N.;
+  Basart, S.; Li, B.; et~al. 2024.
+\newblock {HarmBench}: {A} Standardized Evaluation Framework for Automated Red
+  Teaming and Robust Refusal.
+\newblock In \emph{Proc. of the International Conference on Machine Learning
+  (ICML)}.
+
+\bibitem[{M{\"o}kander et~al.(2023)M{\"o}kander, Schuett, Kirk, and
+  Floridi}]{mokander2023auditing}
+M{\"o}kander, J.; Schuett, J.; Kirk, H.~R.; and Floridi, L. 2023.
+\newblock Auditing Large Language Models: {A} Three-Layered Approach.
+\newblock \emph{AI and Ethics}.
+
+\bibitem[{Mutti, Pratissoli, and Restelli(2021)}]{mutti2021task}
+Mutti, M.; Pratissoli, L.; and Restelli, M. 2021.
+\newblock Ta***REMOVED***Agnostic Exploration via Policy Gradient of a Non-Parametric
+  State Entropy Estimate.
+\newblock In \emph{Proc. of the AAAI Conference on Artificial Intelligence
+  (AAAI)}.
+
+\bibitem[{Pathak et~al.(2017)Pathak, Agrawal, Efros, and
+  Darrell}]{pathak2017curiosity}
+Pathak, D.; Agrawal, P.; Efros, A.~A.; and Darrell, T. 2017.
+\newblock Curiosity-Driven Exploration by Self-Supervised Prediction.
+\newblock In \emph{Proc. of the International Conference on Machine Learning
+  (ICML)}.
+
+\bibitem[{Perez et~al.(2022)Perez, Huang, Song, Cai, Ring, Aslanides, Glaese,
+  McAleese, and Irving}]{perez2022red}
+Perez, E.; Huang, S.; Song, F.; Cai, T.; Ring, R.; Aslanides, J.; Glaese, A.;
+  McAleese, N.; and Irving, G. 2022.
+\newblock Red Teaming Language Models with Language Models.
+\newblock In \emph{Proc. of the Conference on Empirical Methods in Natural
+  Language Processing (EMNLP)}.
+
+\bibitem[{Radford et~al.(2019)Radford, Wu, Child, Luan, Amodei, Sutskever
+  et~al.}]{radford2019language}
+Radford, A.; Wu, J.; Child, R.; Luan, D.; Amodei, D.; Sutskever, I.; et~al.
+  2019.
+\newblock Language Models Are Unsupervised Multitask Learners.
+\newblock \emph{OpenAI Blog}.
+
+\bibitem[{Rastegarpanah, Gummadi, and
+  Crovella(2021)}]{rastegarpanah2021auditing}
+Rastegarpanah, B.; Gummadi, K.; and Crovella, M. 2021.
+\newblock Auditing Black-Box Prediction Models for Data Minimization
+  Compliance.
+\newblock In \emph{Proc. of the Annual Conference on Neural Information
+  Processing Systems (NeurIPS)}.
+
+\bibitem[{Schulman et~al.(2016)Schulman, Moritz, Levine, Jordan, and
+  Abbeel}]{schulman2015high}
+Schulman, J.; Moritz, P.; Levine, S.; Jordan, M.; and Abbeel, P. 2016.
+\newblock High-Dimensional Continuous Control Using Generalized Advantage
+  Estimation.
+\newblock In \emph{Proc. of the International Conference on Learning
+  Representations (ICLR)}.
+
+\bibitem[{Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
+  Klimov}]{schulman2017proximal}
+Schulman, J.; Wolski, F.; Dhariwal, P.; Radford, A.; and Klimov, O. 2017.
+\newblock Proximal Policy Optimization Algorithms.
+\newblock arXiv:1707.06347.
+
+\bibitem[{Vecchione, Levy, and Barocas(2021)}]{vecchione2021algorithmic}
+Vecchione, B.; Levy, K.; and Barocas, S. 2021.
+\newblock Algorithmic Auditing and Social Justice: {L}essons from the History
+  of Audit Studies.
+\newblock In \emph{Proc. of the ACM Conference on Equity and Access in
+  Algorithms, Mechanisms, and Optimization}.
+
+\bibitem[{Wallace et~al.(2019)Wallace, Feng, Kandpal, Gardner, and
+  Singh}]{wallace2019universal}
+Wallace, E.; Feng, S.; Kandpal, N.; Gardner, M.; and Singh, S. 2019.
+\newblock Universal Adversarial Triggers for Attacking and Analyzing NLP.
+\newblock In \emph{Proc. of the Conference on Empirical Methods in Natural
+  Language Processing (EMNLP)}.
+
+\bibitem[{Wei, Haghtalab, and Steinhardt(2024)}]{wei2024jailbroken}
+Wei, A.; Haghtalab, N.; and Steinhardt, J. 2024.
+\newblock Jailbroken: {H}ow Does LLM Safety Training Fail?
+\newblock In \emph{Proc. of the Annual Conference on Neural Information
+  Processing Systems (NeurIPS)}.
+
+\bibitem[{Xu et~al.(2024)Xu, Wu, Wen, Li, Liu, Che, and Tang}]{xu2024survey}
+Xu, Z.; Wu, K.; Wen, J.; Li, J.; Liu, N.; Che, Z.; and Tang, J. 2024.
+\newblock A Survey on Robotics with Foundation Models: {T}oward Embodied AI.
+\newblock arXiv:2402.02385.
+
+\bibitem[{Yi et~al.(2024)Yi, Liu, Sun, Cong, He, Song, Xu, and
+  Li}]{yi2024jailbreak}
+Yi, S.; Liu, Y.; Sun, Z.; Cong, T.; He, X.; Song, J.; Xu, K.; and Li, Q. 2024.
+\newblock Jailbreak Attacks and Defenses Against Large Language Models: {A}
+  Survey.
+\newblock arXiv:2407.04295.
+
+\bibitem[{Yu et~al.(2024)Yu, Liu, Liang, Cameron, Xiao, and Zhang}]{yu2024don}
+Yu, Z.; Liu, X.; Liang, S.; Cameron, Z.; Xiao, C.; and Zhang, N. 2024.
+\newblock Don{\textquoteright}t Listen to Me: {U}nderstanding and Exploring
+  Jailbreak Prompts of Large Language Models.
+\newblock In \emph{Proc. of the USENIX Security Symposium (USENIX Security)}.
+
+\bibitem[{Zhang et~al.(2023)Zhang, Song, Li, Zhou, and Song}]{zhang2023survey}
+Zhang, H.; Song, H.; Li, S.; Zhou, M.; and Song, D. 2023.
+\newblock A Survey of Controllable Text Generation Using Transformer-Based
+  Pre-Trained Language Models.
+\newblock \emph{ACM Computing Surveys}.
+
+\bibitem[{Zhang et~al.(2021)Zhang, Rashidinejad, Jiao, Tian, Gonzalez, and
+  Russell}]{zhang2021made}
+Zhang, T.; Rashidinejad, P.; Jiao, J.; Tian, Y.; Gonzalez, J.~E.; and Russell,
+  S. 2021.
+\newblock {MADE}: {E}xploration via Maximizing Deviation from Explored Regions.
+\newblock In \emph{Proc. of the Annual Conference on Neural Information
+  Processing Systems (NeurIPS)}.
+
+\bibitem[{Zhang et~al.(2024)Zhang, Lei, Wu, Sun, Huang, Long, Liu, Lei, Tang,
+  and Huang}]{zhang2023safetybench}
+Zhang, Z.; Lei, L.; Wu, L.; Sun, R.; Huang, Y.; Long, C.; Liu, X.; Lei, X.;
+  Tang, J.; and Huang, M. 2024.
+\newblock {SafetyBench}: {E}valuating the Safety of Large Language Models with
+  Multiple Choice Questions.
+\newblock In \emph{Proc. of the Annual Meeting of the Association for
+  Computational Linguistics (ACL)}.
+
+\bibitem[{Zheng et~al.(2024{\natexlab{a}})Zheng, Ma, Shen, and
+  Wang}]{zheng2024constrained}
+Zheng, X.; Ma, X.; Shen, C.; and Wang, C. 2024{\natexlab{a}}.
+\newblock Constrained Intrinsic Motivation for Reinforcement Learning.
+\newblock In \emph{Proc. of the International Joint Conference on Artificial
+  Intelligence (IJCAI)}.
+
+\bibitem[{Zheng et~al.(2024{\natexlab{b}})Zheng, Ma, Wang, Wang, Shen, and
+  Wang}]{zheng2023toward}
+Zheng, X.; Ma, X.; Wang, S.; Wang, X.; Shen, C.; and Wang, C.
+  2024{\natexlab{b}}.
+\newblock Toward Evaluating Robustness of Reinforcement Learning with
+  Adversarial Policy.
+\newblock In \emph{Proc. of the Annual IEEE/IFIP International Conference on
+  Dependable Systems and Networks (DSN)}.
+
+\bibitem[{Zou et~al.(2023)Zou, Wang, Kolter, and Fredrikson}]{zou2023universal}
+Zou, A.; Wang, Z.; Kolter, J.~Z.; and Fredrikson, M. 2023.
+\newblock Universal and Transferable Adversarial Attacks on Aligned Language
+  Models.
+\newblock arXiv:2307.15043.
+
+\end{thebibliography}

@@ -1,0 +1,23 @@
+\cpar{Concept-based explainability.} %
+Concept-based explainability methods have emerged as an alternative to traditional feature attribution based methods, that are capable of extracting key semantic features from the model internal representations. Most post-hoc concept explainability approaches are based on the idea of concept activation vectors (CAV) \cite{tcav}, which represent concepts as vectors in the activation space. Instead or relying on human annotations, recent works have proposed methods to automatically discover concepts via clustering \cite{ace, conceptshap} or matrix decomposition \cite{fel2023craft}, which can be viewed as instances of a dictionary learning problem \cite{fel2023holistic}. Initially focusing on understanding vision models, dictionary learning for concept extraction has been extended to LLMs, for instance, in the form of sparse autoencoders \cite{huben2023sparse, rajamanoharan2024improving}. However, none of the prior approaches have been applied to understand multimodal models, with the exception of recently proposed CoX-LMM \cite{parekh2024concept}. 
+
+
+\cpar{MLLMs and Explainability.} 
+Multimodal LLMs \cite{liu2024improvedllava,bai2023qwenvl,laurenccon2024mattersidefics2,vallaeys2024improveddepalm} have recently garnered significant interest. These models generally adopt a late fusion architecture, which includes an image encoder \cite{clip,zhai2023sigmoidsiglip,fini2024multimodal}, a connector module, and an LLM \cite{touvron2023llamav2,jiang2023mistral,team2024gemma2}. This family of models has inspired extensive research to better understand them and explain their behavior. For example, studies like \cite{schwettmann2023multimodal,pan2023finding,huang2024miner} seek to identify multimodal neurons within LLMs or analyze modality-specific sub networks \cite{shukor2024implicit}. Given that these models are text-generative, some methods leverage this property to simply generate textual explanations for model outputs \cite{shukor2024beyond,xue2024fewshotmuliexp,ge2023wrongtoright,chen2022rex}. Based on LLMs, multimodal models benefit from in-context learning capabilities, which have been examined for limitations, including biases \cite{Baldassini_2024_CVPR} and links to hallucinations \cite{shukor2024beyond}, as well as the factors that may enhance their in-context learning performance \cite{chen2024understandingicl,qin2024factors}. Related to our approach, CoX-LMMs \cite{parekh2024concept} employs dictionary learning to extract multimodal semantic concepts from model representations. However, these studies typically assess models only in their final trained states, overlooking the dynamic changes that occur during training. Only limited works, such as \cite{shukor2024implicit}, have investigated this training process, focusing specifically on implicit alignment between image and text modalities. In this work, we investigate how multimodal concepts within the model evolve throughout fine-tuning and explore the implications of these shifts on model steering.
+
+\cpar{Steering models with feature editing.} In contrast to editing model weights, representation or feature editing methods \cite{wu2024reft,subramani2022extracting,turner2023activation} aim to modify model outputs without altering the model’s weights. A prominent approach within this family involves identifying steering vectors, or directions in the feature space (often within the residual stream), that are linked to contrasting concepts. These methods have been applied to language models for various purposes, such as enhancing factuality or reducing hallucinations \cite{panickssery2023steeringllama2}, inducing sentiment shifts or detoxification \cite{turner2023activation,tigges2023linear}, improving refusals to harmful requests \cite{arditi2024refusal}, promoting truthfulness by modifying the output of attention heads \cite{li2024inference}, and erasing specific concepts or biases \cite{belrose2024leace,ravfogel2022linear}. However, these techniques have primarily focused on language models, with their application to MLLMs yet to be explored.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

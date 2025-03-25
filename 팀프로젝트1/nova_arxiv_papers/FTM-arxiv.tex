@@ -1,0 +1,2848 @@
+
+\documentclass[10pt]{article} % For LaTeX2e
+% \usepackage{tmlr}
+% If accepted, instead use the following line for the camera-ready submission:
+\usepackage[accepted]{tmlr}
+% To de-anonymize and remove mentions to TMLR (for example for posting to preprint servers), instead use the following:
+%\usepackage[preprint]{tmlr}
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+
+%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+% \usepackage{xcolor}         % colors
+% \usepackage[dvipsnames]{xcolor}         % colors
+\usepackage{multirow}
+\usepackage{bbm}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{latexsym}
+\usepackage{epsfig}
+\usepackage{fancybox}
+\usepackage{pstricks}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{wrapfig,lipsum}
+\usepackage{cancel}
+\usepackage{kotex}
+\usepackage{framed}
+\usepackage{MnSymbol}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{enumitem}
+\usepackage{footnote}
+\usetikzlibrary{arrows}
+
+\newcommand{\tikzxmark}{%
+\tikz[scale=0.23] {
+    \draw[line width=0.7,line cap=round] (0,0) to [bend left=6] (0.7,0.7);
+    \draw[line width=0.7,line cap=round] (0.1,0.7) to [bend right=3] (0.6,0.02);
+}}
+
+
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.8pt] (char) {#1};}}
+
+
+\definecolor{reduction}{HTML}{ed6f63}
+\definecolor{reg}{HTML}{DAA03D}
+\definecolor{adv}{HTML}{76528B}
+\definecolor{ftm}{HTML}{2BAE66}
+\definecolor{darkgreen}{HTML}{476600}
+\definecolor{darkpurple}{HTML}{3F0099}
+
+% theorems
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+% \theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+% \theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{idea}[theorem]{Idea}
+
+
+
+% others
+\def\cA{{\cal A}}
+\def\cV{{\cal V}}
+\def\cB{{\cal B}}
+\def\cH{{\cal H}}
+\def\cF{{\cal F}}
+\def\cD{{\cal D}}
+\def\cL{{\cal L}}
+\def\cN{{\cal N}}
+\def\cG{{\cal G}}
+\def\cX{{\cal X}}
+\def\cY{{\cal Y}}
+\def\cP{{\cal P}}
+\def\cR{{\cal R}}
+\def\cS{{\cal S}}
+\def\cT{{\cal T}}
+\def\cI{{\cal I}}
+\def\cC{{\cal C}}
+\def\cU{{\cal U}}
+\def\cM{{\cal M}}
+\def\cZ{{\cal Z}}
+\def\cE{{\cal E}}
+\def\cW{{\cal W}}
+\def\qed{\space$\square$ \par \vspace{.15in}}
+% \def\hat{\widehat}
+\newcommand{\mbR}{\mathbb{R}}
+\newcommand{\mbQ}{\mathbb{Q}}
+\newcommand{\mbB}{\mathbb{B}}
+\newcommand{\bA}{{\bf A}}
+\newcommand{\bD}{{\bf D}}
+\newcommand{\bC}{{\bf C}}
+\newcommand{\bT}{{\bf T}}
+\newcommand{\bt}{{\bf t}}
+\newcommand{\bZ}{{\bf Z}}
+\newcommand{\bY}{{\bf Y}}
+\newcommand{\bz}{{\bf z}}
+\newcommand{\bN}{{\bf N}}
+\newcommand{\bn}{{\bf n}}
+\newcommand{\bfe}{{\bf e}}
+\newcommand{\bg}{{\bf g}}
+\newcommand{\bff}{{\bf f}}
+\newcommand{\bF}{{\bf F}}
+\newcommand{\uxj}{x^{(j)}}
+\newcommand{\uxk}{x^{(k)}}
+\newcommand{\uf}{{\underline f}}
+\newcommand{\uH}{{\underline H}}
+\newcommand{\bX}{{\bf X}}
+\newcommand{\bx}{{\bf x}}
+\newcommand{\by}{{\bf y}}
+\newcommand{\bW}{{\bf W}}
+\newcommand{\bw}{{\bf w}}
+\newcommand{\bV}{{\bf V}}
+\newcommand{\bv}{{\bf v}}
+\newcommand{\bU}{{\bf U}}
+\newcommand{\bI}{{\bf I}}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bs}{{\bf s}}
+\newcommand{\bH}{{\bf H}}
+\newcommand{\bM}{{\bf M}}
+\newcommand{\bh}{{\bf h}}
+\newcommand{\bfs}{{\bf s}}
+\newcommand{\bfa}{{\bf a}}
+\newcommand{\bj}{{\bf j}}
+\newcommand{\hba}{\hat{\bf a}}
+\newcommand{\blXn}{{\bf \underline{X_n}}}
+% \newcommand{\E}{\mbox{{\rm E}}}
+\newcommand{\V}{\mbox{{\rm Var}}}
+% \newcommand{\ri}{\mbox{{\bf \rm ri}}}
+\newcommand{\co}{\mbox{{\rm co}}}
+\newcommand{\lspan}{\mbox{{\rm lspan}}}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\btheta}{\mbox{\boldmath{$\theta$}}}
+\newcommand{\hbtheta}{\mbox{\boldmath{$\hat{\theta}$}}}
+\newcommand{\balpha}{\mbox{\boldmath{$\alpha$}}}
+\newcommand{\hbalpha}{\mbox{\boldmath{$\hat{\alpha}$}}}
+\newcommand{\bbeta}{\beta}
+\newcommand{\bgamma}{\mbox{\boldmath{$\gamma$}}}
+\newcommand{\bfeta}{\mbox{\boldmath{$\eta$}}}
+\newcommand{\bSigma}{\mbox{\boldmath{$\Sigma$}}}
+\newcommand{\bOmega}{\mbox{\boldmath{$\Omega$}}}
+\newcommand{\bPi}{\mbox{\boldmath{$\Pi$}}}
+\newcommand{\bLambda}{\mbox{\boldmath{$\Lambda$}}}
+\newcommand{\bmu}{\mbox{\boldmath{$\mu$}}}
+\newcommand{\bxi}{\mbox{\boldmath{$\xi$}}}
+\newcommand{\beps}{\mbox{\boldmath{$\varepsilon$}\unboldmath}}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\pr}{\bold{P}}
+% \newcommand{\ra}{\rightarrow}
+\newcommand{\pen}{\text{pen}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bean}{\begin{eqnarray*}}
+\newcommand{\eean}{\end{eqnarray*}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+\newcommand{\bed}{\begin{itemize}}
+\newcommand{\eed}{\end{itemize}}
+% \newcommand{\vs}{\vspace}
+%%%%%%%%%%%%
+
+\begingroup
+  \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\endgroup
+
+
+\title{Fairness Through Matching}
+
+% Authors must not appear in the submitted version. They should be hidden
+% as long as the tmlr package is used without the [accepted] or [preprint] options.
+% Non-anonymous submissions will be rejected without review.
+
+\author{\name Kunwoong Kim \email kwkim.online@gmail.com \\
+\addr Department of Statistics\\ Seoul National University
+\AND
+\name Insung Kong\footnotemark[1] \email insung.kong@utwente.nl \\
+\addr Department of Applied Mathematics\\ University of Twente
+\AND
+\name Jongjin Lee \email jjlee\_.lee@samsung.com \\
+\addr Samsung Research\\ 
+\AND
+\name Minwoo Chae \email mchae@postech.ac.kr \\
+\addr Department of Industrial and Management Engineering\\ Pohang University of Science and Technology (POSTECH)
+\AND
+\name Sangchul Park \email parks@snu.ac.kr \\
+\addr School of Law\\ Seoul National University
+\AND
+\name Yongdai Kim\footnotemark[2] \email ydkim0903@gmail.com \\
+\addr Department of Statistics\\ Interdisciplinary Program in Artificial Intelligence\\ Seoul National University
+%       \name Kyunghyun Cho \email kyunghyun.cho@nyu.edu \\
+%       \addr Department of Computer Science\\
+%       University of New York
+%       \AND
+%       \name Raia Hadsell \email raia@google.com \\
+%       \addr DeepMind
+%       \AND
+%       \name Hugo Larochelle \email hugolarochelle@google.com\\
+%       \addr Mila, Universit\'e de Montr\'eal \\
+%       Google Research\\
+%       CIFAR Fellow
+    }
+
+
+
+% The \author macro works with any number of authors. Use \AND 
+% to separate the names and addresses of multiple authors.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\def\month{12}  % Insert correct month for camera-ready version
+\def\year{2024} % Insert correct year for camera-ready version
+\def\openreview{\url{https://openreview.net/forum?id=dHljjaNHh1}} % Insert correct link to OpenReview for camera-ready version
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+    Group fairness requires that different protected groups, characterized by a given sensitive attribute, receive equal outcomes overall.
+    Typically, the level of group fairness is measured by the statistical gap between predictions from different protected groups.
+    In this study, we reveal an implicit property of existing group fairness measures, which provides an insight into how the group-fair models behave.
+    Then, we develop a new group-fair constraint based on this implicit property to learn group-fair models.
+    To do so, we first introduce a notable theoretical observation: every group-fair model has an implicitly corresponding transport map between the input spaces of each protected group.
+    Based on this observation, we introduce a new group fairness measure termed Matched Demographic Parity (MDP), which quantifies the averaged gap between predictions of two individuals (from different protected groups) matched by a given transport map.
+    Then, we prove that any transport map can be used in MDP to learn group-fair models, and develop a novel algorithm called Fairness Through Matching (FTM)\footnote{The source code of FTM is publicly available at \textit{\url{https://github.com/kwkimonline/FTM}}.}, which learns a group-fair model using MDP constraint with an user-specified transport map.
+    We specifically propose two favorable types of transport maps for MDP, based on the optimal transport theory, and discuss their advantages.
+    Experiments reveal that FTM successfully trains group-fair models with certain desirable properties by choosing the transport map accordingly.
+\end{abstract}
+
+\begingroup
+    \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+    \footnotetext[1]{This research was conducted while the author was affiliated with Seoul National University.}
+    \footnotetext[2]{Corresponding author.}
+\endgroup
+
+% \footnotetext[1]{Corresponding author}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}\label{sec:intro}
+
+Artificial Intelligence (AI) technologies based on machine learning algorithms have become increasingly prevalent as crucial decision-making tools across diverse areas, including credit scoring, criminal risk assessment, and college admissions.
+However, when observed data contains unfair biases, the resulting trained models may produce discriminatory decisions \citep{calders2009building, feldman2015certifying, angwin2016machine, barocas2016big, https://doi.org/10.48550/arxiv.1610.07524, kleinberg2018algorithmic, mehrabi2019survey, https://doi.org/10.48550/arxiv.2111.11665}. 
+For instance, several cases of unfair preferences favoring specific groups, such as white individuals or males, have been reported \citep{angwin2016machine, ingold2016amazon, Dua:2019}.
+In response, there is a growing trend in non-discrimination laws that calls for the consideration of fair models \citep{Hellman2019MeasuringAF}.
+
+Under this social circumstance, ensuring algorithmic fairness in AI-based decision-making has become a crucial mission.
+Among several notions of algorithmic fairness, the notion of \textit{group fairness} is the most explored one, which requires that certain statistics of each protected group should be similar.
+For example, the ratio of positive predictions should be similar across each protected group \citep{calders2009building, barocas2016big, zafar2017fairness, donini2018empirical, pmlr-v80-agarwal18a}.
+
+Various algorithms have been proposed to learn models achieving group fairness. 
+Existing methods for group fairness are roughly categorized into three: pre-processing, in-processing and post-processing.
+Pre-processing approaches \citep{pmlr-v28-zemel13, feldman2015certifying, webster2018mind, xu2018fairgan, Madras2018LearningAF, creager2019flexibly, pmlr-v162-kim22b} aim to debias a given dataset, typically by learning fair representations whose distribution is independent of a given sensitive attribute.
+The debiased data (or fair representation) is then used to learn models.
+In-processing approaches \citep{kamishima2012fairness, goh2016satisfying, zafar2017fairness, pmlr-v80-agarwal18a, onconvexand, Cotter2019TwoPlayerGF, celis2019classification, zafar2019fairness, jiang2020wasserstein, KIM2022441} train models by minimizing a given objective function under a specified group fairness constraint.
+Post-processing approaches \citep{kamiran2012decision, hardt2016equality, fish2016confidence, corbett2017algorithmic, pleiss2017fairness, chzhen2019leveraging, wei20a, jiang2020wasserstein} transform given prediction scores, typically provided by an unfair model, to satisfy a certain fairness level.
+
+Most group-fair algorithms correspond to specific group fairness measures, typically defined by explicit quantities such as prediction scores and sensitive attributes.
+For example, demographic parity \citep{calders2009building, feldman2015certifying, angwin2016machine} considers the gap between two protected groups in terms of the positive prediction ratio.
+
+However, a shortcoming of such group fairness measures is that they only concern statistical disparities without accounting for implicit mechanisms about how a given model achieves group fairness.
+Consequently, models can achieve high levels of group fairness in very undesirable ways (see Section \ref{sec:highcost} of Appendix for an example).
+\citet{10.1145/2090236.2090255} also noted that focusing solely on group fairness can lead to issues such as subset targeting and the self-fulfilling prophecy.
+These observations serve as the motivation of this study.
+Moreover, our empirical investigations on real-world datasets reveal that unfairness on subsets can be observed in group-fair models learned by existing algorithms, which are designed to achieve group fairness merely (see Section \ref{sec:exps}).
+
+In this paper, we first propose a new group fairness measure that reveals implicit behaviors of group-fair models.
+Based on the proposed measure, we develop an in-processing algorithm to learn group-fair models 
+with less undesirable properties (e.g., unfairness on subsets), that cannot be explored or controlled by existing fairness measures.
+
+To do so, we begin by introducing a notable {mathematical} finding: every group-fair model implicitly corresponds to a transport map, which moves the measure of one protected group to another.
+Building on this observation, we propose a new measure for group fairness called Matched Demographic Parity (MDP), which quantifies the average prediction gap between two individuals from different protected groups matched by a given transport map.
+We further prove that the reverse of this finding also holds: any transport map can be used in MDP to learn a group-fair model.
+Consequently, we develop an algorithm called Fairness Through Matching (FTM), designed to learn a group-fair model under a fairness constraint based on MDP with a given transport map.
+FTM can provide group-fair models having specific desirable properties (e.g., higher fairness on subsets) by selecting a transport map accordingly.
+Note that FTM is not designed to achieve the optimal fairness-prediction trade-off, rather, the focus is on mitigating undesirable properties when achieving group fairness (e.g., unfairness on subsets).
+
+In contrast, existing algorithms that focus solely on group fairness may lack such flexibility.
+In fact, FTM with a transport map that is not carefully selected could result in unreasonable group-fair models, even though group fairness is achieved.
+
+Therefore, the key to effectively using FTM lies in selecting a good transport map.
+To this end, we propose two specific options for the transport map: one is the optimal transport (OT) map in the input space, and the other is the OT map in the product space of input and output.
+Each is designed to achieve specific goals.
+For example, the former achieves higher fairness levels on subsets, while the latter yields better prediction performance and attains higher levels of equalized odds compared to the former.
+Experiments on real benchmark datasets support our theoretical findings, showing that FTM successfully learns group-fair models with more desirable properties, than those learned by existing algorithms for group fairness.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Main contributions}
+% \textbf{Main contributions}
+\begin{enumerate} %[noitemsep, topsep=0pt]
+    \item
+    We introduce a notable mathematical observation: every group-fair model has a corresponding implicit transport map.
+    Building on this finding, we present a novel measure of group fairness called \textbf{Matched Demographic Parity} (MDP).
+
+    \item
+    We prove that any transport map can be used in MDP to learn group-fair models. 
+    Subsequently, we devise a novel algorithm called \textbf{Fairness Through Matching} (FTM), designed to find a group-fair model using a constraint based on MDP with a given transport map.
+    We propose two favorable transport maps tailored for specific purposes.
+
+    \item
+    Experiments on benchmark datasets illustrate that FTM successfully learns group-fair models.
+    Furthermore, we examine the benefits of the two proposed transport maps in learning more desirable group-fair models, compared to those learned by existing algorithms that focus solely on achieving group fairness.
+\end{enumerate}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}\label{sec:pre}
+
+\subsection{Notations \& Problem setting}\label{sec:notation}
+
+In this section, we outline the mathematical notations used throughout this paper.
+We focus on binary classification task in this study.
+We denote $\mathbf{X} \in \mathcal{X} \subset \mathbb{R}^{d}$ and $Y \in \mathcal{Y} = \{ 0, 1 \}$ as the $d$-dimensional input vector and the binary label, respectively.
+Whenever necessary, we split $\mathcal{X},$ i.e., the domain of $\mathbf{X},$ with respect to $S$ and write $\mathcal{X}_{s}$ as the domain of $\mathbf{X} | S = s.$
+For given $s\in \{0,1\},$ we let $s'=1-s.$
+Assuming the pre-defined sensitive attribute is binary, we denote $S \in \{ 0, 1 \}$ as the binary sensitive attribute.
+For a given $s \in \{ 0, 1 \},$ the realization of $S,$ we write $s' = 1 - s.$
+For the probability distributions of these variables, let $\mathcal{P}$ and $\mathcal{P}_{\mathbf{X}}$ represent the joint distribution of $(\mathbf{X}, Y, S)$ and the marginal distribution of $\mathbf{X},$ respectively.
+Furthermore, let $\mathcal{P}_{s} = \mathcal{P}_{\mathbf{X} | S=s}, s\in \{0,1\}$ be the conditional distributions of $\mathbf{X}$ given $S = s.$ 
+We write $\mathbb{E}$ and $\mathbb{E}_{s}$ as the corresponding expectations of $\mathcal{P}$ and $\mathcal{P}_{s},$ respectively.
+For observed data, denote $\mathcal{D} = \{(\mathbf{x}_i, y_i, s_i)\}_{i=1}^n$ as the training dataset, consisting of $n$ independent copies of the random tuple $(\mathbf{X}, Y, S) \sim \mathcal{P}.$
+Let $\Vert \cdot \Vert_{p}$ denote the $L_{p}$ norm.
+We also write the $L_{2}$ norm by $\Vert \cdot \Vert$, i.e., $\Vert \cdot \Vert = \Vert \cdot \Vert_{2}$ for simplicity.
+
+We denote the prediction model as $f = f(\cdot, s), s \in \{ 0, 1 \},$ which is an estimator of $\mathcal{P}_{s}(Y = 1 | \mathbf{X} = \cdot)$, belonging to a given hypothesis class $\mathcal{F} \subset \{ f:\mathcal{X} \times \{ 0, 1 \} \rightarrow [0, 1] \}.$
+Note that the output of $f$ is restricted to the interval $[0, 1],$ making $f$ bounded.
+For simplicity, we sometimes write $f(\cdot, s) = f_{s}(\cdot)$ whenever necessary.
+For given $f$ and $s \in \{0, 1\}$, we denote $\mathcal{P}_{f_{s}}$ as the conditional distribution of $f(\bm{X},s)$ given $S=s$.
+Furthermore, let $C_{f_{s}} := \mathbb{I} (f(\cdot, s) \ge \tau)$ be the classification rule based on $f,$ where $\tau$ is a specific threshold (typically, $\tau = 0.5$).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measures for group fairness \& Definition of group-fair model}\label{sec:fairness}
+
+In the context of group fairness, various measures have been introduced to quantify the gap between predictions of each protected group.
+The original measure for Demographic Parity (DP), $ \Delta \textup{DP} (f) := \left\vert \mathcal{P}(C_{f_{0}}(\mathbf{X}) = 1 | S = 0) - \mathcal{P}(C_{f_{1}}(\mathbf{X}) = 1 | S = 1) \right\vert,$ has been initially considered in various studies \citep{calders2009building, feldman2015certifying, donini2018empirical, ADW19, zafar2019fairness}.
+Its relaxed version, $ \Delta \overline{\textup{DP}} (f) := \left\vert \mathbb{E}(f_{0}(\mathbf{X})) | S = 0) - \mathbb{E}(f_{1}(\mathbf{X})) | S = 1) \right\vert,$ has also been explored widely \citep{Madras2018LearningAF, chuang2021fair, pmlr-v162-kim22b}.
+
+However,  $\Delta \textup{DP} (f)$ has a limitation as it relies on a specific threshold $\tau$ \citep{Silvia_Ray_Tom_Aldo_Heinrich_John_2020}.
+To overcome this issue, the concept of strong DP (which requires similarity in the distributions of prediction values of each protected group) along with several measures for quantifying the discrepancy between $\mathcal{P}_{f_{0}}$ and $\mathcal{P}_{f_{1}},$ has been considered \citep{pmlr-v115-jiang20a, NEURIPS2020_51cdbd26, Silvia_Ray_Tom_Aldo_Heinrich_John_2020, barata2021fair}.
+$ \Delta \textup{WDP} (f) := \mathcal{W} (\mathcal{P}_{f_{0}}, \mathcal{P}_{f_{1}}), $
+$ \Delta \textup{TVDP} (f) := \textup{TV} (\mathcal{P}_{f_{0}}, \mathcal{P}_{f_{1}}), $
+and
+$ \Delta \textup{KSDP} (f) := \textup{KS} (\mathcal{P}_{f_{0}}, \mathcal{P}_{f_{1}}) $
+are the examples of the measure for strong DP.
+Here, $\mathcal{W}, \textup{TV},$ and $\textup{KS}$ represent the Wasserstein distance, the Total Variation, and the Kolmogorov-Smirnov distance, respectively.
+For given two probability distributions $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2},$ the three distributional distances are defined as follows.
+The (1-)Wasserstein distance is defined as
+$\mathcal{W}(\mathcal{Q}_{1}, \mathcal{Q}_{2}) := \inf_{\gamma \in \Gamma(\mathcal{Q}_{1}, \mathcal{Q}_{2})} \mathbb{E}_{(x, y) \sim \gamma} \Vert x - y \Vert_{1},$
+where $\Gamma(\mathcal{Q}_{1}, \mathcal{Q}_{2})$ is the set of joint probability distributions of marginals $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2}.$
+The Total Variation is defined as
+$\textup{TV}(\mathcal{Q}_{1}, \mathcal{Q}_{2}) := \sup_{A \in \mathcal{A}} \vert \mathcal{Q}_{1} (A) - \mathcal{Q}_{2} (A) \vert,$
+where $\mathcal{A}$ is the collection of measurable sets.
+The Kolmogorov-Smirnov distance is defined as
+$\textup{KS}(\mathcal{Q}_{1}, \mathcal{Q}_{2}) := \sup_{x \in \mathbb{R}} \vert F_{\mathcal{Q}_{1}} (x) - F_{\mathcal{Q}_{2}} (x) \vert,$
+where $F_{\mathcal{Q}}(x) := \mathcal{Q}(\mathbf{X} \le x)$ is the cumulative distribution function of $\mathcal{Q}.$
+
+Let $\Delta = \Delta (\cdot)$ be a given fairness measure.
+A given model $f$ is said to be \textit{group-fair} (with level $\epsilon$) if it satisfies $\Delta (f) \le \epsilon.$
+Furthermore, if $\Delta (f) = 0,$  we say $f$ is \textit{perfectly group-fair} (with respect to $\Delta$).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Optimal transport}
+
+The concept of the Optimal Transport (OT) provides an approach for geometric comparison between two probability measures.
+For given two probability measures $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2},$ a map $\mathbf{T}$ from $\textup{Supp}(\mathcal{Q}_{1})$ to $\textup{Supp}(\mathcal{Q}_{2})$ is called a \textit{transport map} from $\mathcal{Q}_{1}$ to $\mathcal{Q}_{2}$ if the push-forward measure $\mathbf{T}_{\#} \mathcal{Q}_{1}$ is equal to $\mathcal{Q}_{2}$ \citep{villani2008optimal}.
+Here, the push-forward measure is defined by $\mathbf{T}_{\#} \mathcal{Q}_{1} (A) = \mathcal{Q}_{1}(\mathbf{T}^{-1}(A))$ for any measurable set $A.$
+In other words, $\mathbf{T}_{\#} \mathcal{Q}_{1}$ is the measure of $\mathbf{T}(\mathbf{X}), \mathbf{X} \sim \mathcal{Q}_{1}.$
+For given source and target distributions $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2},$ the OT map from $\mathcal{Q}_{1}$ to $\mathcal{Q}_{2}$ is the optimal one among all transport maps from $\mathcal{Q}_{1}$ to $\mathcal{Q}_{2}.$
+In this context, `optimal' means minimizing transport cost, such as $L_{p}$ distance in Euclidean space.
+
+\citet{monge1781memoire} originally formulates this OT problem:
+for given source and target distributions $\mathcal{Q}_{1}, \mathcal{Q}_{2}$ in $\mathbb{R}^{d}$ and a cost function $c$ (e.g., $L_{2}$ distance), the OT map from $\mathcal{Q}_{1}$ to $\mathcal{Q}_{2}$ is defined by the solution of
+$\min_{ \mathbf{T}: \mathbf{T}_{\#} \mathcal{Q}_{1} = \mathcal{Q}_{2} } \mathbb{E}_{ \mathbf{X} \sim \mathcal{Q}_{1} } \left( c \left( \mathbf{X}, \mathbf{T} ( \mathbf{X} ) \right) \right).$
+If both $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2}$ are discrete with the same number of support points, the OT map exists as a one-to-one mapping.
+For the case when $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2}$ are discrete but have different numbers of supports, Kantorovich relaxed the Monge problem by seeking the optimal coupling between two distributions \citep{Kantorovich2006OnTT}.
+The Kantorovich problem is formulated as
+$\inf_{\pi \in \Pi(\mathcal{Q}_{1}, \mathcal{Q}_{2})} \mathbb{E}_{\mathbf{X}, \mathbf{Y} \sim \pi} \left( c(\mathbf{X}, \mathbf{Y}) \right),$
+where $\Pi(\mathcal{Q}_{1}, \mathcal{Q}_{2})$ is the set of all joint measures of $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2}.$
+Note that this formulation can be also applied to the case of $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2}$ with an identical number of support.
+See Section \ref{appendix:kanto} of Appendix for more details about the Kantorovich problem.
+
+Various feasible estimators for the OT map have been developed \citep{NIPS2013_af21d0c9, 10.5555/3157382.3157482}, and applied to diverse tasks such as domain adaptation \citep{10.1007/978-3-030-01225-0_28, pmlr-v89-forrow19a} and computer vision \citep{7053911, pmlr-v37-li15, salimans2018improving}, to name a few.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Related works}\label{sec:related}
+
+\paragraph{Algorithmic fairness}
+
+\textit{Group fairness} is a fairness notion aimed at preventing discriminatory predictions over protected (demographic) groups divided by pre-defined sensitive attributes.
+Among various notions of group fairness, Demographic Parity (DP) \citep{calders2009building, feldman2015certifying, ADW19, pmlr-v115-jiang20a, NEURIPS2020_51cdbd26} quantifies the statistical gap in predictions between two different protected groups.
+Other measures, including Equal opportunity (Eqopp) and Equalized Odds (EO), consider groups conditioned on both the label and the sensitive attribute \citep{NIPS2016_9d268236}.
+Various algorithms have been proposed to learn group-fair model satisfying these group fairness notions \citep{zafar2017fairness, donini2018empirical, pmlr-v80-agarwal18a, Madras2018LearningAF, zafar2019fairness, chuang2021fair, pmlr-v162-kim22b}.
+
+\textit{Individual fairness}, initially introduced by \citet{10.1145/2090236.2090255}, is another fairness notion based on the philosophy of treating similar individuals similarly.
+It is noteworthy that \citet{10.1145/2090236.2090255} highlighted that focusing solely on group fairness is not always a complete answer, pointing out issues such as subset targeting and the self-fulfilling prophecy.
+Subsequent researches \citep{pmlr-v80-yona18a, Yurochkin2020Training, yurochkin2021sensei, https://doi.org/10.48550/arxiv.2110.13796} have been studied in both theories and methodologies.
+However, individual fairness has two bottlenecks: (i) it strongly depends on the choice of the similarity metric, which hinders its practical applicability, and (ii) by itself, it does not ensure group fairness when the distributions of protected groups differ significantly.
+See Section \ref{sec:compare} for detailed comparison between individual fairness and our proposed framework.
+
+\textit{Counterfactual fairness}, which requires treating a counterfactual individual similarly to the original individual, has been studied by \citet{https://doi.org/10.48550/arxiv.1703.06856, https://doi.org/10.48550/arxiv.1802.08139, Kugelgen20, pmlr-v162-nilforoshan22a}.
+Its application, however, is limited since it requires causal models, which are difficult to obtain only with observed data.
+Instead of using graphical models to define counterfactuals, this paper suggests using a transport map from $\mathcal{X}_s$ to $\mathcal{X}_{s'}$ having certain desirable properties.
+See Proposition \ref{prop:cf} in Section \ref{sec:choiceT-OT} for the relationship between counterfactual fairness and our proposed algorithm.
+
+On the other hand, in presence of multiple sensitive attributes, the concept of \textit{subgroup fairness} can be considered \citep{kearns2018empirical, pmlr-v80-kearns18a, shui2022on, 10.1145/3531146.3533124, molina2022bounding, carvalho2022affirmative}, emphasizing the need for models that satisfy fairness for all subgroups defined over the multiple sensitive attributes. 
+In addition, \citet{wachter2020bias, 10.1145/3461702.3462556, mougan2024beyond} have suggested that not only statistically equal outcome but also the notion of \textit{equal treatment}, i.e., treating individuals with equal reasons, should be considered in algorithmic fairness.
+
+% See Section \ref{sec:appen-otherfairness} of Appendix for a short introduction to other fairness notions including subgroup fairness and equal treatment.
+
+
+%%%%%%%%%%%%%%%%%%%
+% \color{Blue} % remove
+\paragraph{Fair representation learning (FRL)}
+
+FRL algorithm aims at searching a fair representation space, in the sense that the conditional distributions of the encoded representation with respect to the sensitive attribute are similar \citep{pmlr-v28-zemel13}.
+After learning the fair representation, FRL constructs a fair model by applying a supervised learning algorithm to the fair representation space.
+Initiated by \citet{9aa5ba8a091248d597ff7cf0173da151}, various FRL algorithms have been developed \citep{Madras2018LearningAF, 10.1145/3278721.3278779} motivated by the adversarial-learning technique used in GAN \citep{NIPS2014_5ca3e9b1}.
+See Section \ref{sec:compare} for the detailed comparison between FRL and our proposed framework.
+
+% \color{black} % remove
+%%%%%%%%%%%%%%%%%%%
+
+
+\paragraph{Applications of the OT map to algorithmic fairness}
+
+Several studies, including \citet{pmlr-v97-gordaliza19a, pmlr-v115-jiang20a, NEURIPS2020_51cdbd26, Silvia_Ray_Tom_Aldo_Heinrich_John_2020, buyl2022optimal}, have employed the OT map for algorithmic fairness.
+\citet{pmlr-v97-gordaliza19a} introduced a fair representation learning method that aligns inputs from different protected groups using the OT map.
+\citet{pmlr-v115-jiang20a, NEURIPS2020_51cdbd26, Silvia_Ray_Tom_Aldo_Heinrich_John_2020} proposed aligning prediction scores from different protected groups using the OT map or OT-based barycenter.
+\citet{buyl2022optimal} developed a method that projects prediction scores onto a fair space by optimizing the projection through minimizing the transport cost calculated on all pairs of inputs.
+
+Most of these algorithms (e.g., \citet{pmlr-v115-jiang20a, NEURIPS2020_51cdbd26, Silvia_Ray_Tom_Aldo_Heinrich_John_2020}) focus on applying the OT map in the prediction space, i.e., aligning two conditional distributions $\mathcal{P}_{f_{0}}$ and $\mathcal{P}_{f_{1}}.$
+These methods fundamentally differ from our proposed approach, which focuses on applying the OT map in the input space.
+On the other hand, \citet{pmlr-v97-gordaliza19a} and our approach are particularly similar in the sense that both apply the OT map on the input space.
+See the detailed comparison between \citet{pmlr-v97-gordaliza19a} and our approach in Section \ref{sec:compare}.  
+
+It is worth noting that our proposed algorithm becomes the first to define a group fairness measure based on the transport map in the input space and to propose reasonable choices for the transport map.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Learning group-fair model through matching}\label{sec:measure}
+
+The goal of this section is to explore and specify the correspondence between group-fair models and transport maps.
+In Section \ref{sec:mdp}, we show that \textbf{\textit{every group-fair model has a corresponding implicit transport map}} in the input space that matches two individuals from different protected groups.
+We then introduce a new fairness measure based on the correspondence.
+In Section \ref{sec:improve}, we show the reverse, i.e., \textbf{\textit{any given transport map can be used to learn a group-fair model}}, then present our proposed algorithm for learning group-fair models under a fairness constraint based on a given transport map.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Matched Demographic Parity (MDP)}\label{sec:mdp}
+
+Proposition \ref{prop:perfect} below shows that for a given perfectly group-fair model $f$ (i.e., $\mathcal{P}_{f_{0}} = \mathcal{P}_{f_{1}}$ or equivalently $\Delta = 0$), there exists an corresponding transport map in the input space that matches two individuals from different protected groups.
+Its proof is in Section \ref{sec:appen_pfs} of Appendix.
+Throughout this section, we assume a condition (C): $\mathcal{P}_{s}, s=0,1,$ are absolutely continuous with respect to the Lebesgue measure.
+This regularity condition is assumed to simplify the discussion, since it guarantees the existence of transport maps between two distributions.
+See Proposition \ref{rmk:prop:gf_extension} in Section \ref{sec:appen_pfs} of Appendix, which presents a similar result for the case where $\mathcal{P}_{s}, s = 0, 1$ are discrete.
+Let $\mathcal{T}_{s}^{\textup{trans}}$ be the set of all transport maps from $\mathcal{P}_s$ to $\mathcal{P}_{s'}.$
+\begin{proposition}[Fair model $\Rightarrow$ Transport map: perfect fairness case]\label{prop:perfect}
+    For any perfectly group-fair model $f,$ i.e., $\mathcal{P}_{f_{0}} = \mathcal{P}_{f_{1}},$
+    there exists a transport map $\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}}$ satisfying
+    $
+    f \left( \mathbf{X}, s \right) = f \left( \mathbf{T}_{s} (\mathbf{X}), s' \right), a.e.
+    $
+\end{proposition}
+
+The key implication of this {mathematical} proposition is that all perfectly group-fair models are not the same and the differences can be identified by their corresponding transport maps.
+We can similarly define a transport map corresponding to a given not-perfectly group-fair model (i.e., $\Delta > 0$), by using a novel fairness measure termed \textbf{Matched Demographic Parity} (MDP) defined as below.
+
+
+\begin{definition}[Matched Demographic Parity]
+    For a given model $f \in \mathcal{F}$ and a transport map $\mathbf{T}_{s} \in \mathcal{T}_{s}^\textup{trans},$
+    the measure for MDP is defined as
+    \begin{equation}\label{eq:mdp}
+        \Delta \textup{MDP} (f, \mathbf{T}_{s}) := \mathbb{E}_{s} \left\vert f(\mathbf{X}, s) - f(\mathbf{T}_{s}(\mathbf{X}), s') \right\vert.
+    \end{equation}
+\end{definition}
+
+The idea behind MDP is that two individuals from different protected groups are matched by $\mathbf{T}_s,$ and $\Delta \textup{MDP} (f, \mathbf{T}_{s})$ quantifies the similarity between the predictions of these two matched individuals. 
+Subsequently, Theorem \ref{prop:gf} below presents a relaxed version of Proposition \ref{prop:perfect}, showing that any group-fair model $f$ has a transport map $\mathbf{T}_s$ such that $\Delta \textup{MDP} (f, \mathbf{T}_{s})$ is small.
+Refer to Section \ref{sec:appen_pfs} of Appendix for the proof of Theorem \ref{prop:gf} and see Figure \ref{fig:mdp} for the illustration of MDP.
+
+\begin{theorem}[Fair model $\Rightarrow$ Transport map: relaxed fairness case]\label{prop:gf}
+    Fix a fairness level $\delta \ge 0.$
+    For any given group-fair model $f$ such that $\Delta \textup{TVDP}(f) \le \delta,$
+    there exists a transport map $\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}}$ satisfying
+    $\Delta \textup{MDP}(f, \mathbf{T}_{s}) \le 2 \delta.$
+\end{theorem}
+
+%%%%%%%%%%%%%
+\begin{figure}[h]
+% \begin{wrapfigure}{r}{0.42\linewidth}
+    % \vskip -0.2in
+    \centering
+    \includegraphics[width=0.36\textwidth]{figures/fig_mdp.png}
+    % \vskip -0.1in
+    \caption{
+    Simplified illustration of MDP.
+    Once two individuals \textcolor{darkpurple}{A} and \textcolor{darkgreen}{B} are matched (\textcolor{red}{$\leftrightarrow$}), a model treats the pair of matched individuals \textcolor{darkpurple}{A} and \textcolor{darkgreen}{B} similarly (as well as all the other pairs).
+    This implicit mechanism contributes to making the model fair.
+    }
+    \label{fig:mdp}
+    \vskip -0.1in
+% \end{wrapfigure}
+\end{figure}
+%%%%%%%%%%%%%
+
+We define the \textbf{{fair matching function}} for a given $f$ as the transport map that attains the infimum of equation (\ref{eq:mdp}), as formulated in Definition \ref{def:corr_match_f} below.
+{The term `fair' is used because MDP is minimized by this transport map.}
+Through investigating the {fair matching function}, we can understand the mechanism behind how a group-fair model behaves.
+That is, the {fair matching function} specifically reveals which pairs of individuals from two protected groups are treated similarly by the given group-fair model.
+
+
+\begin{definition}[{Fair matching function} of $f$]\label{def:corr_match_f}
+    For a given $f,$ denote
+    $
+    \mathbf{T}_{s}^{f} := \argmin_{ \mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}} } \Delta \textup{MDP} (f, \mathbf{T}_{s}),
+    s \in \{0, 1\}.
+    $
+    For
+    $\hat{s} := \argmin_{s \in \{ 0,1 \}} \Delta \textup{MDP} (f, \mathbf{T}^f_{s})$,
+    the {fair matching function} of $f$ is defined as $\mathbf{T}^{f} := \mathbf{T}_{\hat{s}}^{f}$.
+\end{definition}
+
+Note that the existence of this {fair matching function} is guaranteed by Brenier's theorem \citep{villani2008optimal, 10.1214/20-AOS1997}.
+To be specific, since $\mathcal{P}_{s}, s \in \{0, 1\}$ are absolutely continuous by (C), and the cost function in MDP, i.e., $c(\mathbf{x}, \mathbf{y}) := \vert f(\mathbf{x}, s) - f(\mathbf{y}, s') \vert,$ is lower semi-continuous and bounded from below,
+the minimizer of $\Delta \textup{MDP} (f, \mathbf{T}_{s})$ uniquely exists.
+
+\paragraph{Practical computation of the {fair matching function}}
+In practice, we estimate the fair matching function using the observed data $\mathcal{D} = \{(\mathbf{x}_i, y_i, s_i)\}_{i=1}^n.$
+Let $\mathcal{D}_{0} = \{ \mathbf{x}_{i} : s_{i} = 0 \} = \{ \mathbf{x}_{i}^{(0)} \}_{i=1}^{n_{0}}$ and $\mathcal{D}_{1} = \{ \mathbf{x}_{j} : s_{j} = 1 \} = \{ \mathbf{x}_{j}^{(1)}\}_{j=1}^{n_{1}}$ be the set of inputs given the sensitive attribute, where $n_{0} + n_{1} = n.$
+We here introduce practical methods for computing the fair matching function in Definition \ref{def:corr_match_f}, by considering two cases:
+
+\begin{enumerate}
+    \item 
+    Case of $n_{0} = n_{1}$:
+    When the sizes of two protected groups are equal ($n_{0} = n_{1}$), we can easily find the fair matching function by quantile matching.
+    We first sort the scores in $\{ f_{s}(\mathbf{x}) \}_{\mathbf{x} \in \mathcal{D}_{s}}$ for each group $s\in \{0,1\}.$
+    Then, we match the individuals having the same rank (i.e., quantile) in each set, thereby obtaining the fair matching function of $f.$
+    This straightforward procedure is theoretically guaranteed by the definition of 1-Wasserstein distance, which is calculated by quantile matching \citep{rachev1998mass, NEURIPS2020_51cdbd26, pmlr-v115-jiang20a}.
+    We formally present this procedure in Proposition \ref{prop:quantile_match} below.
+    Its proof is provided in Section \ref{sec:appen_pfs} of Appendix.
+    Let $F_{s}$ represents the cumulative distribution function of $ f_{s}(\mathbf{x}), \mathbf{x} \in {\mathcal{D}}_{s}.$ 
+    For technical simplicity, we assume that there is no tie in $\{ f_{s}(\mathbf{x}): \mathbf{x} \in {\mathcal{D}}_{s}\}.$ 
+    \begin{proposition}\label{prop:quantile_match}
+        Let $\mathbf{T}^f$ be the {fair matching function} of $f$ on $\mathcal{D}_0$ and $\mathcal{D}_1$
+        (where the empirical distributions with respect to $\mathcal{D}_0$ and $\mathcal{D}_1$ are used in Definition \ref{def:corr_match_f}).
+        Then, the matched individual $ \mathbf{T}^{f} (\mathbf{x}) $ of any $\mathbf{x} \in {\mathcal{D}}_{s}$ is obtained by
+        $ \mathbf{T}^{f}(\mathbf{x}) = f_{s'}^{-1} \circ F_{s'}^{-1} \circ F_{s} \circ f_{s}(\mathbf{x}). $
+    \end{proposition}
+
+    \item 
+    Case of $n_{0} \neq n_{1}$:
+    When the sizes differ, we can consider a stochastic fair matching function (a stochastic transport map that minimizes $\Delta \textup{MDP}$), which matches individuals with probability, not deterministically.
+    In fact, a stochastic transport map corresponds to a joint distribution between two protected groups, i.e., a stochastic transport map can be defined by a joint distribution, as follows:
+    
+    Denote $\mathbb{Q}$ as a joint distribution between $\mathcal{D}_{0}$ and $\mathcal{D}_{1},$ and let $\mathbf{X}_{0}$ and $\mathbf{X}_{1}$ be the random variables following the empirical distributions on $\mathcal{D}_{0}$ and $\mathcal{D}_{1},$ respectively.
+    For a given joint distribution $\mathbb{Q},$ the stochastic transport map $\mathbf{T}_{s}$ (corresponding to the $\mathbb{Q}$) is defined by $\mathbf{T}_{s}(\mathbf{x}_{i}^{(s)}) = \mathbf{x}_{j}^{(s')}$ with probability $\mathbb{Q}(\mathbf{X}_{s} = \mathbf{x}_{i}^{(s)}, \mathbf{X}_{s'} = \mathbf{x}_{j}^{(s')}).$
+    Once we find the stochastic fair matching function, i.e., the stochastic transport map (joint distribution $\mathbb{Q}$) minimizing $\Delta \textup{MDP}(f, \mathbb{Q}) = \mathbb{E}_{(\mathbf{X}_{0}, \mathbf{X}_{1}) \sim \mathbb{Q}} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert,$ we can compute its transport cost as $\mathbb{E}_{(\mathbf{X}_{0}, \mathbf{X}_{1}) \sim \mathbb{Q}} \Vert \mathbf{X}_{0} - \mathbf{X}_{1} \Vert^{2}.$
+    Note that the minimization of $\Delta \textup{MDP}$ with respect to the stochastic transport map is technically equivalent to solving the Kantorovich problem, which can be easily solved by the use of linear programming.
+    See Section \ref{sec:appen_pfs} and Section \ref{appendix:kanto} for more details about the stochastic transport map and the Kantorovich problem, respectively.
+    
+    Alternatively, in practice, we can apply a mini-batch sampling technique.
+    We first sample two random mini-batches $\tilde{\mathcal{D}}_{0} \subset \mathcal{D}_{0}$ and $\tilde{\mathcal{D}}_{1} \subset \mathcal{D}_{1}$ with identical size $m.$
+    Then, we follow the process in `(1) Case of $n_{0} = n_{1}$' above.
+    The transport cost of the fair matching function can be then estimated by the average transport costs computed on many random mini-batches.
+    See Remark \ref{rmk:prop:quantile_match} in Section \ref{sec:appen_pfs} for the statistical validity of this mini-batch technique.
+\end{enumerate}
+
+Furthermore, Remark \ref{rmk:use_tc} below explains how the transport cost can serve as a metric for assessing the desirability of given group-fair models.
+
+\begin{remark}[Usage of the transport cost of the fair matching function]\label{rmk:use_tc}
+    Furthermore, the transport cost of the fair matching function can serve as a measure to assess whether a given group-fair model is desirable.
+    For example, when choosing a model between two group-fair models with similar levels of group fairness or/and prediction accuracies, the model with the lower transport cost would be preferred.
+    In Section \ref{sec:increase_tc}, we compare transport costs of fair matching functions for two different group-fair models, using the mini-batch technique.
+\end{remark}
+
+
+% \color{black} % remove
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fairness Through Matching (FTM): learning a group-fair model with a transport map}\label{sec:improve}
+
+The goal of this section is to formulate our proposed algorithm.
+Before introducing it, we provide a theoretical support, which shows that a group-fair model can be constructed by MDP using any transport map.
+Theorem \ref{prop:reversefair} below, which is the reverse of Theorem \ref{prop:gf}, shows that any transport map in the input space can construct a group-fair model.
+Precisely, for a given transport map, if a model provides similar predictions for two individuals who are matched by the transport map, then it is group-fair.
+The proof is given in Section \ref{sec:appen_pfs} of Appendix.
+\begin{theorem}[Transport map $\Rightarrow$ Group-fair model]\label{prop:reversefair}
+    For a given $\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}},$
+    if $\Delta \textup{MDP} (f, \mathbf{T}_{s}) \le \delta,$
+    then we have $\Delta \textup{WDP} ( f )\le \delta$ and $\Delta \overline{\textup{DP}} ( f ) \le \delta.$
+\end{theorem}
+
+Again, it is remarkable that a group-fair model and its corresponding transport map are closely related, i.e., \textbf{\textit{every group-fair model has its corresponding implicit transport map, and vice versa}}.
+This finding can be mathematically expressed as follows.
+Let $\Delta$ be a given (existing) fairness measure, and define $\mathcal{F}_{\Delta} (\delta) := \{ f \in \mathcal{F} : \Delta(f) \le \delta \}$ as the set of group-fair models of level $\delta$ (with respect to $\Delta$).
+Similarly, for MDP, define $\mathcal{F}_{\Delta \textup{MDP}} (\mathbf{T}_{s}, \delta) := \{ f \in \mathcal{F} : \Delta \textup{MDP} (f, \mathbf{T}_{s}) \le \delta \}.$
+Then, following from Theorem \ref{prop:gf} and \ref{prop:reversefair}, we can conclude that the three measures (i.e., TVDP, WDP, and MDP) are closely related:
+$
+\mathcal{F}_{\Delta \textup{TVDP}} (\delta) \subseteq \cup_{\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}}} \{ f: \Delta \textup{MDP}(f, \mathbf{T}_{s}) \le 2\delta \} \subseteq \mathcal{F}_{\Delta \textup{WDP}} (2\delta).
+$
+
+As discussed in Section \ref{sec:intro} as well as several previous works (e.g., \citet{10.1145/2090236.2090255}), there exist group-fair models having undesirable properties such as subset targeting or self-fulfilling prophecy.
+The advantage of MDP is that we can screen out such undesirable group-fair models during the learning phase, to consider desirable group fair models only.
+And, using MDP achieves this goal by considering group-fair models whose transport maps have low transport costs.
+That is, we can search for a group-fair model only on $\cup_{\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{good trans}}} \{ f: \Delta \textup{MDP}(f, \mathbf{T}_{s}) \le 2\delta \},$
+where $\mathcal{T}_{s}^{\textup{good trans}} \subseteq \mathcal{T}_{s}^{\textup{trans}}$ is a set of specified `good' transport maps.
+See Section \ref{sec:choiceT} for such good transport maps that we specifically propose.
+It is worth noting that such screening would be challenging with existing group-fair measures.
+
+
+\paragraph{FTM algorithm}
+
+Based on Theorem \ref{prop:reversefair}, we develop a learning algorithm named \textbf{Fairness Through Matching} (FTM), which learns a group-fair model subject to MDP being small with a given transport map.
+FTM consists of two steps.
+First, we select a (good) transport map.
+Then, we learn a model under the MDP constraint with the selected transport map.
+The precise objective of FTM is formulated below.
+
+Suppose a transport map $\mathbf{T}_{s}$ is selected (see Section \ref{sec:choiceT} for the proposed transport maps).
+FTM solves the following objective for a given loss function $l$ (e.g., cross-entropy) and a pre-defined fairness level $\delta \ge 0:$
+\begin{equation}\label{eq:pop_obj}
+    \begin{split}
+        f^{\textup{FTM}}(\mathbf{T}_{s}) := \argmin_{f \in \mathcal{F}} \mathbb{E} l(Y, f(\mathbf{X}, S)) 
+        \textup{ subject to} \min_{s \in \{0, 1\}} \Delta \textup{MDP} (f, \mathbf{T}_{s}) \le \delta.
+    \end{split}
+\end{equation}
+Unless there is any confusion, we write $f^{\textup{FTM}}$ instead of $f^{\textup{FTM}}(\mathbf{T}_{s})$ for simplicity.
+By Theorem \ref{prop:reversefair}, it is clear that $f^{\textup{FTM}}$ is fair (i.e., $\Delta \textup{WDP} (f^{\textup{FTM}}), \Delta \overline{\textup{DP}} (f^{\textup{FTM}}) \le \delta$) for any transport map $\mathbf{T}_{s}.$
+In practice, we estimate $f^{\textup{FTM}}$ with observed data $\mathcal{D}$ using mini-batch technique along with a stochastic gradient descent based algorithm (see Section \ref{sec:choiceT} for details).
+
+% As any transport map can be used to build a group-fair model, it is possible to learn a group-fair model with a specific property by choosing an appropriate transport map.
+% In the following section, we introduce and discuss two desirable options for the transport map with their advantages.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \color{Blue} % remove
+\subsection{Conceptual comparison of existing approaches and FTM}\label{sec:compare}
+
+\paragraph{Individual fairness}
+FTM and individual fairness are similar in the sense that they try to treat similar individuals similarly.
+A difference is that FTM aims to treat two individuals from different protected groups similarly, while the individual fairness tries to treat similar individuals similarly regardless of sensitive attribute (even when it is unknown).
+That is, similar individuals in FTM could be dissimilar in view of individual fairness, especially when the two protected groups are significantly different. 
+
+On the other hand, a limitation of individual fairness is that group fairness is not guaranteed.
+FTM can be also understood as a tool to address this limitation by finding models with higher individual fairness among group-fair models.
+Empirical results support this conjecture that FTM improves individual fairness compared to baseline methods for group fairness (see Table \ref{table:indi} in Section \ref{sec:add_exps_indi}).
+
+
+
+\paragraph{Fair representation learning}
+
+FTM and FRL (Fair Representation Learning) are similar in the sense that they align two conditional distributions.
+However, the role of the alignment in FTM and FRL are different:
+FTM builds a prediction model in the original input space, using transport map in the MDP constraint only.
+In contrast, FRL methods first learn fair representation by aligning the conditional distributions of representation, and then use the learned fair representation as input.
+
+Furthermore, FTM and FRL methods are motivated by fundamentally different objectives.
+FTM is designed to learn group-fair models with desirable properties (e.g., higher fairness on subsets), whereas FRL methods aim to obtain fair representations which can be used for downstream tasks requiring fairness.
+The FRL approach proposed by \citet{pmlr-v97-gordaliza19a} is particularly similar to FTM, as both apply the OT map on the input space. 
+However, unlike FTM, it trains a prediction model on the (pre-trained) fair representation space derived from the OT map.
+On the contrary, FTM builds the prediction model on the original input space and utilizes the OT map solely within the fairness constraint.
+As a result, the prediction model of FTM is not tied to the OT map, making it more flexible and leading to improved prediction accuracy.
+Empirical evidence supporting this claim is provided in Table \ref{table:compare_gordaliza} in Section \ref{sec:add_exps_frl}, which demonstrates the superior performance of FTM compared to several FRL methods, including \citet{pmlr-v97-gordaliza19a}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Empirical algorithm with transport map selection}\label{sec:choiceT}
+
+The implication of Theorems \ref{prop:gf} and \ref{prop:reversefair} is that any transport map corresponds to a group-fair model.
+However, an improperly chosen transport map can result in undesirable outcomes, even if group fairness is satisfied, as shown in Theorem \ref{prop:reversefair} (see Section \ref{sec:highcost} of Appendix for an example of a problematic group-fair model due to an unreasonable transport map).
+Thus, selecting an appropriate transport map is crucial when using FTM, which is the primary focus of this section.
+
+Specifically, we propose two favorable choices of the transport map $\mathbf{T}_{s}$ used in FTM.
+In Section \ref{sec:choiceT-OT}, we suggest using the OT map in the input space $\mathcal{X},$ resulting in a group-fair model with a higher fairness level on subsets.
+In Section \ref{sec:choiceT-relax}, we propose using the OT map in the product space $\mathcal{X} \times \mathcal{Y},$ to improve prediction performance and the level of equalized odds, when compared to the OT map in the input space.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{OT map on $\mathcal{X}$}\label{sec:choiceT-OT}
+
+For a given $\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}},$ the \textit{transport cost} (on $\mathcal{X}$) of $\mathbf{T}_{s}$ is defined by $\mathbb{E}_{s} \Vert \mathbf{X} - \mathbf{T}_{s}(\mathbf{X}) \Vert^{2}.$
+First, we propose using the OT map between the two input spaces, which is the minimizer of the transport cost on $\mathcal{X}$ among all transport maps.
+From now on, we call this OT map on $\mathcal{X}$ as the \textbf{marginal OT map}.
+
+In this section, we explore a benefit of using the marginal OT map (i.e., low transport cost) by showing a theoretical relationship between the transport cost and fairness on subsets.
+Many undesirable behaviors of group-fair models have been recognized and discussed \citep{10.1145/2090236.2090255, kearns2018empirical, wachter2020bias, mougan2024beyond}.
+\textit{Subset fairness}, which is a similar concept to subset targeting in \citet{10.1145/2090236.2090255}, is one of such undesirable behaviors. 
+We say that a group-fair model is subset-unfair if it is not group-fair against a certain subset (e.g., aged over 60s) even if it is group-fair overall.
+The definition of subset fairness can be formulated as follows.
+
+\begin{definition}[Subset fairness]\label{def:subsetfairness}
+    Let $A$ be a subset of $\mathcal{X}.$
+    The level of \textit{subset fairness} over $A$ is defined as
+    $$
+    \Delta \overline{\textup{DP}}_{A}(f) := \vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 0, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 1 ) | S = 1, \mathbf{X} \in A ) \vert.
+    $$
+\end{definition}
+
+Intuitively, we expect that a group-fair model with a low transport cost would exhibit a high level of subset fairness.
+This is because the chance of two matched individuals (from different protected groups) belonging to the same subset $A$ tends to be higher when the transport cost is smaller.
+Theorem \ref{thm:subset} theoretically supports this conjecture, whose proof is provided in Section \ref{sec:appen_pfs} of Appendix.
+
+
+\begin{theorem}[Low transport cost benefits subset fairness]\label{thm:subset}
+    Suppose $\mathcal{F}$ is the collection of $L$-Lipschitz\footnote{A function $g: \mathcal{X} \rightarrow \mathbb{R}$ is $L$-Lipschitz if $\vert g(\mathbf{x}_{1}) - g(\mathbf{x}_{2}) \vert \le L \Vert \mathbf{x}_{1} - \mathbf{x}_{2} \Vert$ for all $\mathbf{x}_{1}, \mathbf{x}_{2} \in \mathcal{X}.$} functions.
+    Let $A$ be a given subset in $\mathcal{X}.$
+    Then, for all $f$ satisfying $\Delta \textup{MDP} (f, \mathbf{T}_{s}^{f}) \le \delta,$ we have
+    \begin{equation}
+        \begin{split}
+            \Delta \overline{\textup{DP}}_{A} (f) 
+            \le L \left( \mathbb{E}_{s} \Vert \mathbf{X} - \mathbf{T}_{s}^{f}(\mathbf{X}) \Vert^{2} \right)^{ \frac{1}{2} }
+            + \textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A}) + U \delta,
+        \end{split}
+    \end{equation}
+    where $\mathcal{P}_{s, A}$ is the distribution of $\mathbf{X} | S = s, \mathbf{X} \in A,$
+    and $U > 0$ is a constant only depending on $A$ and $\mathcal{P}_{s}, s=0,1.$
+\end{theorem}
+
+
+The first term of RHS, $L \left( \mathbb{E}_{s} \Vert \mathbf{X} - \mathbf{T}_{s}^{f}(\mathbf{X}) \Vert^{2} \right)^{1/2},$ implies that using a transport map with a small transport cost helps improve the level of subset fairness. 
+The uncontrollable term $\textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A})$ can be small for certain subsets. 
+For example, for disjoint sets $A_{1}, \cdots, A_{K}$ of $A,$ suppose that $\mathcal{P}_s$ is a mixture of uniform distribution given as
+$\mathcal{P}_s(\cdot)=\sum_{k=1}^K p_{sk} \mathbb{I}(\cdot\in A_k)$ with $p_{sk}\ge 0$ and $\sum_{k=1}^K p_{sk}=1$ (e.g., the histogram).
+Then, $\textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A})$ becomes zero for all $A_{k}, k \in [K].$
+The last term $U \delta$ becomes small when $\delta$ is small.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \color{Blue} % remove
+\paragraph{Connection to counterfactual fairness}
+The concept of FTM is also related to counterfactual fairness \citep{https://doi.org/10.48550/arxiv.1703.06856}.
+In specific, under a simple Structural Causal Model (SCM), the input transported by the marginal OT map is equivalent to the counterfactual input.
+Particularly, let $\mathbf{X}_{s} = \mathbf{X} | S = s$ for $s \in \{0,1\}$ and consider an SCM 
+\begin{equation}\label{eq:sem}
+    \begin{split}
+        \mathbf{X}_{s} = \mu_{s} + A \mathbf{X}_{s} + \epsilon_{s}
+    \end{split}
+\end{equation}
+for given $A \in \mathbb{R}^{d \times d},$ $\mu_{s} \in \mathbb{R}^{d}$ with Gaussian random noise $\epsilon_{s} \sim \mathcal{N}(0, \sigma_{s}^{2} D)$ of a diagonal matrix $D \in \mathbb{R}^{d \times d}$ and variance scaler $\sigma_{s}^{2}.$
+An example DAG (Directed Acyclic Graph) for equation (\ref{eq:sem}) is Figure \ref{fig:SCM}.
+
+%%%%%%%%%%%%%%%%%
+\begin{wrapfigure}{r}{0.3\linewidth}
+    \centering
+    \begin{tikzpicture}[node distance={20mm}, main/.style = {draw, circle}, squarenode/.style = {draw, rectangle}]
+        \node[main] (X) at (3, 0) {\normalsize $\mathbf{X}$};
+        \node[main] (S) at (0, 0) {\normalsize $S$};
+        \path[-angle 90, font=\scriptsize]
+        (S) edge (X);
+        \node (e) at (1.2, 1) {\normalsize $\epsilon_{s}$};
+        \node (diste) at (2.4, 1) {\normalsize $\sim \mathcal{N}(0, \sigma_{s}^{2} D)$};
+        \path[-angle 90, font=\scriptsize]
+        (e) edge[dotted] (X);
+        \path[-angle 90, font=\scriptsize]
+        (S) edge[dotted] (e);
+    \end{tikzpicture}
+    \caption{An example DAG of the SCM in equation (\ref{eq:sem}).}
+    \label{fig:SCM}
+\end{wrapfigure}
+%%%%%%%%%%%%%%%%%
+
+Let $\mathbf{x}_{s}$ be a realization of $\mathbf{X}_{s}$ and assume $(\mathbf{I}_{d}-A)$ has its inverse $B := (\mathbf{I}_{d}-A)^{-1},$ where $\mathbf{I}_{d} \in \mathbb{R}^{d \times d}$ is the identity matrix.
+Then, its counterfactual becomes $\tilde{\mathbf{x}}_{s}^{\textsc{CF}} = B \mu_{s'} + \sigma_{s'} \sigma_{s}^{-1} \mathbf{I}_{d} (\mathbf{x}_{s} - B \mu_{s})$ (proved with Proposition \ref{prop:cf} together in Section \ref{sec:appen_pfs} of Appendix).
+On the other hand, by Lemma \ref{lemma:gaussianOT} in Section \ref{sec:appen_pfs} of Appendix, the image of $\mathbf{x}_{s}$ by the marginal OT map is given as 
+$ \tilde{\mathbf{x}}_{s}^{\textsc{OT}} = B \mu_{s'} + \mathbf{W}_s (\mathbf{x}_{s} - B \mu_{s}) $ for some $\mathbf{W}_s \in \mathbb{R}^{d \times d}.$
+Proposition below \ref{prop:cf} shows $\tilde{\mathbf{x}}_{s}^{\textup{CF}} = \tilde{\mathbf{x}}_{s}^{\textup{OT}},$ whose proof is deferred to Section \ref{sec:appen_pfs} of Appendix.
+
+\begin{proposition}[Counterfactual fairness and the marginal OT map]\label{prop:cf}
+    For all $A$ having $(\mathbf{I}_{d}-A)^{-1},$
+    $\mathbf{W}_s$ becomes $ \sigma_{s'} \sigma_{s}^{-1} \mathbf{I}_{d}.$
+    That is, $\tilde{\mathbf{x}}_{s}^{\textsc{CF}} = \tilde{\mathbf{x}}_{s}^{\textsc{OT}}.$
+\end{proposition}
+% \color{black} % remove
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We further present an example in Section \ref{sec:highcost} of Appendix showing that a transport map with a high transport cost can lead to a problematic group-fair model.
+Moreover, Section \ref{sec:exp-subsets} empirically shows that group-fair models learned by FTM with the marginal OT map attain higher fairness levels on various subsets that are not explicitly considered in the training phase, compared to group-fair models learned by existing algorithms.
+
+%%%%%%%%%%%%%
+\paragraph{Estimation of the marginal OT map}
+
+To estimate the marginal OT map in practice, we sample two random mini-batches $\tilde{\mathcal{D}}_{0} = \{ \mathbf{x}_{i}^{(0)} \}_{i=1}^{m} \subset \mathcal{D}_{0}$ and $\tilde{\mathcal{D}}_{1} = \{ \mathbf{x}_{j}^{(1)}\}_{j=1}^{m} \subset \mathcal{D}_{1}$ with an identical size $m \le n.$
+For given two empirical distributions on $\tilde{\mathcal{D}}_{0}$ and $\tilde{\mathcal{D}}_{1},$
+the cost matrix between the two is defined by
+$\mathbf{C} := [c_{i, j}] \in \mathbb{R}_{+}^{m \times m}$ where $ c_{i, j} = \Vert \mathbf{x}_{i}^{(0)} - \mathbf{x}_{j}^{(1)} \Vert^{2}.$
+The optimal coupling is then defined by the matrix $\Gamma = [\gamma_{i, j}] \in \mathbb{R}_{+}^{m \times m},$ which solves the following objective:
+\begin{equation}\label{eq:otproblem}
+    \min_{\Gamma} \Vert \mathbf{C} \odot \Gamma \Vert_{1}
+    = \min_{\gamma_{i, j}} c_{i, j} \gamma_{i, j}
+    \textup{ s.t. }
+    \sum_{i=1}^{m} \gamma_{i, j} = \sum_{j=1}^{m} \gamma_{i, j} = \frac{1}{m},
+    \gamma_{i, j} \ge 0.    
+\end{equation}
+Due to the equal sample sizes of $\tilde{\mathcal{D}}_{s}, s\in \{0,1\},$ the optimal coupling has only one non-zero (positive) entry for each row and column (i.e., $\Gamma$ is a doubly stochastic matrix scaled by a constant factor of $1/m$).
+Then, the marginal OT map for each $\mathbf{x}_{i}^{(0)} \in \tilde{\mathcal{D}}_{0}$ is defined by $\mathbf{T}_{0, \tilde{\mathcal{D}}}(\mathbf{x}_{i}^{(0)}) = \mathbf{x}_{j}^{(1)} \mathbbm{1}(\gamma_{i, j} > 0)$ and $\mathbf{T}_{1, \tilde{\mathcal{D}}}$ is defined similarly.
+
+
+%%%%%%%%%%%%%
+\subsection{OT map on $\mathcal{X} \times \mathcal{Y}$}\label{sec:choiceT-relax}
+
+One might argue that using the marginal OT map could degrade the prediction performance much, since the matchings done by the marginal OT map do not consider the similarity in $Y.$
+As a remedy for this issue, we consider incorporating the label $Y$ into the cost matrix calculation to avoid substantial degradation in prediction performance.
+
+For this purpose, we define a new cost function on $\mathcal{X} \times \mathcal{Y}.$
+Let $\alpha$ be a given positive constant.
+The new cost function $c^{\alpha}: \mathbb{R}^{d+1} \times \mathbb{R}^{d+1} \rightarrow \mathbb{R}_{+}$ is defined by:
+$c^{\alpha}( (\mathbf{x}_{1}, y_{1}), (\mathbf{x}_{2}, y_{2}) ) := \Vert \mathbf{x}_{1} - \mathbf{x}_{2} \Vert^{2} + \alpha \vert y_{1} - y_{2} \vert, $ for given $\mathbf{x}_{1}, \mathbf{x}_{2} \in \mathbb{R}^{d}$ and $y_{1}, y_{2} \in \mathbb{R}.$
+Among all transport maps from the distribution of $\mathbf{X}, Y | S = s$ to the distribution of $\mathbf{X}, Y | S = s',$ we find the OT map that minimizes this modified transport cost on $\mathcal{X} \times \mathcal{Y}$ (i.e., the expected value of $c^{\alpha},$ where the expectation is taken over the distribution of $\mathbf{X}, Y | S = s$).
+We call this OT map on $\mathcal{X} \times \mathcal{Y}$ as the \textbf{joint OT map}.
+% Once this OT map on $\mathcal{X} \times \mathcal{Y}$ transports a given pair of input $\mathbf{x} \in \mathcal{X}$ and $y \in \mathcal{Y},$ we focus only on the components corresponding to the input.
+% For example, we select the first $d$ values from the $d+1$ dimensional vector transported by the OT map.
+% This map, which outputs only the components corresponding to the input, is called the \textbf{\textit{joint OT map}}.
+% Note that the joint OT map can be used as a transport map for $\mathbf{X},$ where the transport cost is calculated based on both $\mathbf{X}$ and $Y.$
+% For a given $\alpha \ge 0,$ we define the transport cost as $\mathbb{E}_{s} c^{\alpha}( (\mathbf{X}, Y), \mathbf{T}_{s}(\mathbf{X}, Y) ),$
+% where $ c^{\alpha}( (\mathbf{X}, Y), \mathbf{T}_{s}(\mathbf{X}, Y) ) := \mathbb{E}_{s} \Vert \mathbf{X} - \mathbf{T}_{s}(\mathbf{X}) \Vert^{2} + \alpha \vert  \vert $
+% For this purpose, we define $\mathbf{Z} = (\mathbf{Z}_{\mathbf{X}}, \mathbf{Z}_{Y}) = (\mathbf{X}, Y)$ and let $\mathcal{P}_{s, \mathbf{Z}}, s \in \{0, 1\}$ be the conditional distributions of $\mathbf{Z}$ given $S = s.$
+% Let $\mathcal{T}_{s, \mathbf{Z}}^{\textup{trans}}$ be the set of all transport maps from $\mathcal{P}_{s, \mathbf{Z}}$ to $\mathcal{P}_{s', \mathbf{Z}}.$
+% For a given transport map $\mathbf{T}_{s} \in \mathcal{T}_{s, \mathbf{Z}}^{\textup{trans}}$ and a fixed $\alpha \ge 0,$ we define a new transport cost in the space of $\mathbf{Z},$ defined as
+% $ \mathbb{E}_{s} c^{\alpha}(\mathbf{Z}_{s}, \mathbf{T}_{s}(\mathbf{Z}_{s})), $
+% where $c^{\alpha}(\mathbf{Z}^{(1)}, \mathbf{Z}^{(2)}) := \Vert \mathbf{Z}^{(1)}_{\mathbf{X}} - \mathbf{Z}^{(2)}_{\mathbf{X}} \Vert^{2} + \alpha \vert \mathbf{Z}^{(1)}_{Y} - \mathbf{Z}^{(2)}_{Y} \vert.$
+% We call the minimizer (in $\mathcal{T}_{s, \mathbf{Z}}^{\textup{trans}}$) of the transport cost as the \textit{joint OT map.}
+% We add a constraint when finding the transport map so that we find a $\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}}$ that minimizes $\mathbb{E}_{s} \Vert \mathbf{X} - \mathbf{T}_{s}(\mathbf{X}) \Vert^{2}$ under the constraint $\mathbb{E}_{s} \vert Y - Y_{\mathbf{T}_{s}} \vert \le \kappa$ for a small $\kappa \ge 0,$ where $Y_{\mathbf{T}_{s}}$ denotes the ground-truth label of $\mathbf{T}_{s}(\mathbf{X}).$
+
+Using this joint OT map with a positive $\alpha$ can contribute to the improvement in prediction accuracy compared to the marginal OT map.
+This is because, while the marginal OT map does not care labels when matching individuals, the joint OT map tends to match individuals with the same label as much as possible when $\alpha$ is sufficiently large.
+
+Not only the prediction accuracy, but also the level of equalized odds (i.e., demographic parities on the subsets consisting of those with $Y=0$ and $Y=1,$ respectively) can be improved.
+This is because, FTM with the joint OT map tends to predict similarly for individuals with the same labels but from different protected groups, which directly aligns with the concept of equalized odds.
+We can theoretically prove this claim as follows.
+First, we decompose $\Delta \textup{MDP}(f, \mathbf{T}_{s})$ as
+$ \Delta \textup{MDP}(f, \mathbf{T}_{s}) 
+= w_{0} \mathbb{E}_{s} \left( \vert f(\mathbf{X}, s) - f(\mathbf{T}_{s}(\mathbf{X}), s') \vert \big\vert Y = 0 \right)
++ w_{1} \mathbb{E}_{s} \left( \vert f(\mathbf{X}, s) - f(\mathbf{T}_{s}(\mathbf{X}), s') \vert \big\vert Y = 1 \right),
+$
+where $w_{y} := \mathbb{P}(Y = y \vert S = s), y \in \{0, 1\}.$
+Note that by the definition of the joint OT map, we have for almost all $\mathbf{x}$ with respect to the distribution of $\mathbf{X} \vert S = s,$
+$\mathcal{P} (Y = y \vert \mathbf{X} = \mathbf{x}, S = s) = \mathcal{P}(Y = y \vert \mathbf{X} = \mathbf{T}_{s}(\mathbf{x}), S = s')$ for all $y \in \{0, 1\}$ when $\alpha \rightarrow \infty.$
+Then, we have that
+$C \max\{ \Delta \overline{\textup{TPR}}(f), \Delta \overline{\textup{FPR}}(f) \} 
+\le w_{0} \Delta \overline{\textup{TPR}}(f) + w_{1} \Delta \overline{\textup{FPR}}(f) 
+\le \Delta \textup{MDP}(f, \mathbf{T}_{s}),$
+where $C = \min\{w_{0}, w_{1}\}$ is a constant.
+Here, $\Delta \overline{\textup{TPR}}(f) = \vert \mathbb{E}( f_{0}(\mathbf{X}) \vert Y = 1, S = 0 ) - \mathbb{E}( f_{1}(\mathbf{X}) \vert Y = 1, S = 1 ) \vert$ 
+and $\Delta \overline{\textup{FPR}}(f) = \vert \mathbb{E}( f_{0}(\mathbf{X}) \vert Y = 0, S = 0 ) - \mathbb{E}( f_{1}(\mathbf{X}) \vert Y = 0, S = 1 ) \vert$
+are the smooth versions of $\Delta {\textup{TPR}}(f)$ and $\Delta {\textup{FPR}}(f),$ respectively.
+Hence, we can conclude that using the joint OT map with large $\alpha$ can improve EO, compared to the marginal OT map.
+
+
+We empirically confirm this claim in Section \ref{sec:various_T}, by showing that group-fair models learned by FTM with the joint OT map offer improved prediction accuracies as well as improved levels of equalized odds, when compared to FTM with the marginal OT map.
+
+%%%%%%%%%%%%%
+\paragraph{Estimation of the joint OT map}
+
+We apply a similar technique to the marginal OT map case, starting by sampling two random mini-batches $\tilde{\mathcal{D}}_{0}$ and $\tilde{\mathcal{D}}_{1}$ with an identical size $m \le n.$
+Let $y_{i}^{(0)}$ and $y_{j}^{(1)}$ be the corresponding labels of $\mathbf{x}_{i}^{(0)} \in \tilde{\mathcal{D}}_{0}$ and $\mathbf{x}_{j}^{(1)} \in \tilde{\mathcal{D}}_{1},$ respectively.
+For a given $\alpha \ge 0,$ we modify the cost matrix as follows:
+$\mathbf{C}^{\alpha} := [c_{i, j}^{\alpha}] \in \mathbb{R}_{+}^{m \times m}$ where $ c_{i, j}^{\alpha} = \Vert \mathbf{x}_{i}^{(0)} - \mathbf{x}_{j}^{(1)} \Vert^{2} + \alpha \vert y_{i}^{(0)} - y_{j}^{(1)} \vert.$
+Note that when $\alpha = 0,$ this problem becomes equivalent to the case of the marginal OT map in equation (\ref{eq:otproblem}).
+We similarly calculate the optimal coupling the matrix by solving the following objective:
+\begin{equation}\label{eq:otXYproblem}
+    \min_{\Gamma} \Vert \mathbf{C}^{\alpha} \odot \Gamma \Vert_{1}
+    = \min_{\gamma_{i, j}} c_{i, j}^{\alpha} \gamma_{i, j}
+    \textup{ s.t. }
+    \sum_{i=1}^{m} \gamma_{i, j} = \sum_{j=1}^{m} \gamma_{i, j} = \frac{1}{m},
+    \gamma_{i, j} \ge 0.
+\end{equation}
+
+% After solving equation (\ref{eq:otXYproblem}), we technically modify the solution $\Gamma$ by focusing on the imbalance of $Y$ between $\tilde{\mathcal{D}}_{0}$ and $\tilde{\mathcal{D}}_{1}.$
+% Let $I := \{ (i, j) : i \in [m], j \in [m] \}$ represent the set of index pairs of size $m \times m.$
+% We then construct a subset of $I$ defined by $I^{\textup{match}} := \{ (i, j) \in I : \gamma_{i,j} > 0, y_{i}^{(0)} = y_{j}^{(1)} \},$ which includes index pairs that are matched ($\gamma_{i,j} > 0$) and share the same label ($y_{i}^{(0)} = y_{j}^{(1)}$).
+
+% When $\vert \{ i \in [m] : y_{i}^{(0)} = 0 \} \vert = \vert \{ j \in [m] : y_{j}^{(1)} = 0 \} \vert$ and $\alpha$ is sufficiently large, it is expected that $I = I^{\textup{match}},$ and the coupling matrix would match two individuals with the same label.
+% In contrast, if $\vert \{ i \in [m] : y_{i}^{(0)} = 0 \} \vert \neq \vert \{ j \in [m] : y_{j}^{(1)} = 0 \} \vert,$ the set $I \setminus I^{\textup{match}}$ is non-empty.
+% In this case, we randomly match individuals in $I \setminus I^{\textup{match}}$, i.e., make $\gamma_{i, j} \neq 0$ for randomly (but non-duplicated) selected indices $(i, j) \in I \setminus I^{\textup{match}}.$
+% We find that this randomization slightly improves prediction accuracy compared to the original matching found by equation (\ref{eq:otXYproblem}).
+Then, the joint OT map for each $\mathbf{x}_{i}^{(0)} \in \tilde{\mathcal{D}}_{0}$ is defined by $\mathbf{T}_{0, \tilde{\mathcal{D}}}(\mathbf{x}_{i}^{(0)}) = \mathbf{x}_{j}^{(1)} \mathbbm{1}(\gamma_{i, j} > 0)$ and $\mathbf{T}_{1, \tilde{\mathcal{D}}}$ is defined similarly.
+
+%%%%%%%%%%%%%%%%%%%%
+% \color{Blue} % remove
+\subsection{Empirical algorithm for FTM}
+In practice, we learn $f$ with a stochastic gradient descent algorithm.
+For each update, to calculate the expected loss, we sample a random mini-batch $\mathcal{D}' \subset \mathcal{D}$ of size $n' \le n.$
+Then, we update the solution using the gradient of the following objective function
+\begin{equation}
+    \begin{split}
+        \mathcal{L}(f) := \frac{1}{n'} \sum_{(\mathbf{x}_{i}, y_{i}, s_{i}) \in \mathcal{D}'} l(y_{i}, f(\mathbf{x}_{i}, s_{i}))
+        + \lambda \frac{1}{m} \sum_{\mathbf{x}_{i}^{(s)} \in \tilde{\mathcal{D}}_{s}} \left\vert f(\mathbf{x}_{i}^{(s)}, s) - f(\mathbf{T}_{s, \tilde{\mathcal{D}}} (\mathbf{x}_{i}^{(s)}), s') \right\vert
+    \end{split}
+\end{equation}
+for any $s\in \{0,1\},$
+where $\lambda>0$ is the Lagrange multiplier and $ \mathbf{T}_{s, \tilde{\mathcal{D}}} $ is a pre-specified transport map from $\tilde{\mathcal{D}}_{s}$ to $\tilde{\mathcal{D}}_{s'}$ (e.g., the marginal OT map from Section \ref{sec:choiceT-OT} or the joint OT map from Section \ref{sec:choiceT-relax}).
+% \color{black} % remove
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experiments}\label{sec:exps}
+
+This section presents our experimental results, showing that FTM with the proposed transport maps in Section \ref{sec:choiceT} empirically works well to learn group-fair models.
+The key findings throughout this section are summarized as follows.
+\begin{itemize} % [noitemsep, topsep=0pt]
+    \item[$\bullet$] 
+    FTM with the marginal OT map successfully learns group-fair models that exhibit
+    (i) competitive prediction performance (Section \ref{sec:exp-tradeoff})
+    and
+    (ii) higher levels of subset fairness (Section \ref{sec:exp-subsets}),
+    when compared to other group-fair models learned by existing baseline algorithms.
+    Beyond subset fairness, we further evaluate the self-fulfilling prophecy \citep{10.1145/2090236.2090255} as an additional benefit of low transport cost (see Table \ref{table:interpret} and \ref{table:interpret3} in Section \ref{sec:results-appendix} of Appendix).
+    
+    \item[$\bullet$] 
+    FTM with the joint OT map has the ability to learn group-fair models with improved prediction performance as well as improved levels of equalized odds, when compared to FTM with the marginal OT map (Section \ref{sec:various_T}).    
+\end{itemize}
+
+
+%%%%%%%%%%%%%
+\subsection{Settings}\label{sec:exp-settings}
+
+\paragraph{Datasets}
+
+We use four real-world benchmark tabular datasets in our experiments: \textsc{Adult} \citep{Dua:2019}, \textsc{German} \citep{Dua:2019}, \textsc{Dutch} \citep{dutch}, and \textsc{Bank} \citep{MORO201422}.
+The basic information about these datasets is provided in Table \ref{table:datasets} in Section \ref{sec:datasets-appendix} of Appendix.
+We randomly partition each dataset into training and test datasets with the 8:2 ratio.
+For each split, we learn models using the training dataset and evaluate the models on the test dataset.
+This process is repeated 5 times, and the average performance on the test datasets is reported.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{table}[ht]
+%     \vskip -0.1in
+%     \footnotesize
+%     \centering
+%     \caption{The description of the real benchmark tabular datasets: \textsc{Adult}, \textsc{German}, \textsc{Bank}, and \textsc{Dutch}.
+%     $\mathbf{X}, S, Y$ and $d$ denote the input features, the sensitive attribute, the target label information, and the dimension of $\mathbf{X},$ respectively. 
+%     Train/Test sizes are the number of samples in the training and test datasets, respectively.}
+%     \label{table:datasets}
+%     % \vskip 0.1in
+%     \begin{tabular}{c||c|c|c||c|c}
+%         \toprule
+%          Dataset & Variable & Description & Dataset & Variable & Description \\
+%          \midrule
+%          \multirow{6}{*}{\textsc{Adult}} & $\mathbf{X}$ & Personal attributes & \multirow{6}{*}{\textsc{German}} & $\mathbf{X}$ & Personal attributes \\
+%          & $S$ & Gender & & $S$ & Gender \\
+%          & $Y$ & Outcome over $\$50k$ & & $Y$ & High credit score \\
+%          & $d$ & 101 & & $d$ & 60 \\
+%          & Train/Test size & 30,136/15,086 & & Train/Test data size & 800/200 \\ % 24,108 + 6,028
+%          % & Test data size & 15,086 & & Test data size & 200 \\
+%          \midrule
+%          \multirow{6}{*}{\textsc{Bank}} & $\mathbf{X}$ & Personal attributes & \multirow{6}{*}{\textsc{Dutch}} & $\mathbf{X}$ & Personal attributes \\
+%          & $S$ & Binarized age & & $S$ & Gender\\
+%          & $Y$ & Subscribing a term deposit & & $Y$ & High-level occupation \\
+%          & $d$ & 57 & & $d$ & 58 \\
+%          & Train/Test size & 24,390/6,098 & & Train/Test data size & 48,336/12,084 \\ % 3,946 + 987 | 162,770 + 19,867
+%          % & Test data size & 6,098 & & Test data size & 12,084 \\
+%          \bottomrule
+%     \end{tabular}
+%     \vskip -0.1in
+% \end{table}
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{Baseline algorithms and implementation details}
+
+For the baseline algorithms, we consider three most popular state-of-the-art methods: Reduction \citep{pmlr-v80-agarwal18a}, Reg (minimizing cross-entropy + $\lambda \Delta \overline{\textup{DP}}^{2}$, which is considered in \citet{donini2018empirical, chuang2021fair}), and Adv (adversarial learning for ensuring that the model's predictions are independent of sensitive attributes, which is proposed by \citet{10.1145/3278721.3278779}).
+Additionally, we consider the unfair baseline (abbr. Unfair), the ERM model trained without any fairness regularization or constraint.
+For the measure of prediction performance, we use the classification accuracy (abbr. \texttt{Acc}).
+For fairness measures, we consider $\Delta \textup{DP},$ $\Delta \overline{\textup{DP}}$ and $\Delta \textup{WDP},$ which are defined in Section \ref{sec:fairness}.
+
+For all algorithms, we employ MLP networks with ReLU activation and two hidden layers, where the hidden size is equal to the input dimension.
+We run all algorithms for $200$ epochs and report their final performances on the test dataset.
+The Adam optimizer \citep{https://doi.org/10.48550/arxiv.1412.6980} with the initial learning rate of $0.001$ is used.
+To obtain the OT map for each mini-batch, we solve the linear program by using the POT library \citep{flamary2021pot}.
+We utilize several Intel Xeon Silver 4410Y CPU cores and RTX 3090 GPU processors.
+More implementation details with \texttt{Pytorch}-style psuedo-code are provided in Section \ref{sec:algorithms-appendix} and \ref{sec:code-appendix} of Appendix.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[h]
+    \centering
+    % \vskip -0.12in
+    \includegraphics[width=0.245\textwidth]{figures/Adult/wo_std/figure_Adult_test_acc_test_wdp.png}
+    \includegraphics[width=0.245\textwidth]{figures/German/wo_std/figure_German_test_acc_test_wdp.png}
+    \includegraphics[width=0.245\textwidth]{figures/Dutch/wo_std/figure_Dutch_test_acc_test_wdp.png}
+    \includegraphics[width=0.245\textwidth]{figures/Bank/wo_std/figure_Bank_test_acc_test_wdp.png}
+    % \vskip -0.1in
+    \caption{
+    Fairness-prediction trade-offs:
+    $\Delta \textup{WDP}$ vs. \texttt{Acc} on
+    (Left to right) \textsc{Adult}, \textsc{German}, \textsc{Dutch}, \textsc{Bank} datasets.
+    Similar results are observed for $\Delta \textup{DP}$ and $\Delta \overline{\textup{DP}}$ in Figure \ref{fig:tradeoff-appen} in Section \ref{sec:results-appendix} of Appendix.
+    }
+    \label{fig:tradeoff}
+    \vskip -0.1in
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{FTM with the marginal OT map}
+
+This section presents the performance of FTM with the marginal OT map, in terms of (i) fairness-prediction trade-off and (ii) improvement in subset fairness.
+
+%%%%%%%%%%%%
+\subsubsection{Fairness-prediction trade-off}\label{sec:exp-tradeoff}
+
+In this section, we empirically verify that learned models by FTM successfully achieves group fairness (demographic parity).
+% For the transport map used in MDP constraint, we choose the marginal OT map.
+Figure \ref{fig:tradeoff} below shows that FTM successfully learns group-fair models for various fairness levels.
+
+Another main implication is that using the marginal OT map does not hamper prediction performance much.
+Figure \ref{fig:tradeoff} supports this assertion in terms of fairness-prediction trade-off, that is, FTM is competitive with the three baselines.
+In most datasets, the performance of FTM is not significantly worse than that of the top-performing algorithm (i.e., Reduction).
+Notably, on \textsc{German} dataset, FTM performs the best, whereas Reduction fails to learn group-fair models with fairness level under 0.06.
+Additionally, FTM mostly outperforms the other two baseline algorithms, Reg and Adv.
+Hence, we can conclude that FTM is also a promising algorithm for achieving group fairness.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Improvement in subset fairness}\label{sec:exp-subsets}
+
+This section highlights the key advantages of using the marginal OT map in terms of subset fairness, which is theoretically supported by Theorem \ref{thm:subset}.
+We examine two scenarios for the subset $A$ in Definition \ref{def:subsetfairness}:
+(1) random subsets and (2) subsets defined by specific input variables.
+
+%%%%%%%%%%%
+\paragraph{Random subsets}
+
+First, we generate a random subset $\mathcal{D}_{\textup{sub}}$ from the test data defined as $\mathcal{D}_{\textup{sub}}=\{i: \mathbf{v}^{\top} \mathbf{x}_{i} \ge 0\},$ using a random vector $\mathbf{v}$ drawn from the uniform distribution on $[-1,1]^d.$ 
+Then, we calculate $\Delta \overline{\textup{DP}}$ on $\mathcal{D}_{\textup{sub}}.$
+Figure \ref{fig:subsetfair} presents boxplots of the $\Delta \overline{\textup{DP}}$ values calculated on 1,000 randomly generated $\mathcal{D}_{\textup{sub}}$.
+Outliers in the boxplots (points in red boxes) represent the example instances of subset unfairness.
+For a fair comparison, we evaluate under a given $\Delta \overline{\textup{DP}}$ for each dataset: 0.06 for \textsc{Adult}, 0.01 for \textsc{German}, 0.07 for \textsc{Dutch}, and 0.04 for \textsc{Bank}.
+Notably, FTM consistently has the fewest outliers than all the baselines, indicating that FTM achieves higher fairness on random subsets.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[ht]
+    % \vskip -0.1in
+    \centering
+    \includegraphics[width=0.24\textwidth]{figures/Adult/wo_std/subset_submeandp.png}
+    \includegraphics[width=0.24\textwidth]{figures/German/wo_std/subset_submeandp.png}
+    \includegraphics[width=0.24\textwidth]{figures/Dutch/wo_std/subset_submeandp.png}
+    \includegraphics[width=0.24\textwidth]{figures/Bank/wo_std/subset_submeandp.png}
+    % \vskip -0.1in
+    \caption{Fairness on random subsets: Boxplots of the levels of $\Delta \overline{\textup{DP}}$ on 1,000 randomly generated subsets $\mathcal{D}_{\textup{sub}}$ of test datasets.
+    (Left to right) \textsc{Adult}, \textsc{German}, \textsc{Dutch} and \textsc{Bank}.
+    The values presented under the algorithm name (e.g., 0.0151 for FTM in \textsc{German}) are the standard deviations.
+    }
+    \label{fig:subsetfair}
+    \vskip -0.1in
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%
+\paragraph{Subsets defined by specific input variables}
+
+Second, we focus on subsets defined by a specific input variable.
+For this scenario, we construct two subsets by binarizing a specific input variable using its median value.
+Note that we learn models considering only gender as the sensitive attribute.
+Table \ref{table:subgroup} presents the fairness levels (with respect to gender) in the two subsets of the learned models.
+We consider \textsc{German} and \textsc{Dutch} datasets for this analysis.
+For \textsc{German} dataset, the two subsets are defined by $ \{ \mathbf{x} \textup{ of high age} \} $ and $ \{ \mathbf{x} \textup{ of low age} \} $.
+For \textsc{Dutch} dataset, the two subsets are defined by $ \{ \mathbf{x} \textup{ who is married} \} $ and $ \{ \mathbf{x} \textup{ who is not married} \} $.
+The results highlight the superiority of FTM in achieving higher fairness in these specific subsets.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[h]
+% \begin{wraptable}{r}{0.6\linewidth}
+    % \vskip -0.1in
+    \footnotesize
+    \centering
+    \caption{
+    Fairness levels on the subsets defined by specific input variables:
+    \textbf{Bold} faced ones highlight the best results, and \underline{underlined} ones are the second best ones.
+    Standard errors are provided in Table \ref{table:subgroup-append} and \ref{table:subgroup-2-append} in Section \ref{sec:results-appendix} of Appendix.
+    (Left) The subsets are defined by the input variable `age' on \textsc{German} dataset under a given $\Delta \overline{\textup{DP}} = 0.045$.
+    (Right) The subsets are defined by the input variable `marital status' on \textsc{Dutch} dataset under a given $\Delta \overline{\textup{DP}} = 0.120$.
+    }
+    \label{table:subgroup}
+    % \vskip -0.1in
+    \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c}
+        \toprule
+        & \multicolumn{5}{c|}{\textsc{German}} & \multicolumn{5}{c}{\textsc{Dutch}}
+        \\
+        \midrule
+        Measure & Subset & Reduction & Reg & Adv & FTM $\checkmark$ & Subset & Reduction & Reg & Adv & FTM $\checkmark$
+        \\
+        \midrule
+        \midrule
+        $\Delta \textup{DP}$ & \multirow{3}{*}{High age} & 0.073 & 0.077 & \underline{0.048} & \textbf{0.045} & \multirow{3}{*}{Married} & 0.258 & 0.372  & \underline{0.237}  & \textbf{0.204} 
+        \\
+        $\Delta \overline{\textup{DP}}$ & & 0.049 & 0.029 & \underline{0.028} & \textbf{0.026} & & 0.182  & \underline{0.164}  & 0.187  & \textbf{0.152} 
+        \\
+        $\Delta \textup{WDP}$ & & 0.053 & \underline{0.039} & 0.042 & \textbf{0.038} & & 0.183 & \underline{0.172}  & 0.193  & \textbf{0.152} 
+        \\
+        \midrule
+        $\Delta \textup{DP}$ & \multirow{3}{*}{Low age} & 0.118 & \underline{0.116} & 0.122 & \textbf{0.077} & \multirow{3}{*}{Not married} & \textbf{0.061}  & 0.131  & 0.095  & \underline{0.068} 
+        \\
+        $\Delta \overline{\textup{DP}}$ & & \textbf{0.047} & \underline{0.050} & 0.053 & \textbf{0.047} & & \underline{0.045}  & 0.062  & 0.098  & \textbf{0.036} 
+        \\
+        $\Delta \textup{WDP}$ & & \underline{0.058} & 0.059 & 0.061 & \textbf{0.054} & & \textbf{0.045}  & 0.072  & 0.098  & \textbf{0.045} 
+        \\
+        \bottomrule
+    \end{tabular}
+    % \begin{tabular}{c|c||c|c|c|c}
+    %     \toprule
+    %     \multicolumn{6}{c}{\textsc{German}}
+    %     \\
+    %     \midrule
+    %     Subset & Measure & Reduction & Reg & Adv & FTM $\checkmark$
+    %     \\
+    %     \midrule
+    %     \midrule
+    %     \multirow{3}{*}{High age} & $\Delta \textup{DP}$ & 0.073 & 0.077 & \underline{0.048} & \textbf{0.045}
+    %     \\
+    %     & $\Delta \overline{\textup{DP}}$ & 0.049 & 0.029 & \underline{0.028} & \textbf{0.026}
+    %     \\
+    %     & $\Delta \textup{WDP}$ & 0.053 & \underline{0.039} & 0.042 & \textbf{0.038}
+    %     \\
+    %     \midrule
+    %     \multirow{3}{*}{Low age} & $\Delta \textup{DP}$ & 0.118 & \underline{0.116} & 0.122 & \textbf{0.077}
+    %     \\
+    %     & $\Delta \overline{\textup{DP}}$ & \textbf{0.047} & \underline{0.050} & 0.053 & \textbf{0.047}
+    %     \\
+    %     & $\Delta \textup{WDP}$ & \underline{0.058} & 0.059 & 0.061 & \textbf{0.054}
+    %     \\
+    %     \bottomrule
+    % \end{tabular}
+    % \vskip 0.1in
+    % \begin{tabular}{c|c||c|c|c|c}
+    %     \toprule
+    %     \multicolumn{6}{c}{\textsc{Dutch}}
+    %     \\
+    %     \midrule
+    %     Subset & Measure & Reduction & Reg & Adv & FTM $\checkmark$
+    %     \\
+    %     \midrule
+    %     \midrule
+    %     \multirow{3}{*}{Married} & $\Delta \textup{DP}$ & 0.258 & 0.372  & \underline{0.237}  & \textbf{0.204} 
+    %     \\
+    %     & $\Delta \overline{\textup{DP}}$ & 0.182  & \underline{0.164}  & 0.187  & \textbf{0.152} 
+    %     \\
+    %     & $\Delta \textup{WDP}$ & 0.183  & \underline{0.172}  & 0.193  & \textbf{0.152} 
+    %     \\
+    %     \midrule
+    %     \multirow{3}{*}{Not married} & $\Delta \textup{DP}$ & \textbf{0.061}  & 0.131  & 0.095  & \underline{0.068} 
+    %     \\
+    %     & $\Delta \overline{\textup{DP}}$ & \underline{0.045}  & 0.062  & 0.098  & \textbf{0.036} 
+    %     \\
+    %     & $\Delta \textup{WDP}$ & \textbf{0.045}  & 0.072  & 0.098  & \textbf{0.045} 
+    %     \\
+    %     \bottomrule
+    % \end{tabular}
+% \end{wraptable}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{FTM with the joint OT map}\label{sec:various_T}
+
+This section shows the effect of using the joint OT map, in terms of improvement in (i) prediction accuracy, level of equalized odds (Section \ref{sec:partial_improve}), and (ii) the transport cost (Section \ref{sec:increase_tc}).
+We use \textsc{Adult} dataset for this analysis.
+% To do so, we compare the group-fair models learned by FTM with the two maps, the marginal OT map and the joint OT map, by using \textsc{Adult} dataset for this analysis.
+For FTM with the joint OT map, we fix $\alpha = 100,$ because the results with $\alpha > 100$ are almost identical to those with $\alpha = 100.$
+In other words, $100$ is the minimum value for $\alpha$ where $\alpha \vert y_{i}^{(0)} - y_{j}^{(1)} \vert$ fully dominates the transport cost $\Vert \mathbf{x}_{i}^{(0)} - \mathbf{x}_{j}^{(1)} \Vert^{2}.$
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Improvement in prediction accuracy and equalized odds}\label{sec:partial_improve}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{table}[h]
+\begin{wraptable}{r}{0.6\linewidth}
+    % \vskip -0.1in
+    \footnotesize
+    \centering
+    \caption{
+    Comparison between (i) the marginal OT map and (ii) the joint OT map in terms of prediction accuracy and level of equalized odds, with the two fixed fairness level $\Delta \textup{DP}$s at 0.033 and 0.054.
+    }
+    \label{table:rFTM-tradeoff}
+    \begin{tabular}{c||c|c|c|c}
+        \toprule
+        $\Delta \textup{DP} = 0.033$ & \texttt{Acc} ($\uparrow$) & $\Delta \textup{TPR}$ ($\downarrow$) & $\Delta \textup{FPR}$ ($\downarrow$) & $\Delta \textup{EO}$ ($\downarrow$)
+        \\
+        \midrule
+        Marginal OT map & 0.806 & 0.052 & 0.012 & 0.032
+        \\
+        Joint OT map & 0.810 & 0.043 & 0.013 & 0.028
+        \\
+        \midrule
+        $\Delta \textup{DP} = 0.054$ & \texttt{Acc} ($\uparrow$) & $\Delta \textup{TPR}$ ($\downarrow$) & $\Delta \textup{FPR}$ ($\downarrow$) & $\Delta \textup{EO}$ ($\downarrow$)
+        \\
+        \midrule
+        Marginal OT map & 0.826 & 0.031 & 0.023 & 0.027
+        \\
+        Joint OT map & 0.830 & 0.021 & 0.019 & 0.020
+        \\
+        \bottomrule
+        % \multirow{2}{*}{$\mathbf{T}_{s}$ in FTM} & \multicolumn{4}{c|}{$\Delta \textup{DP} = 0.033$} & \multicolumn{4}{c}{$\Delta \textup{DP} = 0.054$}
+        % \\
+        % & \texttt{Acc} ($\uparrow$) & $\Delta \textup{TPR}$ ($\downarrow$) & $\Delta \textup{FPR}$ ($\downarrow$) & $\Delta \textup{EO}$ ($\downarrow$) & \texttt{Acc} ($\uparrow$) & $\Delta \textup{TPR}$ ($\downarrow$) & $\Delta \textup{FPR}$ ($\downarrow$) & $\Delta \textup{EO}$ ($\downarrow$)
+        % \\
+        % \midrule
+        % Marginal OT map & 0.806 & & & 0.030 & 0.826 & & & 0.025
+        % \\
+        % Joint OT map & 0.810 & & & 0.026 & 0.830 & & & 0.017
+        % \\
+        % \bottomrule
+    \end{tabular}
+    % \vskip -0.1in
+\end{wraptable}
+% \end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Table \ref{table:rFTM-tradeoff} shows that FTM with the joint OT map can provide higher prediction performance than FTM with the marginal OT map in certain scenarios, where more accurate group-fair models than FTM with the marginal OT map exist (e.g., $\Delta \textup{DP} \le 0.06$ in Figure \ref{fig:tradeoff}).
+Furthermore, we observe that the level of equalized odds can also be improved in these scenarios.
+To assess the level of equalized odds, we basically use the differences in TPR and FPR, defined as
+$\Delta \textup{TPR} := \vert \mathbb{P}(C_{f_{0}}(\mathbf{X}) = 1 \vert S = 0, Y = 1) - \mathbb{P}(C_{f_{1}}(\mathbf{X}) = 1 \vert S = 1, Y = 1) \vert$
+and $ \Delta \textup{FPR} :=\vert \mathbb{P}(C_{f_{0}}(\mathbf{X}) = 1 \vert S = 0, Y = 0) - \mathbb{P}(C_{f_{1}}(\mathbf{X}) = 1 \vert S = 1, Y = 0) \vert,$ respectively.
+Note that $\Delta \textup{TPR}$ is also a measure for equal opportunity.
+We additionally use an overall measure defined as $\Delta \textup{EO} := \frac{1}{2} \sum_{y = 0, 1} \left\vert \mathbb{P} ( C_{f_{0}}(\mathbf{X}) = 1 | S = 0, Y = y ) - \mathbb{P} ( C_{f_{1}}(\mathbf{X}) = 1 | S = 1, Y = y ) \right\vert,$ which is also considered in previous works \citep{donini2018empirical, chuang2021fair}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[h]
+% \begin{wrapfigure}{r}{0.6\linewidth}
+    % \vskip -0.1in
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/all_trade_off_dp.png}
+    \caption{
+    Fairness-prediction trade-offs:
+    $\Delta \textup{DP}$ vs. \texttt{Acc} on
+    (Left to right) \textsc{Adult}, \textsc{German}, \textsc{Dutch}, \textsc{Bank} datasets.
+    FTM (joint) = FTM with the joint OT map.
+    FTM (marginal) = FTM with the marginal OT map.
+    }
+    \label{fig:rFTM-tradeoff-all}
+    \vskip -0.1in
+% \end{wrapfigure}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In addition, we compare FTM using the marginal OT map, FTM using the joint OT map, and other baseline methods, in terms of the overall fairness-prediction trade-off.
+As shown in Figure \ref{fig:rFTM-tradeoff-all}, FTM with the joint OT map achieves performance comparable to the best-performing baseline.
+This result suggests that using FTM with an appropriate transport map can empirically achieve the optimal trade-off, highlighting the flexibility of FTM in controlling the fairness-prediction trade-off, by selecting an appropriate transport map.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Increase in transport cost}\label{sec:increase_tc}
+
+On the other hand, using the joint OT map can result in a higher transport cost (of the fair matching function) compared to the marginal OT map.
+To compute the transport cost of the fair matching function, we follow the mini-batch technique introduced in Section \ref{sec:mdp}.
+We use 100 random mini-batches with batch size of $m=1024.$
+The left panel of Figure \ref{fig:rFTM-tradeoff-2} illustrates that increasing $\alpha$ can improve prediction accuracy, though this improvement comes with a higher transport cost, especially when group-fair models more accurate than FTM with the marginal OT map exist.
+That is, at $\Delta \textup{DP} = 0.025,$ a point where a group-fair model more accurate than FTM with the marginal OT map exists (e.g., Reduction in Figure \ref{fig:tradeoff}), both accuracy and transport cost increase, as $\alpha$ increases.
+
+
+
+In contrast, the right panel of Figure \ref{fig:rFTM-tradeoff-2} shows that increasing $\alpha$ does not significantly improve prediction accuracy while still incurring a higher transport cost, when FTM with the marginal OT map is competitive with other group-fair models in terms of accuracy.
+That is, at $\Delta \textup{DP} = 0.073,$ a point where the accuracy of FTM with the marginal OT map is similar to that of other group-fair models, increasing $\alpha$ does not yield notably beneficial results.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{figure}[h]
+\begin{wrapfigure}{r}{0.5\linewidth}
+    % \vskip -0.1in
+    \centering
+    \includegraphics[width=0.48\textwidth]{figures/Adult/Tc_Acc.png}
+    \caption{
+    Transport cost-prediction trade-offs:
+    Transport cost of the {fair matching function} vs. \texttt{Acc} of FTM with the joint OT map of $\alpha \in \{ 0, 1, 5, 10, 50, 100 \}$ on \textsc{Adult} dataset.
+    }
+    \label{fig:rFTM-tradeoff-2}
+    % \vskip -0.1in
+\end{wrapfigure}
+% \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Overall, FTM with the joint OT map using an appropriately tuned $\alpha$ could be a desirable solution, especially when seeking for a group-fair model that is more accurate than a group-fair model learned by FTM with the marginal OT map.
+However, tuning $\alpha$ can be challenging, and compromising subset fairness would be generally not advisable.
+Additionally, as discussed in Section \ref{sec:exp-tradeoff}, using the marginal OT map is also competitive with other baselines in terms of prediction accuracy.
+Therefore, we basically recommend using the marginal OT map for FTM, while considering the joint OT map is particularly useful when the prediction accuracy of a group-fair model learned by FTM with the marginal OT map is suboptimal.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \color{Blue} % remove
+\subsection{Further comparisons}\label{sec:add_exps}
+
+To further assess the validity of FTM from various perspectives, we consider three scenarios for empirical comparison with baseline algorithms:
+(i) FTM is robust under a group imbalance setting (i.e., $\mathcal{P}(S = 0) << \mathcal{P}(S = 1)$).
+(ii) FTM can improve the level of individual fairness, compared to existing group fairness algorithms.
+(iii) FTM outperforms several existing FRL methods, by achieving higher prediction accuracy for a given level of fairness.
+For simplicity, we employ the marginal OT map in this section for these analyses.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Comparison of stability under imbalance setting}\label{sec:add_exps_imbalance}
+
+We evaluate the stability of FTM and existing algorithms under an imbalanced scenario for the sensitive attribute.
+For this purpose, after training/test data split, we construct an imbalanced training dataset with a 5:95 ratio (5\% for $S=0$ and 95\% for $S=1$) by randomly sampling data from $\mathcal{D}_{0}$ and fully using $\mathcal{D}_{1}.$
+Then, we measure the performances on test dataset, where the models are learned on this imbalanced training dataset.
+We use \textsc{Adult} dataset for this analysis.
+For a fixed fairness level of $\Delta \overline{\textup{DP}} \approx 0.064$, we calculate the corresponding prediction accuracy.
+This procedure is repeated five times, and we calculate the average as well as the standard deviation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{wraptable}{r}{0.5\linewidth}
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \caption{
+    Stability under imbalance setting:
+    For a fixed fairness level $\Delta \overline{\textup{DP}} \approx 0.064$, average (Avg), standard deviation (Std), and coefficient of variation (CV) of the prediction accuracy (\texttt{Acc}) over five random training imbalanced datasets are provided.
+    }
+    \label{table:stabilities}
+    % \vskip 0.1in
+    \begin{tabular}{c||c|c|c|c}
+        \toprule
+        Measure & Reduction & Reg & Adv & FTM $\checkmark$
+        \\
+        \midrule
+        Avg & 0.835 & 0.836 & 0.819 & 0.827
+        \\
+        Std & 0.003 & 0.003 & 0.021 & 0.002
+        \\
+        CV & 0.004 & 0.004 & 0.026 & 0.002
+        \\
+        \bottomrule
+    \end{tabular}
+    \vskip -0.1in
+\end{table}
+% \end{wraptable}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In Table \ref{table:stabilities}, we present the average, standard deviation, and coefficient of variation (standard deviation $\div$ average) for each algorithm.
+The results indicate that FTM offers comparable stability to the baselines, showing that FTM is not particularly unstable under this group imbalance setting.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Comparison in view of individual fairness}\label{sec:add_exps_indi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{wraptable}{r}{0.8\linewidth}
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \caption{
+    Comparison in view of individual fairness:
+    Given a fixed $\Delta \textsc{DP},$ the level of individual fairness (i.e., \texttt{Con}) and corresponding \texttt{Acc} are provided.
+    The bold faced values are the best values of \texttt{Con}.
+    }
+    \label{table:indi}
+    % \vskip 0.15in
+    \begin{tabular}{c||c|c|c|c}
+        \toprule
+        \multirow{2}{*}{Dataset ($\Delta \textsc{DP}$)} & \multicolumn{4}{c}{\texttt{Con} (\texttt{Acc})} \\
+        & Reduction & Reg & Adv & FTM $\checkmark$ \\
+        \midrule
+        \midrule
+        \textsc{Adult} ($\approx$ 0.08) & 0.915 (0.839) & 0.902 (0.802) & 0.899 (0.829) & \textbf{0.935} (0.838) \\
+        \midrule
+        \textsc{German} ($\approx$ 0.06) & 0.950 (0.743) & 0.932 (0.745) & 0.944 (0.672) & \textbf{0.965} (0.744) \\
+        \midrule
+        \textsc{Dutch} ($\approx$ 0.17) & 0.952 (0.824) & 0.914 (0.815) & 0.921 (0.778) & \textbf{0.980} (0.824) \\
+        \midrule
+        \textsc{Bank} ($\approx$ 0.04) & 0.927 (0.885) & 0.978 (0.885) & 0.911 (0.884) & \textbf{0.972} (0.885) \\
+        \bottomrule
+    \end{tabular}
+    \vskip -0.1in
+    % \begin{tabular}{c||c|c|c|c|c}
+    %     \toprule
+    %     & \multicolumn{5}{c}{\texttt{Con} (\texttt{Acc})} \\
+    %     Dataset ($\Delta \textsc{DP}$) & Unfair & Reduction & Reg & Adv & FTM $\checkmark$ \\
+    %     \midrule
+    %     \midrule
+    %     \textsc{Adult} ($\approx$ 0.06) & 0.882 (0.845) & 0.937 (0.833) & 0.922 (0.832) & 0.903 (0.801) & \textbf{0.955} (0.830) \\
+    %     \midrule
+    %     \textsc{German} ($\approx$ 0.03) & 0.959 (0.743) & 0.960 (0.731) & 0.937 (0.736) & 0.948 (0.732) & 0.965 (0.737) \\
+    %     \midrule
+    %     \textsc{Dutch} ($\approx$ 0.03) & 0.844 (0.824) & 0.962 (0.690) & 0.911 (0.799) & 0.928 (0.791) & 0.983 (0.794) \\
+    %     \midrule
+    %     \textsc{Bank} ($\approx$ 0.04) & 0.928 (0.901) & 0.911 (0.885) & 0.958 (0.885) & 0.937 (0.884) & 0.971 (0.885) \\
+    %     \bottomrule
+    % \end{tabular}
+\end{table}
+% \end{wraptable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+As discussed in Section \ref{sec:compare}, as FTM is conceptually similar to the individual fairness, we here compare FTM to baseline algorithms for group fairness, in view of individual fairness.
+For the measure of individual fairness, we use the consistency (\texttt{Con}) from \citet{Yurochkin2020Training, yurochkin2021sensei}, which is the ratio of consistently predicted labels when we only flip the sensitive variable among the input variables.
+Table \ref{table:indi} presents the results, showing that FTM consistently achieves higher  individual fairness than baselines.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Comparison with FRL methods}\label{sec:add_exps_frl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{wraptable}{r}{0.5\linewidth}
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \caption{
+    Comparison between FTM and FRL methods:
+    Given a fixed $\Delta \overline{\textsc{DP}},$ the prediction accuracy (\texttt{Acc}) is provided.
+    The bold faced values are the best values of \texttt{Acc}.
+    }
+    \label{table:compare_gordaliza}
+    % \vskip 0.15in
+    \begin{tabular}{c||c|c|c|c}
+        \toprule
+        \multirow{2}{*}{Dataset ($\Delta \textsc{DP}$)} & \multicolumn{4}{c}{\texttt{Acc}} \\
+        & LAFTR & sIPM-LFR & \citet{pmlr-v97-gordaliza19a} & FTM $\checkmark$ \\
+        \midrule
+        \midrule
+        \textsc{Adult} ($\approx$ 0.06) & 0.823 & 0.820 & 0.815 & \textbf{0.835} \\
+        \midrule
+        \textsc{German} ($\approx$ 0.04) & 0.721 & 0.741 & 0.728 & \textbf{0.743} \\
+        \midrule
+        \textsc{Dutch} ($\approx$ 0.15) & 0.810 & 0.813 & 0.811 & \textbf{0.820} \\
+        \midrule
+        \textsc{Bank} ($\approx$ 0.02) & 0.877 & 0.878 & 0.876 & \textbf{0.878} \\
+        \bottomrule
+    \end{tabular}
+    \vskip -0.1in
+% \end{wraptable}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section, we experimentally compare FTM with several existing FRL methods.
+The baseline FRL methods include three approaches: two adversarial learning-based FRL methods, LAFTR \citep{Madras2018LearningAF} and sIPM-LFR \citep{pmlr-v162-kim22b}, as well as the FRL method proposed by \citet{pmlr-v97-gordaliza19a}, which is particularly similar to FTM in that both utilize the OT map for aligning distributions.
+Note that in FRL, fair representations are first obtained (via barycentric mapping for \citet{pmlr-v97-gordaliza19a} and adversarial learning for LAFTR and sIPM-LFR), and then we learn a prediction model on the fair representation space.
+
+The results are presented in Table \ref{table:compare_gordaliza}, showing the superior prediction performance of FTM compared to the baseline FRL methods.
+This outperformance of FTM is due to the fact that FRL methods are pre-processing approaches (i.e., using fair representation as a new input feature for the prediction model), whereas FTM is an in-processing approach.
+% Furthermore, FTM is more flexible in model selection compared to FRL methods, as the prediction model of FRL is built on the representation space, whereas the prediction model of FTM is built directly on the input space.
+
+% \color{black} % remove
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion and discussion}
+\label{sec:conc}
+
+In this paper, we have discussed the existence of implicit transport maps corresponding to each group-fair model.
+Specifically, we have introduced a novel group fairness measure named MDP.
+Building upon MDP, we propose a novel algorithm, FTM, designed for learning group-fair models with high levels of subset fairness.
+Experimental results demonstrate that FTM with the marginal OT map effectively produces group-fair models with improved levels of subset fairness on various subsets compared to baseline models, while maintaining reasonable prediction performance.
+Moreover, we have proposed to use the joint OT map to improve the prediction accuracy and equalized odds, compared to the marginal OT map.
+
+We suggest several promising topics for future research:
+(1) Expanding FTM to incorporate other fairness notions would be a valuable avenue for future work.
+For example, while this paper has focused DP (demographic parity) for simplicity and clarity, but applying FTM to Eqopp (equal opportunity) would be straightforward by restricting the calculation of MDP to instances where $Y=1.$
+(2) Exploring scenarios with multiple sensitive attributes, a topic frequently studied in group fairness research, is another valuable direction.
+Such cases require matching individuals from more than two protected groups, which would be challenging and is therefore left for future work.
+(3) There may be other transport maps that yield different types of group-fair models, while this paper has only considered two transport maps.
+Exploring other useful transport maps would yield interesting insights and applications.
+
+\subsubsection*{Broader Impact Statement}
+The broad goal of this study is to caution users of fair AI models -- such as social planners and courts -- against focusing solely on group fairness without accounting for the risks of potential discrimination, such as subset fairness.
+Additionally, our study aims to equip them with tools to address these aspects.
+Even though our study is rather technical, we believe that it can provide a new perspective on algorithmic fairness and could potentially impact policy-making and regulation in related fields.
+
+A key social benefit of the proposed methods is that we can train group-fair models with higher levels of subset fairness without needing to collect and process additional sensitive data.
+By doing so, the proposed algorithm is expected to transcend the fairness-privacy trade-off, making it practical for use without conflicting with data protection laws.
+
+Another social impact of our study is that the relationship between transport maps and group-fair models may help us form a new concept of fairness that can be readily accepted by society.
+Our approach explores the micro-level behavior of a given group-fair model (i.e., how the model matches individuals rather than simply looking at the statistics), which could facilitate finding reasonable compromises for existing fairness concepts that may appear paradoxical.
+
+% In this optional section, TMLR encourages authors to discuss possible repercussions of their work,
+% notably any potential negative impact that a user of this research should be aware of. 
+% Authors should consult the TMLR Ethics Guidelines available on the TMLR website
+% for guidance on how to approach this subject.
+
+% \subsubsection*{Author Contributions}
+% If you'd like to, you may include a section for author contributions as is done
+% in many journals. This is optional and at the discretion of the authors. Only add
+% this information once your submission is accepted and deanonymized. 
+
+\subsubsection*{Acknowledgments}
+
+
+YK was partly supported by 
+the National Research Foundation of Korea(NRF) grant funded by the Korea government(MSIT)(No. 2022R1A5A7083908),
+Institute of Information \& communications Technology Planning \& Evaluation (IITP) grant funded by the Korea government(MSIT) (No.RS-2022-II220184, Development and Study of AI Technologies to Inexpensively Conform to Evolving Policy on Ethics),
+and Institute of Information \& communications Technology Planning \& Evaluation (IITP) grant funded by the Korea government(MSIT) [NO.RS-2021-II211343, Artificial Intelligence Graduate School Program (Seoul National University)].
+MC was supported by a Korea Institute for Advancement of Technology (KIAT) grant funded by the Korea Government (MOTIE) (RS-2024-00409092, 2024 HRD Program for Industrial Innovation).
+
+
+% Use unnumbered third level headings for the acknowledgments. All
+% acknowledgments, including those to funding agencies, go at the end of the paper.
+% Only add this information once your submission is accepted and deanonymized. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\bibliography{FTM-arxiv.bib}
+\bibliographystyle{tmlr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\appendix
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+\section{Proofs of theorems}\label{sec:appen_pfs}
+
+% \subsection{Proof of Proposition \ref{prop:perfect}, Theorem \ref{prop:gf}, and Theorem \ref{prop:reversefair}}\label{sec:appen_pfs}
+
+% \color{Blue} % remove
+    % Let $\mathbb{N}$ be the set of natural numbers.
+    % Define $\lfloor t \rfloor := \max \{n \in \mathbb{N}: n \le t\}$ as the floor of a given $t \in \mathbb{R}.$
+% \color{black} % remove
+% Let $B > 0$ be the bound of sup-norm of $f,$ i.e., $\sup_{\mathbf{x}} \vert f(\mathbf{x}, s) \vert \in [-B, B].$
+
+% \begin{definition}
+%     For $s=0,1$ and any measurable set $A \subseteq [0, 1],$
+%     denote 
+%     $
+%     f_s^{-1}(A) := \{ \mathbf{x} \in \mathcal{X}_s : f(\mathbf{x},s) \in A \}.
+%     $
+%     Recall that $\mathcal{X}_{s}$ is the domain of $\mathbf{X} | S = s.$
+% \end{definition}
+
+% Note that we occasionally use $f_{s}(\cdot)$ and $f(\cdot, s)$ interchangeably.
+
+Let $\mathbb{N}$ be the set of natural numbers.
+For $s=0,1$ and any measurable set $A \subseteq [0, 1],$ we denote 
+$ f_s^{-1}(A) := \{ \mathbf{x} \in \mathcal{X}_s : f(\mathbf{x},s) \in A \}. $
+Recall that $\mathcal{X}_{s}$ is the domain of $\mathbf{X} | S = s.$
+
+\textbf{Proposition \ref{prop:perfect}}
+    For any perfectly group-fair model $f,$ i.e., $\mathcal{P}_{f_{0}} = \mathcal{P}_{f_{1}},$
+    there exists a transport map $\mathbf{T}_{s} = \mathbf{T}_{s}(f)$ satisfying 
+    $
+    f \left( \mathbf{X}, s \right) = f \left( \mathbf{T}_{s} (\mathbf{X}) , s' \right), a.e.
+    $
+
+\begin{proof}[Proof of Proposition \ref{prop:perfect}]
+    By letting $\delta = 0,$ Theorem \ref{prop:gf} below implies $ \mathbb{E}_{s} \left\vert f \left( \mathbf{X}, s \right) - f \left( \mathbf{T}_{s} (\mathbf{X}) , s' \right) \right\vert = 0.$
+    This implies that $\left\vert f \left( \mathbf{X}, s \right) - f \left( \mathbf{T}_{s} (\mathbf{X}) , s' \right) \right\vert = 0$ almost everywhere, which concludes the proof.
+\end{proof}
+
+% \begin{lemma}\label{lem:prop:gf-1}
+\textbf{Theorem \ref{prop:gf}}
+    Fix a fairness level $\delta \ge 0.$
+    % Under \textup{(C1)} and \textup{(C2)},
+    For any given group-fair model $f$ such that $\Delta \textup{TVDP}(f) \le \delta,$
+    there exists a transport map $\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}}$ satisfying
+    $\Delta \textup{MDP}(f, \mathbf{T}_{s}) \le 2 \delta.$
+    % for some constant $C > 0.$
+% \end{lemma}
+
+
+\begin{proof}[Proof of Theorem \ref{prop:gf}]
+    Without loss of generality, let $s = 0$ and $s' = 1.$    
+    Let $F_{0} : [0, 1] \rightarrow [0, 1]$ and $F_{1} : [0, 1] \rightarrow [0, 1]$ denote the cumulative distribution functions (CDFs) of $f(\mathbf{X}, 0) | S = 0$ and $f(\mathbf{X}, 1) | S = 1,$ respectively.
+    Note that $F_{0}$ and $F_{1}$ have at most countably many discontinuity points.
+
+    Define $D_{s}$ as the set of all discontinuity points of $F_{s},$ which is countable.
+    % \color{Blue} % remove
+        For each $t \in D_{s},$ define the jump at $t$ as $\Delta F_{s}(t) := F_{s}(t) - F_{s}(t -),$
+        where $F_{s}(t-)$ denotes the left limit of $F_{s}$ at $t.$
+    % \color{black} % remove
+    
+    Define the sub-CDF (i.e., the continuous part of $F_{s}$) as:
+    $F_{s}^{cont}(v) := F_{s}(v) - \sum_{t \in D_{s}, t \le v} \Delta F_{s}(t)$ for $v \in [0, 1].$
+    % \color{Blue} % remove
+        Note that this function $F_{s}^{cont}$ is continuous and non-decreasing on $[0, 1].$
+        Moreover, for any interval $(a, b] \subseteq [0, 1],$ define $F_{s}^{cont}((a, b]) := F_{s}^{cont}(b) - F_{s}^{cont}(a).$
+    % \color{black} % remove
+
+    We here prove for the case when $F_{1}^{cont}(1) \le F_{0}^{cont}(1).$
+    The other case $F_{1}^{cont}(1) > F_{0}^{cont}(1)$ can be treated similarly.
+
+    \begin{enumerate}
+        %%%%%%%
+        \item (Constructing subsets based on $F_{s}^{cont}$)
+        Since $F_{1}^{cont}(1) \le F_{0}^{cont}(1),$ there exists $z \le 1$ such that $F_{1}^{cont}(1) = F_{0}^{cont}(z).$
+        % \color{Blue} % remove
+            We partition the interval $[0, z]$ into subintervals of length at most $\delta.$
+            Let $v_{0} = 0$ and define $v_{k} := \min \{ v_{k-1} + \delta, z \}$ for $k = 1, \ldots, m.$
+            Here, $m \in \mathbb{N}$ is the number that satisfies $v_{m} = z.$
+            Note that $F_{1}^{cont}(1) = \sum_{k=1}^{m} F_{1}^{cont}((v_{k-1}, v_{k}]).$
+
+            For each $k \in \{ 1, \ldots, m \},$ we compare the measures of the intervals as follows.
+            
+            If $ F_{1}^{cont}( (v_{k-1}, v_{k}] ) \le F_{0}^{cont} ( (v_{k-1}, v_{k} ] ),$ then there exists $ z_{k} \in [v_{k-1}, v_{k}] $ such that
+            $ F_{1}^{cont}( (v_{k-1}, v_{k}] ) = F_{0}^{cont} ( (v_{k-1}, z_{k}] ).$
+            Define $\mathcal{X}_{0, k} := f_{0}^{-1}( (v_{k-1}, z_{k}] \setminus D_{0} )$ and $\mathcal{X}_{1, k} := f_{1}^{-1}( (v_{k-1}, v_{k}] \setminus D_{1} ).$
+            
+            If $F_{1}^{cont}( (v_{k-1}, v_{k}] ) > F_{0}^{cont}( (v_{k-1}, v_{k}] ),$ we can define $z_{k},$ $\mathcal{X}_{0, k}$ and $\mathcal{X}_{1, k}$ similarly.
+        % \color{black} % remove
+        
+
+        \item (Defining probability measures and transport maps on subsets)
+        For each $k \in \{ 1, \ldots, m \},$ define probability measures $\mathcal{P}_{s, k}, s \in \{ 0, 1 \}$ such that
+        $
+        \mathcal{P}_{s, k}(A) := \frac{\mathcal{P}_{s}(A \cap \mathcal{X}_{s, k})}{\mathcal{P}_{s} (\mathcal{X}_{s, k})}
+        $
+        for measurable subsets $A \subseteq \mathcal{X}.$       
+
+        By Brenier's Theorem \citep{villani2008optimal, 10.1214/20-AOS1997}, there exists a transport map $\mathbf{T}_{0, k}^{(1)}$ from $\mathcal{P}_{0, k} (\cdot)$ to $\mathcal{P}_{1, k} (\cdot),$ 
+        % \color{Blue} % remove
+            under (C).
+        % \color{black} % remove
+        Since $v_{k} - v_{k-1} \le \delta, \forall k,$
+        we have that 
+        \begin{equation}\label{eq:prop:gf_1}
+            \vert f(\mathbf{x}, 0) - f(\mathbf{T}_{0, k}^{(1)}(\mathbf{x}), 1) \vert \le \delta, \forall \mathbf{x} \in \mathcal{X}_{0, k}.
+        \end{equation}
+
+        %%%%%%%
+        \item (Handling discontinuity points)
+        % \color{Blue} % remove
+            Let $D_{0, 1} := D_{0} \cap D_{1}$ be the intersection of $D_{0}$ and $D_{1},$ which is the set of common discontinuity points.
+        % \color{black} % remove
+
+        Fix $d \in D_{0, 1}.$
+        Suppose that 
+        $\mathcal{P}_{1} ( f_{1}^{-1} ( \{d\} ) ) \le \mathcal{P}_{0} ( f_{0}^{-1} ( \{d\}) ).$
+        Then, there exists $f_{0}^{-1}(\{d\})' \subset f_{0}^{-1}(\{d\})$ such that 
+        $\mathcal{P}_{0} ( f_{0}^{-1} ( \{d\} )' ) = \mathcal{P}_{1} ( f_{1}^{-1} ( \{d\}) ).$
+        Define $ \tilde{\mathcal{X}}_{0, d} := f_{0}^{-1}(\{d\})'$
+        and
+        $ \tilde{\mathcal{X}}_{1, d} := f_{1}^{-1}(\{d\}).$
+        We can define $\tilde{\mathcal{X}}_{0, d}$ and $\tilde{\mathcal{X}}_{1, d}$ similarly when $\mathcal{P}_{1} ( f_{1}^{-1} ( \{d\} ) ) > \mathcal{P}_{0} ( f_{0}^{-1} ( \{d\}) ).$
+
+        For each $d \in D_{0, 1},$
+        we define probability measures $\tilde{\mathcal{P}}_{s, d}, s \in \{ 0, 1 \}$ such that
+        $
+        \tilde{\mathcal{P}}_{s, d}(A) := \mathcal{P}_{s}(A \cap \tilde{\mathcal{X}}_{s, d}) / \mathcal{P}_{s} (\tilde{\mathcal{X}}_{s, d})
+        $
+        for measurable subsets $A \subseteq \mathcal{X}.$        
+        Then, there exists a transport map $\mathbf{T}_{0, d}^{(2)}$ from 
+        $\tilde{\mathcal{P}}_{0, d}(\cdot)$ to $\tilde{\mathcal{P}}_{1, d}(\cdot).$
+        % By the definition of $D_{0, 1}$ and that
+        % % \color{Blue} % remove
+        %     $f(\mathbf{x}, 0) = d = f(\mathbf{T}_{0, d}^{(2)}(\mathbf{x}), 1)$ for all $\mathbf{x} \in \tilde{\mathcal{X}}_{0, d'},$
+        % % \color{black} % remove
+        By the definition of $\tilde{\mathcal{X}}_{0, d},$ we have that
+        \begin{equation}\label{eq:prop:gf_2}
+            f(\mathbf{x}, 0) = f(\mathbf{T}_{0, d}^{(2)}(\mathbf{x}), 1) = d, \forall \mathbf{x} \in \tilde{\mathcal{X}}_{0, d}.
+        \end{equation}
+
+        %%%%%%%
+        \item (Constructing the complement parts)
+        We collect the complements as
+        $$
+        \mathcal{X}_{0}' := \mathcal{X}_{0} \setminus \left( \bigcup_{k=1}^{m} \mathcal{X}_{0, k} \cup \bigcup_{d \in D_{0, 1}} \tilde{\mathcal{X}}_{0, d} \right)
+        \textup{ and }
+        \mathcal{X}_{1}' := \mathcal{X}_{1} \setminus \left( \bigcup_{k=1}^{m} \mathcal{X}_{1, k} \cup \bigcup_{d \in D_{0, 1}} \tilde{\mathcal{X}}_{1, d} \right).
+        $$
+
+        Because $ \mathcal{P}_{0} ( \bigcup_{k=1}^{m} \mathcal{X}_{0, k} ) = \mathcal{P}_{1}( \bigcup_{k=1}^{m} \mathcal{X}_{1, k} )$
+        and $\mathcal{P}_{0} ( \bigcup_{d \in D_{0, 1}} \tilde{\mathcal{X}}_{0, d} ) = \mathcal{P}_{1}( \bigcup_{d \in D_{0, 1}} \tilde{\mathcal{X}}_{1, d} ),$
+        we have 
+        $ \mathcal{P}_{0}( \mathcal{X}_{0}' ) 
+        = 1 - \mathcal{P}_{0} ( \bigcup_{k \in \{1, \ldots, m \} } \mathcal{X}_{0, k} ) - \mathcal{P}_{0} ( \bigcup_{d \in D_{0, 1}} \tilde{\mathcal{X}}_{0, d} ) = \mathcal{P}_{1}( \mathcal{X}_{1}' ) \le \delta. $
+
+        Define probability measures $\mathcal{P}_{s}', s \in \{ 0, 1 \}$ on $\mathcal{X}_{s}', s \in \{0, 1\}$ such that
+        $ \mathcal{P}_{s}'(A) := \frac{\mathcal{P}_{s}(A \cap \mathcal{X}_{s}')}{\mathcal{P}_{s} (\mathcal{X}_{s}')} $
+        for measurable subsets $A \subseteq \mathcal{X}.$
+        Then, there exists a transport map $\mathbf{T}_{0}^{(3)}$ from $\mathcal{P}_{0}'(\cdot)$ to $\mathcal{P}_{1}'(\cdot).$
+
+        % \color{Blue} % remove
+            For $\mathbf{x} \in \mathcal{X}_{0}',$
+            we have
+            $ \mathcal{P}_{0}(\mathcal{X}_{0}') = 1 - \left( \sum_{k=1}^{m} \mathcal{P}_{0}(\mathcal{X}_{0, k}) + \sum_{d \in D_{0, 1}} \mathcal{P}_{0} (\tilde{\mathcal{X}_{0, d}}) \right) \le \delta,$
+            since
+            $ \Delta \textup{TVDP} (f) = \textup{TV} \left( \mathcal{P}_{f(\mathbf{X}, 0) | S = 0}, \mathcal{P}_{f(\mathbf{X}, 1) | S = 1} \right) \le \delta.$
+        % \color{black} % remove
+        Furthermore, since $f(\cdot) \in [0, 1],$ we have that
+        \begin{equation}\label{eq:prop:gf_3}
+            \begin{split}
+                & \mathbb{E}_{0} \left( \vert f(\mathbf{X}, 0) - f(\mathbf{T}_{0}^{(3)}(\mathbf{X}), 1) \vert \cdot \mathbbm{1}( \mathbf{X} \in \mathcal{X}_{0}' ) \right)
+                = \int \vert f(\mathbf{X}, 0) - f(\mathbf{T}_{0}^{(3)}(\mathbf{X}), 1) \vert \cdot \mathbbm{1}( \mathbf{X} \in \mathcal{X}_{0}' ) d\mathcal{P}_{0}(\mathbf{X})
+                \\
+                & \le \int \mathbbm{1}( \mathbf{X} \in \mathcal{X}_{0}' ) d\mathcal{P}_{0}(\mathbf{X})
+                = \mathcal{P}_{0} ( \mathcal{X}_{0}' )
+                \le \delta.
+            \end{split}
+        \end{equation}
+
+        %%%%%%%
+        \item (Overall transport map)
+        Finally, combining 2 to 4 above, we define the (overall) transport map $\mathbf{T}_{0}$ as
+        \begin{equation}
+            \begin{split}
+                \mathbf{T}_{0}(\cdot) & := 
+                \sum_{k = 1}^{m} \mathbf{T}_{0, k}^{(1)}(\cdot) \mathbbm{1}(\cdot \in \mathcal{X}_{0, k} )
+                + \sum_{d \in D_{0, 1}} \mathbf{T}_{0, d}^{(2)}(\cdot) \mathbbm{1}(\cdot \in \tilde{\mathcal{X}}_{0, d} )
+                + \mathbf{T}_{0}^{(3)}(\cdot) \mathbbm{1}(\cdot \in \mathcal{X}_{0}' ).
+            \end{split}
+        \end{equation}
+        We note that 
+        $
+        \big\{
+        \{ \mathcal{X}_{0, k} \}_{k=1}^{m},
+        \{ \tilde{\mathcal{X}}_{0, d} \}_{d \in D_{0,1}},
+        \mathcal{X}_{0}' 
+        \big\}
+        $
+        and
+        $
+        \big\{
+        \{ \mathcal{X}_{1, k} \}_{k=1}^{m},
+        \{ \tilde{\mathcal{X}}_{1, d} \}_{d \in D_{0, 1}},
+        \mathcal{X}_{1}' 
+        \big\}
+        $ 
+        are partitions of $\mathcal{X}_{0}$ and $\mathcal{X}_{1},$ respectively.
+        Moreover,
+        $\mathcal{P}_{0} (\mathcal{X}_{0,k}) = \mathcal{P}_{1} (\mathcal{X}_{1,k}), \forall k,$
+        $\mathcal{P}_{0} (\tilde{\mathcal{X}}_{0,d}) = \mathcal{P}_{1} (\tilde{\mathcal{X}}_{1,d}), \forall d,$
+        and
+        $\mathcal{P}_{0}(\mathcal{X}_{0}') = \mathcal{P}_{1}(\mathcal{X}_{1}').$
+        Hence, 
+        $\mathbf{T}_{0}$ is a transport map from $\mathcal{P}_{0}$ to $\mathcal{P}_{1}.$
+
+
+        %%%%%%%
+        \item (Calculation of the bound for $\Delta \textup{MDP}(f, \mathbf{T}_{0})$)
+        Using the constructed transport map $\mathbf{T}_{0},$ we have that
+        % \color{Blue} % remove
+            \begin{equation}
+                \begin{split}
+                    \Delta \textup{MDP}(f, \mathbf{T}_{0}) & = \mathbb{E}_{0} \vert f(\mathbf{X}, 0) - f(\mathbf{T}_{0}(\mathbf{X}), 1) \vert 
+                    = \int \vert f(\mathbf{X}, 0) - f(\mathbf{T}_{0}(\mathbf{X}), 1) \vert d\mathcal{P}_{0}(\mathbf{X})
+                    \\
+                    & = \sum_{k = 1}^{m} \int_{\mathcal{X}_{0, k}} \vert f(\mathbf{x}, 0) - f(\mathbf{T}_{0, k}^{(1)}(\mathbf{x}), 1) \vert d\mathcal{P}_{0}(\mathbf{x})
+                    \\
+                    & + \sum_{d \in D_{0, 1}} \int_{\tilde{\mathcal{X}}_{0, d}} \vert f(\mathbf{X}, 0) - f(\mathbf{T}_{0, d}^{(2)}(\mathbf{x}), 1) \vert \cdot d\mathcal{P}_{0}(\mathbf{x})
+                    \\
+                    & + \int_{\mathcal{X}_{0}'} \vert f(\mathbf{x}, 0) - f(\mathbf{T}_{0}^{(3)}(\mathbf{x}), 1) \vert d\mathcal{P}_{0}(\mathbf{x})
+                    \\
+                    & \underset{(*)}{\le} \delta \sum_{k = 1}^{m} \mathcal{P}_{0} ( \mathcal{X}_{0, k} ) 
+                    + \int_{\mathcal{X}_{0}'} \vert f(\mathbf{x}, 0) - f(\mathbf{T}_{0}^{(3)}(\mathbf{x}), 1) \vert d\mathcal{P}_{0}(\mathbf{x})
+                    \\
+                    & \le \delta + \delta = 2 \delta,
+                \end{split}
+            \end{equation}
+            where (*) holds by the inequalities in (\ref{eq:prop:gf_1}), (\ref{eq:prop:gf_2}), and (\ref{eq:prop:gf_3}).
+        % \color{black} % remove
+        % Letting $C = 2$ completes the proof.
+    \end{enumerate}
+\end{proof}
+
+%%%%%%%%%%%%%%%%
+\clearpage
+% \color{Blue} % remove
+
+    \paragraph{Theorem \ref{prop:gf} without the condition (C): the case when $\mathcal{P}_{0}$ and $\mathcal{P}_{1}$ are discrete}
+    % \begin{remark}[Theorem \ref{prop:gf} without the condition (C): the case when $\mathcal{X}_{0}$ and $\mathcal{X}_{1}$ are finite]\label{rmk:prop:gf_extension}
+        The condition (C) is assumed for easier discussion involving continuous distributions.
+        This is because the existence of (deterministic) transport maps is not guaranteed when the distributions $\mathcal{P}_{0}$ and $\mathcal{P}_{1}$ are discrete and their supports are different.
+        However, by using the notion of stochastic transport map (defined below), we can derive a theoretical result similar to Theorem \ref{prop:gf} when $\mathcal{P}_{0}$ and $\mathcal{P}_{1}$ are discrete.
+
+        Let $\mathcal{X}_{0} = \{ \mathbf{x}_{1}^{(0)}, \ldots, \mathbf{x}_{n_{0}}^{(0)} \}$ and $\mathcal{X}_{1} = \{ \mathbf{x}_{1}^{(1)}, \ldots, \mathbf{x}_{n_{1}}^{(1)} \}.$
+        For this time only, define $\mathcal{P}_{0}$ and $\mathcal{P}_{1}$ as the empirical distributions on $\mathcal{D}_{0}$ and $\mathcal{D}_{1},$ respectively.
+        Let $\mathbf{X}_{0}$ and $\mathbf{X}_{1}$ be the random variables following $\mathcal{P}_{0}$ and $\mathcal{P}_{1},$ respectively.
+        Furthermore, let $f(\mathcal{X}_{0}) := \{ f(\mathbf{x}, 0) : \mathbf{x} \in \mathcal{X}_{0} \}$ and $f(\mathcal{X}_{1}) := \{ f(\mathbf{x}, 1) : \mathbf{x} \in \mathcal{X}_{1} \}.$
+        Denote $\mathcal{P}_{f_{0}}$ and $\mathcal{P}_{f_{1}}$ be the empirical distributions on $f(\mathcal{X}_{0})$ and $f(\mathcal{X}_{1}),$
+        i.e., the distributions of $f(\mathbf{X}_{0}), \mathbf{X}_{0} \sim \mathcal{P}_{0}$ and $f(\mathbf{X}_{1}), \mathbf{X}_{1} \sim \mathcal{P}_{1},$ respectively.
+
+        For a given joint distribution $\mathbb{Q}$ between $\mathbf{X}_{0}$ and $\mathbf{X}_{1},$
+        we can define $\Delta \textup{MDP} (f, \mathbb{Q}) := \mathbb{E}_{(\mathbf{X}_{0}, \mathbf{X}_{1}) \sim \mathbb{Q}} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert,$
+        which is a general version of $\Delta \textup{MDP}(f, \mathbf{T}_{s}).$
+        That is, instead of the deterministic (one-to-one) transport map, we define the stochastic transport map $\mathbf{T}_{s}$ defined by $\mathbf{T}_{s}(\mathbf{x}_{i}^{(s)}) = \mathbf{x}_{j}^{(s')}$ with probability $\mathbb{Q}(\mathbf{X}_{s} = \mathbf{x}_{i}^{(s)}, \mathbf{X}_{s'} = \mathbf{x}_{j}^{(s')}).$
+
+        In Proposition \ref{rmk:prop:gf_extension} below, we show that a stochastic transport map -- a joint distribution $\mathbb{Q}$ (rather than the deterministic transport map) --
+        exists and satisfies $\Delta \textup{MDP}(f, \mathbb{Q}) \le \delta.$
+        This is analogous to the result $\Delta \textup{MDP}(f, \mathbf{T}_{s}) \le \delta$ presented in Theorem \ref{prop:gf}.
+        Note that if $n_{0} = n_{1},$ there exist transport maps (i.e., one-to-one mappings or permutations) between $\mathcal{X}_{0}$ and $\mathcal{X}_{1}.$
+        % Thus, an analogous result to Theorem \ref{prop:gf} can be derived by applying the proof of Proposition \ref{rmk:prop:gf_extension} similarly.
+
+        \begin{proposition}\label{rmk:prop:gf_extension}
+            Assume the supports of $\mathcal{P}_{f_{0}}$ and $\mathcal{P}_{f_{1}}$ share $m (\le n_{0}, n_{1})$ number of common points.
+            Then, for any given group-fair model $f$ such that $\Delta \textup{TVDP}(f) \le \delta,$
+            there exists a joint distribution $\mathbb{Q}$ between $\mathbf{X}_{0}$ and $\mathbf{X}_{1}$ satisfying 
+            $\Delta \textup{MDP}(f, \mathbb{Q}) \le \delta.$
+        \end{proposition}
+
+        \begin{proof}
+            If suffices to show that there exists $\mathbb{Q}$ such that $\Delta \textup{MDP}(f, \mathbb{Q}) \le \Delta \textup{TVDP}(f).$
+            Without loss of generality, assume $n_{0} \le n_{1}$ and
+            let $f(\mathbf{x}_{i}^{(0)}, 0) = f(\mathbf{x}_{i}^{(1)}, 1)$ for $i \in \{ 1, \ldots, m \}$ (i.e., the common points).
+
+            First, we calculate $\Delta \textup{TVDP}(f)$ as follows.
+            Recall the definition of TV for discrete measures: $\textup{TV}(\mathcal{P}_{f_{0}}, \mathcal{P}_{f_{1}}) = \frac{1}{2} \sum_{z} \vert \mathcal{P}_{f_{0}}(z) - \mathcal{P}_{f_{1}}(z) \vert.$
+            For the $m$ number of common points, the sum of differences is $m \vert \frac{1}{n_{0}} - \frac{1}{n_{1}} \vert = m \frac{n_{1} - n_{0}}{n_{0} n_{1}}.$
+            For the points only in $f(\mathcal{X}_{0})$ but not in $f(\mathcal{X}_{1}),$ the sum of differences is $(n_{0} - m) / n_{0}.$
+            Similarly, for the points only in $f(\mathcal{X}_{1})$ but not in $f(\mathcal{X}_{0}),$ the sum of differences is $(n_{1} - m) / n_{1}.$
+            As a result, we have
+            \begin{equation}
+                \begin{split}
+                    \Delta \textup{TVDP}(f) 
+                    = \textup{TV}(\mathcal{P}_{f_{0}}, \mathcal{P}_{f_{1}})
+                    = \frac{1}{2} \left( m \frac{n_{1} - n_{0}}{n_{0} n_{1}} + \frac{n_{0} - m}{n_{0}} + \frac{n_{1} - m}{n_{1}} \right) = 1 - \frac{m}{n_{1}}.
+                \end{split}
+            \end{equation}
+
+            Then, we construct $\mathbb{Q}$ as follows.
+            Let $\gamma_{i, j} = \mathbb{Q}(\mathbf{X}_{0} = \mathbf{x}_{i}^{(0)}, \mathbf{X}_{1} = \mathbf{x}_{j}^{(1)})$
+            and $\Gamma = [\gamma_{i, j}]_{i \in [n_{0}], j \in [n_{1}]} \in \mathbb{R}_{+}^{n_{0} \times n_{1}}$ be a matrix based on $\gamma_{i, j}$s, which we construct as below:
+            % coupling matrix (i.e., a matrix representation of $\mathbb{Q}$, see equation (\ref{eq:otproblem}) for a similar formulation).
+            % We construct $\Gamma$ following the steps below:
+            \begin{enumerate}
+                \item Build a diagonal matrix $\Gamma_{11} = \frac{1}{n_{1}} \mathbf{I}_{m} \in \mathbb{R}_{+}^{m \times m},$ where $\mathbf{I}_{m}$ is the identity matrix of size $m \times m.$
+                
+                \item Build a zero matrix $\Gamma_{21} = \mathbf{0}_{(n_{0} - m) \times m} \in \mathbb{R}_{+}^{(n_{0} - m) \times m},$ where $\mathbf{0}$ denotes the zero matrix.
+                
+                \item Build matrices $\Gamma_{12} \in \mathbb{R}_{+}^{m \times (n_{1} - m)}$ and matrix $\Gamma_{22} \in \mathbb{R}_{+}^{(n_{0} - m) \times (n_{1} - m)}$
+                satisfying
+                $\Gamma_{12} \mathbf{1}_{n_{1} - m} = \left( \frac{1}{n_{0}} - \frac{1}{n_{1}} \right) \mathbf{1}_{m},$
+                $\Gamma_{22} \mathbf{1}_{n_{1} - m} = \frac{1}{n_{0}} \mathbf{1}_{n_{0} - m},$
+                and
+                $\begin{pmatrix}
+                    \Gamma_{12} \\ \Gamma_{22}
+                \end{pmatrix}^{\top}  \mathbf{1}_{n_{0}} = \frac{1}{n_{1}} \mathbf{1}_{n_{1} - m}.$
+                
+                \item Complete
+                $
+                \Gamma := \begin{pmatrix}
+                \Gamma_{11} & \Gamma_{12} \\
+                \Gamma_{21} & \Gamma_{22}
+                \end{pmatrix}
+                = \begin{pmatrix}
+                \frac{1}{n_1} \mathbf{I}_m & \Gamma_{12} \\
+                \mathbf{0}_{(n_0 - m) \times m} & \Gamma_{22}
+                \end{pmatrix}.
+                $
+            \end{enumerate}
+            
+            Last, note that the $\Gamma$ is a coupling matrix (i.e., satisfying the constraints $\sum_{i = 1}^{n_{0}} \gamma_{i, j} = 1/n_{0}, \forall j \in [n_{1}]$ and $\sum_{j = 1}^{n_{1}} \gamma_{i, j} = 1/n_{1}, \forall i \in [n_{0}]$).
+            Hence, we can define the joint distribution $\mathbb{Q}$ by the constructed $\Gamma$ (i.e., $\Gamma$ is a matrix representation of $\mathbb{Q}$, see equation (\ref{eq:otproblem}) for the formulation).
+            Finally, we have
+            \begin{equation}
+                % \scriptsize
+                \begin{split}
+                    \Delta \textup{MDP}(f, \mathbb{Q})
+                    & = \mathbb{E}_{(\mathbf{X}_{0}, \mathbf{X}_{1}) \sim \mathbb{Q}} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert
+                    \\
+                    & = \sum_{i, j} \mathbb{Q}(\mathbf{X}_{0} = \mathbf{x}_{i}^{(0)}, \mathbf{X}_{1} = \mathbf{x}_{j}^{(1)})
+                    \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert
+                    = \sum_{i, j} \gamma_{i, j} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert
+                    \\
+                    & = \sum_{i \in [m], j \in [m]} \gamma_{i, j} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert
+                    + \sum_{i, \in \{m+1, \ldots, n_{0}\}, j \in [m]} \gamma_{i, j} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert
+                    \\
+                    & + \sum_{i \in [n_{0}], j \in \{m+1, \ldots, n_{1}\}} \gamma_{i, j} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert
+                    \\
+                    & = \sum_{i \in [n_{0}], j \in \{m+1, \ldots, n_{1}\}} \gamma_{i, j} \vert f(\mathbf{X}_{0}, 0) - f(\mathbf{X}_{1}, 1) \vert
+                    \le \sum_{i \in [n_{0}], j \in \{m+1, \ldots, n_{1}\}} \gamma_{i, j} = 1 - \frac{m}{n_{1}}
+                    \le \Delta \textup{TVDP}(f).
+                \end{split}
+            \end{equation}            
+            Therefore, any $\mathbb{Q}$ constructed by the steps 1-4 above satisfies $\Delta \textup{MDP}(f, \mathbb{Q}) \le \delta.$
+        \end{proof}
+
+       
+        
+    %     For simplicity, assume that the number of supports of $\mathcal{X}_{0}$ and $\mathcal{X}_{1}$ are equal (i.e., $n$ is even and $\vert \mathcal{X}_{0} \vert = \vert \mathcal{X}_{1} \vert = n' = n/2$).
+    %     That is, we can write $\mathcal{X}_{0} = \{ \mathbf{x}_{i}^{(0)} \}_{i=1}^{n'}$ and $\mathcal{X}_{1} = \{ \mathbf{x}_{j}^{(1)} \}_{j=1}^{n'}.$
+
+    %     (Proof sketch)
+    %     Without loss of generality, let $s = 0.$
+    %     Let $V_{0} = \{ f(\mathbf{x}_{i}^{(0)}, 0) : i \in [n'] \}$ and $V_{1} = \{ f(\mathbf{x}_{j}^{(1)}, 1) : j \in [n'] \}.$
+    %     Define $S = V_{0} \cap V_{1},$ the set of common prediction values.
+    %     Let $k := \vert V_{0} \setminus V_{1} \vert$ ($= \vert V_{1} \setminus V_{0} \vert$) be the number of prediction values that are in one but not the other.
+
+    %     Consider the discrete probability measures $\mathcal{P}_{f_{0}}$ and $\mathcal{P}_{f_{1}}$ on $V_{0}$ and $V_{1},$ respectively.
+    %     Then, we have that $\Delta \textup{TVDP}(f) = \textup{TV}(\mathcal{P}_{f_{0}}, \mathcal{P}_{f_{1}}) = \frac{1}{2} \sum_{v} \vert \mathcal{P}_{f_{0}}(v) - \mathcal{P}_{f_{1}}(v) \vert = \frac{k}{2n'} =: \delta.$
+
+    %     Construct a transport map (which is a bijection) $\mathbf{T}_{0}: \mathcal{X}_{0} \rightarrow \mathcal{X}_{1}$ as follows:
+    %     (i) For each $w \in S,$ match all $\mathbf{x}_{i}^{(0)}$ to $\mathbf{x}_{j}^{(1)}$ such that $f(\mathbf{x}_{i}^{(0)}, 0) = f(\mathbf{x}_{j}^{(1)}, 1) = w.$
+    %     (ii) For prediction values in $V_{0} \setminus V_{1},$ arbitrarily match the corresponding $\mathbf{x}_{i}^{(0)}$ to any $\mathbf{x}_{j}^{(1)}$ that is not yet matched.
+    %     Note that such $\mathbf{T}_{0}$ exists since $\vert \mathcal{X}_{0} \vert = \vert \mathcal{X}_{1} \vert.$
+
+    %     Then, we have
+    %     \begin{equation}
+    %         \begin{split}
+    %             \Delta \textup{MDP} (f, \mathbf{T}_{0}) 
+    %             & = \frac{1}{n'} \sum_{i=1}^{n'} \vert f(\mathbf{x}_{i}^{(0)}, 0) - f(\mathbf{T}_{0}(\mathbf{x}_{i}^{(0)}), 1) \vert
+    %             = \frac{1}{n'} \sum_{i \in I_{unmatch}} \vert f(\mathbf{x}_{i}^{(0)}, 0) - f(\mathbf{x}_{j}^{(1)}, 1) \vert
+    %             \\
+    %             & = \frac{1}{n'} \vert I_{unmatch} \vert \cdot 1
+    %             \le \frac{k}{2n'}
+    %             = \delta,
+    %         \end{split}
+    %     \end{equation}
+    %     where $I_{unmatch}$ is the set of indices $i$ such that $f(\mathbf{x}_{i}^{(0)}, 0) \neq f(\mathbf{T}_{0}(\mathbf{x}_{j}^{(1)}), 1),$ and $\vert I_{unmatch} \vert = k.$
+    % % \end{remark}
+
+% \color{black} % remove
+
+% \begin{remark}[About Theorem \ref{thm:subset}]\label{rmk:smallTV}
+%     The first term of RHS, $L \left( \mathbb{E}_{s} \Vert \mathbf{X} - \mathbf{T}_{s}(\mathbf{X}) \Vert^{2} \right)^{1/2},$ implies that using a transport map with a small transport cost helps improve the subset fairness. 
+%     The uncontrollable term $\textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A})$ can be small for certain subsets. 
+%     For example, for disjoint sets $A_{1}, \cdots, A_{K}$ of $A,$ suppose that $\mathcal{P}_s$ is a mixture of uniform distribution given as
+%     $\mathcal{P}_s(\cdot)=\sum_{k=1}^K p_{sk} \mathbb{I}(\cdot\in A_k)$ with $p_{sk}\ge 0$ and $\sum_{k=1}^K p_{sk}=1$ (e.g., the histogram).
+%     Then, $\textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A})$ becomes zero for all $A_{k}, k \in [K].$
+%     % in $\mathcal{A}=\{A_k, k=1,\ldots,K\}.$
+%     The last term of RHS, $U \delta$ becomes small when $\delta$ is small.
+% \end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+
+% \begin{lemma}\label{lem:prop:gf-2}
+%     For a given transport map $\mathbf{T}_s\in \mathcal{T}_s,$
+%     % is a transport map, i.e., $ \mathbf{T}_{s\#} \mathcal{P}_{s} = \mathcal{P}_{s'}, $
+%     % satisfies $\textup{TV}( \mathbf{T}_{s\#} \mathcal{P}_{s}, \mathcal{P}_{s'}) = 0,$
+%     we have $\Delta \textup{WDP} ( f ), \Delta \overline{\textup{DP}} ( f ) \le \delta$
+%     for any $f \in \{ f \in \mathcal{F} : \mathbb{E}_{s} \vert f(\mathbf{X}, s) - f(\mathbf{T}_{s}(\mathbf{X}), s') \vert \le \delta \}.$
+% \end{lemma}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+% \color{Blue} % remove
+
+    \textbf{Proposition \ref{prop:quantile_match}.}
+    % Let $\mathbf{T}^f$ be the {fair matching function} of $f$ on $\tilde{D}_0$ and $\tilde{D}_1$
+    % (where the empirical distributions with respect to $\tilde{D}_0$ and $\tilde{D}_1$ are used in Definition \ref{def:corr_match_f}).
+    % Then, the matched individual $ \mathbf{T}^{f} (\mathbf{x}) $ of any $\mathbf{x} \in \tilde{\mathcal{D}}_{s}$ is obtained by
+    % $ \mathbf{T}^{f}(\mathbf{x}) = f_{s'}^{-1} \circ F_{s'}^{-1} \circ F_{s} \circ f_{s}(\mathbf{x}). $
+    Let $\mathbf{T}^f$ be the {fair matching function} of $f$ on $\mathcal{D}_0$ and $\mathcal{D}_1$
+    (where the empirical distributions with respect to $\mathcal{D}_0$ and $\mathcal{D}_1$ are used in Definition \ref{def:corr_match_f}).
+    Then, the matched individual $ \mathbf{T}^{f} (\mathbf{x}) $ of any $\mathbf{x} \in {\mathcal{D}}_{s}$ is obtained by
+    $ \mathbf{T}^{f}(\mathbf{x}) = f_{s'}^{-1} \circ F_{s'}^{-1} \circ F_{s} \circ f_{s}(\mathbf{x}). $
+
+    \begin{proof}[Proof of Theorem \ref{prop:quantile_match}]
+        First, we aim to find a permutation map $M^{*} = \argmin_{M} \sum_{i=1}^{m} \vert f_{s}(\mathbf{x}_{i}) - M ( f_{s'}(\mathbf{x}_{i}) ) \vert $
+        subject to $\{ M(f_{s}(\mathbf{x}_{i})): \mathbf{x}_{i} \in {\mathcal{D}}_{s} \} = \{ f_{s'}(\mathbf{x}_{j}): \mathbf{x}_{j} \in {\mathcal{D}}_{s'} \}.$
+        By \citet{rachev1998mass, NEURIPS2020_51cdbd26, pmlr-v115-jiang20a}, we have the fact that 1-Wasserstein distance is equivalent to the average of difference between two prediction scores that have same quantiles in each group.
+        That is, $ M^{\star}(y) = F_{s'}^{-1} \circ F_{s} (y) $ for any $y \in \{ f_{s}(\mathbf{x}) : \mathbf{x} \in {\mathcal{D}}_{s} \}.$
+        
+        Second, we have $M^{\star}$ is one-to-one and $ \{ f_{s'}(\mathbf{x}_{j}): \mathbf{x}_{j} \in {\mathcal{D}}_{s'} \} = \{ f_{s} ( \mathbf{T}^{f}(\mathbf{x}_{i}) ) : \mathbf{x}_{i} \in {\mathcal{D}}_{s} \} = \{ M^{\star}(f_{s}(\mathbf{x}_{i})): \mathbf{x}_{i} \in {\mathcal{D}}_{s} \}, $ since $\mathbf{T}^{f}$ is also an exact one-to-one map.
+        
+        Therefore, we conclude that $ \mathbf{T}^{f}(\mathbf{x}) = f_{s'}^{-1} \circ M^{\star} \circ f_{s} (\mathbf{x}) = f_{s'}^{-1} \circ F_{s'}^{-1} \circ F_{s} \circ f_{s}(\mathbf{x}) $ for all $\mathbf{x} \in {\mathcal{D}}_{s}.$
+    \end{proof}
+    
+    \begin{remark}\label{rmk:prop:quantile_match}
+        Using Proposition \ref{prop:quantile_match} to estimate the {fair matching function} is equivalent to estimating the OT map between two score distributions.
+        The statistical convergence rate for estimating the OT map between one-dimensional distributions is fast; it is of the order 
+        $
+        \mathcal{O}(\vert {\mathcal{D}}_{0} \vert^{-1/2} + \vert {\mathcal{D}}_{1} \vert^{1/2}) 
+        = \mathcal{O}(n_{0}^{-1/2} + n_{1}^{1/2})
+        $ 
+        \citep{10.5555/3495724.3495914, Deb2021RatesOE, 10.1214/20-AOS1997}.
+        When we use two mini-batches $\tilde{\mathcal{D}}_{0} \subset \mathcal{D}_{0}$ and $\tilde{\mathcal{D}}_{1} \subset \mathcal{D}_{1}$ with identical size $m,$ the order becomes $\mathcal{O}(m^{-1/2}).$
+        This indicates that sufficiently large mini-batch size $m$ can guarantee accurate estimation.
+    \end{remark}
+
+% \color{black} % remove
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\textbf{Theorem \ref{prop:reversefair}}
+    For a given $\mathbf{T}_{s} \in \mathcal{T}_{s}^{\textup{trans}},$
+    if $\Delta \textup{MDP} (f, \mathbf{T}_{s}) \le \delta,$
+    then we have $\Delta \textup{WDP} ( f )\le \delta$ and $\Delta \overline{\textup{DP}} ( f ) \le \delta.$
+    % for any $f \in \{ f \in \mathcal{F} : \mathbb{E}_{s} \vert f(\mathbf{X}, s) - f(\mathbf{T}_{s}(\mathbf{X}), s') \vert \le \delta \}.$
+
+\begin{proof}[Proof of Theorem \ref{prop:reversefair}]
+    Fix $f \in \{ f \in \mathcal{F} : \mathbb{E}_{s} \vert f(\mathbf{X}, s) - f(\mathbf{T}_{s}(\mathbf{X}), s') \vert \le \delta \}.$
+    Let $\mathcal{L}_{1}$ the set of all $1$-Lipschitz functions.
+    Using the fact that Wasserstein-1 distance is equivalent to IPM induced by set of $1$-Lipschitz function \citep{villani2008optimal}, we have that
+    \begin{equation}\label{proof:theory:sdp}
+        \begin{split}
+            \Delta \textup{WDP} (f)
+            & = \mathcal{W} \left( \mathcal{P}_{f(\mathbf{X}, 0) | S = 0}, \mathcal{P}_{f(\mathbf{X}, 1) | S = 1} \right) \\
+            & = \sup_{u \in \mathcal{L}_{1}}
+            \left| \mathbb{E}_{s} ( u \circ f(\mathbf{X}, s) ) - \mathbb{E}_{s'} ( u \circ f(\mathbf{X}, s') ) \right| \\
+            & \le \sup_{u \in \mathcal{L}_{1}} \left| \mathbb{E}_{s} ( u \circ f(\mathbf{X}, s) ) - \mathbb{E}_{s} ( u \circ f(\mathbf{T}_{s}(\mathbf{X}), s') ) \right|
+            + \sup_{u \in \mathcal{L}_{1}} \left| \mathbb{E}_{s} ( u \circ f(\mathbf{T}_{s}(\mathbf{X}), s') ) - \mathbb{E}_{s'} ( u \circ f(\mathbf{X}, s') ) \right| \\
+            & \le \sup_{u \in \mathcal{L}_{1}} \mathbb{E}_{s} \left|   u \circ f(\mathbf{X}, s) -  u \circ f(\mathbf{T}_{s}(\mathbf{X}), s' ) \right|
+            + \sup_{u \in \mathcal{L}_{1}} \left| \mathbb{E}_{s} ( u \circ f(\mathbf{T}_{s}(\mathbf{X}), s') ) - \mathbb{E}_{s'} ( u \circ f(\mathbf{X}, s') ) \right| \\
+            & \overset{u \in \mathcal{L}_{1}}{\le} \mathbb{E}_{s} \left|  f(\mathbf{X}, s) - f(\mathbf{T}_{s}(\mathbf{X}), s') \right|
+            + \sup_{u \in \mathcal{L}_{1}} \left| \mathbb{E}_{s} ( u \circ f(\mathbf{T}_{s}(\mathbf{X}), s') ) - \mathbb{E}_{s'} ( u \circ f(\mathbf{X}, s') ) \right| \\
+            & \le \delta 
+            + \sup_{u \in \mathcal{L}_{1}} \left| \mathbb{E}_{s} ( u \circ f(\mathbf{T}_{s}(\mathbf{X}), s') ) - \mathbb{E}_{s'} ( u \circ f(\mathbf{X}, s') ) \right| \\
+            & \le \delta + \sup_{f \in \mathcal{F}} \sup_{u \in \mathcal{L}_{1}} \left| \mathbb{E}_{s} ( u \circ f (\mathbf{T}_{s}(\mathbf{X}), s') ) - \mathbb{E}_{s'} ( u \circ f (\mathbf{X}, s') ) \right| \\
+            & \le \delta + \textup{TV} ( \mathbf{T}_{s \#} \mathcal{P}_{s}, \mathcal{P}_{s'} ) = \delta.
+        \end{split}
+    \end{equation}
+    \\
+    The last equality holds since $ \textup{TV} ( \mathbf{T}_{s \#} \mathcal{P}_{s}, \mathcal{P}_{s'} ) = 0$ for any transport map $\mathbf{T}_{s}.$
+    \\
+    For $\Delta \overline{\textup{DP}} (f),$
+    because the identity map is 1-Lipschitz, we have that $\Delta \overline{\textup{DP}}(f) \le \Delta \textup{WDP}(f),$ which completes the proof.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+% \subsection{Proof of Theorem \ref{thm:subset}}\label{sec:appen_pfs}
+
+\textbf{Theorem \ref{thm:subset}}
+    Suppose $\mathcal{F}$ is the collection of $L$-Lipschitz functions.
+    Let $A$ be a given subset in $\mathcal{X}.$
+    % Then, for all $f \in \mathcal{F}^{\Delta \textup{MDP}}(\delta),$ we have
+    Then, for all $f$ satisfying $\Delta \textup{MDP} (f, \mathbf{T}_{s}^{f}) \le \delta,$ we have
+    \begin{equation}
+        \begin{split}
+            \Delta \overline{\textup{DP}}_{A} (f) 
+            \le L \left( \mathbb{E}_{s} \Vert \mathbf{X} - \mathbf{T}_{s}^{f}(\mathbf{X}) \Vert^{2} \right)^{ \frac{1}{2} }
+            + \textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A}) + U \delta,
+        \end{split}
+    \end{equation}
+    where $\mathcal{P}_{s, A}$ is the distribution of $\mathbf{X} | S = s, \mathbf{X} \in A,$
+    and $U > 0$ is a constant only depending on $A$ and $\mathcal{P}_{s}, s=0,1.$
+
+\begin{proof}
+    % Without loss of generality, let $s=0$ and $s'=1.$
+    We write $\mathbf{T}_{s} = \mathbf{T}_{s}^{f}$ for notational simplicity.
+    \begin{equation}
+        \begin{split}
+            & \vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 0, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 1 ) | S = 1, \mathbf{X} \in A ) \vert
+            \\ 
+            & \le \vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 1, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{T}_{1}(\mathbf{X}), 0 ) | S = 1, \mathbf{X} \in A ) \vert 
+            \\ 
+            & + \vert \mathbb{E} ( f( \mathbf{T}_{1}(\mathbf{X}), 0 ) | S = 1, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 1 ) | S = 1, \mathbf{X} \in A ) \vert
+            \\ 
+            & + \vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 0, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 1, \mathbf{X} \in A ) \vert.
+        \end{split}
+    \end{equation}
+
+    By (C1),
+    the first term is bounded by $L \mathbb{E}_{1} \Vert \mathbf{X} - \mathbf{T}_{1}(\mathbf{X}) \Vert,$
+    which is also bounded by 
+    $
+    L \left( \mathbb{E}_{1} \Vert \mathbf{X} - \mathbf{T}_{1}(\mathbf{X}) \Vert^{2} \right)^{1/2}.
+    $
+
+    The second term is bounded by $\delta$ up to a constant for all $f$ satisfying $\Delta \textup{MDP}(f, \mathbf{T}_{s}) \le \delta.$
+    % $f \in \mathcal{F}^{\Delta \textup{MDP}}(\delta).$
+    % To be more specific, let $\mathcal{P}_{s}$ denote the distribution of $\mathbf{X} | S = s.$ 
+    That is, we have
+    \begin{equation}
+        \begin{split}
+            & \vert \mathbb{E} ( f( \mathbf{T}_{1}(\mathbf{X}), 0 ) | S = 1, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 1 ) | S = 1, \mathbf{X} \in A ) \vert 
+            \\ 
+            & = \left\vert 
+            \frac{ \int f ( \mathbf{T}_{1}( \mathbf{X} ), 0 ) \mathbb{I}(\mathbf{X} \in A) d\mathcal{P}_{1}(\mathbf{X}) }{ \int \mathbb{I}( \mathbf{X} \in A ) d\mathcal{P}_{1}(\mathbf{X}) }
+            -
+            \frac{ \int f ( \mathbf{X} , 1 ) \mathbb{I}(\mathbf{X} \in A) d\mathcal{P}_{1}(\mathbf{X}) }{ \int \mathbb{I}( \mathbf{X} \in A ) d\mathcal{P}_{1} (\mathbf{X}) }
+            \right\vert 
+            \\ 
+            & \le 
+            \frac{1}{ \int \mathbb{I}( \mathbf{X} \in A ) d\mathcal{P}_{1}(\mathbf{X}) } \int_{\mathbf{X} \in A} \vert f( \mathbf{T}_{1}(\mathbf{X}), 0 ) - f( \mathbf{X}, 1 ) \vert d\mathcal{P}_{1}(\mathbf{X})
+            \\ 
+            & \le 
+            \frac{1}{ \int \mathbb{I}( \mathbf{X} \in A ) d\mathcal{P}_{1}(\mathbf{X}) } \int_{\mathbf{X} \in \mathcal{X}} \vert f( \mathbf{T}_{1}(\mathbf{X}), 0 ) - f( \mathbf{X}, 1 ) \vert d\mathcal{P}_{1}(\mathbf{X})
+            \\ 
+            & = U'(A, \mathcal{P}_{1}) \times \mathbb{E}_{1} \vert f( \mathbf{T}_{1}(\mathbf{X}), 0 ) - f( \mathbf{X}, 1 ) \vert
+            \\
+            & \le U'(A, \mathcal{P}_{1}) \times \delta
+        \end{split}
+    \end{equation}
+    where $U'(A, \mathcal{P}_{1}) = 1 / \int \mathbb{I}( \mathbf{X} \in A ) d\mathcal{P}_{1}(\mathbf{X}) = 1 / \mathcal{P} (\mathbf{X} \in A | S = 1)$ is a constant only depending on $\mathcal{P}_{1}$ and $A.$ 
+
+    The third term 
+    $ \vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 0, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 1, \mathbf{X} \in A ) \vert $ 
+    is not controllable by either the transport map or $\delta$ but depends on the given distributions and $A.$
+    That is,
+    % Then, the third term is bounded by $L \textup{diam}(A):$
+    \begin{equation}
+        \begin{split}
+            & \left\vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 0, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 1, \mathbf{X} \in A ) \right\vert
+            \\
+            & = \left\vert \int_{A} f(\mathbf{X}, 0) d\mathcal{P}_{0}(\mathbf{X}) - \int_{A} f(\mathbf{X}, 0) d\mathcal{P}_{1}(\mathbf{X}) \right\vert
+            \\
+            & \le \sup_{f \in \mathcal{F}} \left\vert \int_{A} f(\mathbf{X}, 0) d\mathcal{P}_{0}(\mathbf{X}) - \int_{A} f(\mathbf{X}, 0) d\mathcal{P}_{1}(\mathbf{X}) \right\vert
+            \\
+            & \le \textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A}).
+        \end{split}
+    \end{equation}
+    
+    Hence, we have
+    \begin{equation}
+        \begin{split}
+            & \left\vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 0, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 1 ) | S = 1, \mathbf{X} \in A ) \right\vert
+            \\
+            & \le L (\mathbb{E}_{1} \Vert \mathbf{X} - \mathbf{T}_{1}(\mathbf{X}) \Vert^{2})^{1/2} + \textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A}) + U'(A, \mathcal{P}_{1}) \delta.
+        \end{split}
+    \end{equation}
+
+    We can similarly derive 
+    \begin{equation}
+        \begin{split}
+            & \left\vert \mathbb{E} ( f( \mathbf{X}, 0 ) | S = 0, \mathbf{X} \in A ) - \mathbb{E} ( f( \mathbf{X}, 1 ) | S = 1, \mathbf{X} \in A ) \right\vert
+            \\
+            & \le L (\mathbb{E}_{0} \Vert \mathbf{X} - \mathbf{T}_{0}(\mathbf{X}) \Vert^{2})^{1/2} + \textup{TV}(\mathcal{P}_{0, A}, \mathcal{P}_{1, A}) + U'(A, \mathcal{P}_{0}) \delta.
+        \end{split}
+    \end{equation}
+
+Letting $U:= \max \left\{ U'(A, \mathcal{P}_{0}), U'(A, \mathcal{P}_{1}) \right\}$ completes the proof.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \color{Blue} % remove
+\begin{lemma}[Optimal transport map between two Gaussians]\label{lemma:gaussianOT}
+    For mean vectors $\mu_{\mathbf{X}}, \mu_{\mathbf{Y}} \in \mathbb{R}^{d}$ and covariance matrices $\Sigma_{\mathbf{X}}, \Sigma_{\mathbf{Y}} \in \mathbb{R}^{d \times d},$
+    the OT map from $\mathcal{N}(\mu_{\mathbf{X}}, \Sigma_{\mathbf{X}})$ to $\mathcal{N}(\mu_{\mathbf{Y}}, \Sigma_{\mathbf{Y}})$ is given as
+    $ \mathbf{T}^{\textsc{OT}} (\mathbf{x}) = \mathbf{W}^{\textsc{OT}} \mathbf{x} + \mathbf{b}^{\textsc{OT}} $
+    % for $\mathbf{X} \sim \mathcal{N}(\mu_{\mathbf{X}}, \Sigma_{\mathbf{X}}),$
+    where
+    $ \mathbf{W}^{\textsc{OT}} = \Sigma_{\mathbf{X}}^{-\frac{1}{2}} \left( \Sigma_{\mathbf{X}}^{\frac{1}{2}} \Sigma_{\mathbf{Y}} \Sigma_{\mathbf{X}}^{\frac{1}{2}} \right)^{ \frac{1}{2} } \Sigma_{\mathbf{X}}^{-\frac{1}{2}} $ and $ \mathbf{b}^{\textsc{OT}} = \mu_{\mathbf{Y}} - \mathbf{W}^{\textsc{OT}} \mu_{\mathbf{X}}. $
+\end{lemma}
+
+\begin{proof}
+    Consider the centered Gaussians, i.e., $\mu_{\mathbf{X}} = \mu_{\mathbf{Y}}$ at first.
+    Based on Theorem 4 of \citet{OLKIN1982257}, we have that $\mathcal{W}_{2} \left( \mathcal{N} (0, \Sigma_{\mathbf{X}}), \mathcal{N} (0, \Sigma_{\mathbf{Y}}) \right) = Tr ( \Sigma_{\mathbf{X}} + \Sigma_{\mathbf{Y}} - 2 \left( \Sigma_{\mathbf{X}}^{1/2} \Sigma_{\mathbf{Y}} \Sigma_{\mathbf{X}}^{1/2} \right)^{1/2} ) = \Vert \Sigma_{\mathbf{X}}^{1/2} - \Sigma_{\mathbf{Y}}^{1/2} \Vert_{F}^{2}$
+    where $\Vert \cdot \Vert$ is the Frobenius norm.
+    Correspondingly, \citet{Knott1984OnTO} derived the optimal transport map as $\mathbf{x} \mapsto \Sigma_{\mathbf{X}}^{-1/2} \left( \Sigma_{\mathbf{X}}^{-1/2} \Sigma_{\mathbf{Y}} \Sigma_{\mathbf{X}}^{1/2} \right)^{1/2} \Sigma_{\mathbf{X}}^{-1/2} \mathbf{x}.$
+    
+    Combining these results, we can extend the OT map formula of Gaussians with nonzero means as follows.
+    Since
+    $\mathbb{E} \Vert \mathbf{X} - \mathbf{Y} \Vert^{2} = \mathbb{E} \Vert \left( \mathbf{X} - \mu_{\mathbf{X}} \right) - \left( \mathbf{Y} - \mu_{\mathbf{Y}} \right) + \left( \mu_{\mathbf{X}} - \mu_{\mathbf{Y}} \right) \Vert^{2} = \mathbb{E} \Vert \left( \mathbf{X} - \mu_{\mathbf{X}} \right) - \left( \mathbf{Y} - \mu_{\mathbf{Y}} \right) \Vert^{2} + \Vert \mu_{\mathbf{X}} - \mu_{\mathbf{Y}} \Vert^{2},$
+    the Wasserstein distance is given as $\mathbf{W}_{2} \left( \mathcal{N} (\mu_{\mathbf{X}}, \Sigma_{\mathbf{X}}), \mathcal{N} (\mu_{\mathbf{Y}}, \Sigma_{\mathbf{Y}}) \right) = \Vert \mu_{\mathbf{X}} - \mu_{\mathbf{Y}} \Vert^{2} + \Vert \Sigma_{\mathbf{X}}^{1/2} - \Sigma_{\mathbf{Y}}^{1/2} \Vert_{F}^{2},$
+    and so the corresponding optimal transport map is also given as $\mathbf{x} \mapsto \Sigma_{\mathbf{X}}^{-1/2} \left( \Sigma_{\mathbf{X}}^{-1/2} \Sigma_{\mathbf{Y}} \Sigma_{\mathbf{X}}^{1/2} \right)^{1/2} \Sigma_{\mathbf{X}}^{-1/2} \mathbf{x} + \mu_{\mathbf{Y}} - \Sigma_{\mathbf{X}}^{-1/2} \left( \Sigma_{\mathbf{X}}^{-1/2} \Sigma_{\mathbf{Y}} \Sigma_{\mathbf{X}}^{1/2} \right)^{1/2} \Sigma_{\mathbf{X}}^{-1/2} \mu_{\mathbf{X}},$
+    which completes the proof.
+\end{proof}
+
+% \begin{proposition}[Counterfactual fairness and the OT map]\label{prop:cf}
+\textbf{Proposition \ref{prop:cf}} (Counterfactual fairness and the OT map)
+    For all $A$ having $(\mathbf{I}_{d}-A)^{-1},$
+    $\mathbf{W}_s$ becomes $ \sigma_{s'} \sigma_{s}^{-1} \mathbf{I}_{d}.$
+    That is, $\tilde{\mathbf{x}}_{s}^{\textsc{CF}} = \tilde{\mathbf{x}}_{s}^{\textsc{OT}}.$
+% \end{proposition}
+
+\begin{proof}[Proof of Proposition \ref{prop:cf}]
+    Once we observe $\mathbf{x}_{0},$ the randomness $\epsilon_{0}$ is observed as $\epsilon_{0} = B^{-1} \mathbf{x}_{0} - \mu_{0}.$
+    By replacing the sensitive attribute on the randomness $\epsilon_{0},$ we obtain $ \sigma_{1}^{-1} (B^{-1}  \tilde{\mathbf{x}}_{0}^{\textsc{CF}} - \mu_{1} ) = \sigma_{0}^{-1} ( B^{-1} \mathbf{x}_{0} - \mu_{0} ). $
+    Then, its counterfactual becomes $\tilde{\mathbf{x}}_{0}^{\textsc{CF}} = B \mu_{1} + \sigma_{1} \sigma_{0}^{-1} \mathbf{I}_{d} (\mathbf{x}_{0} - B \mu_{0}).$
+    Then, we prove Proposition \ref{prop:cf} by showing the if and only if condition as follows.
+    \begin{equation}
+        \begin{split}
+            \mathbf{W}_{0} & = ( \sigma_{0}^{2} B D B^{\top} )^{-1/2} \left( ( \sigma_{0}^{2} B D B^{\top} )^{1/2} \sigma_{1}^{2} B D B^{\top} ( \sigma_{0}^{2} B D B^{\top} )^{1/2} \right)^{1/2} ( \sigma_{0}^{2} B D B^{\top} )^{-1/2}
+            \\
+            & = \sigma_{1} \sigma_{0}^{-1} ( B D B^{\top} )^{-1/2} \left( ( B D B^{\top} )^{1/2} B D B^{\top} ( B D B^{\top} )^{1/2} \right)^{1/2} ( B D B^{\top} )^{-1/2} 
+            \\
+            & = \sigma_{1} \sigma_{0}^{-1} ( B D B^{\top} )^{-1/2} \left( ( B D B^{\top} )^{2} \right)^{1/2} ( B D B^{\top} )^{-1/2} 
+            \\
+            % & = \sigma_{1} \sigma_{0}^{-1} ( B D B^{\top} )^{-1/2}  B D B^{\top}  ( B D B^{\top} )^{-1/2} 
+            % \\
+            & = \sigma_{1} \sigma_{0}^{-1} \mathbf{I}_{d}.
+        \end{split}
+    \end{equation}
+    The same result can be done for $\mathbf{x}_{1}.$
+    Hence, we conclude $\mathbf{W}_{s} = \sigma_{s'} \sigma_{s}^{-1} \mathbf{I}_{d}.$
+\end{proof}
+
+% \color{black} % remove
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{More related works on algorithmic fairness}\label{sec:appen-otherfairness}
+
+% In presence of multiple sensitive attributes, the concept of subgroup fairness has emerged \citep{kearns2018empirical, pmlr-v80-kearns18a, shui2022on, 10.1145/3531146.3533124, molina2022bounding, carvalho2022affirmative}, emphasizing the need for models that satisfy fairness for all subgroups defined over the multiple sensitive attributes. 
+% % However, collecting all sensitive attributes a priori would be challenging and also can undermine privacy and security.
+
+% In addition, \citet{wachter2020bias, 10.1145/3461702.3462556, mougan2024beyond} have suggested that not only equal outcome, but also the notion of equal treatment, i.e., treating individuals with equal reasons, should be considered in algorithmic fairness.
+
+% However, a well-recognized issue of group fairness notion is its risk for discriminating against certain subsets or individuals, even when achieving a certain level of group fairness \citep{10.1145/2090236.2090255, kearns2018empirical, pmlr-v80-kearns18a, shui2022on}.
+% For example, \citet{10.1145/2090236.2090255} argued such problems, leading to introducing the concept of \textit{individual fairness}.
+% Additionally, in scenarios involving multiple sensitive attributes, \citet{kearns2018empirical, pmlr-v80-kearns18a, shui2022on, 10.1145/3531146.3533124, molina2022bounding, carvalho2022affirmative} have discussed \textit{subgroup fairness}.
+% However, this notion is limited as it requires pre-defined subgroups based on known multiple sensitive attributes.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Disadvantage of high transport cost}\label{sec:highcost}
+
+This section presents an example of two completely different group-fair models where one is unreasonable and the other is reasonable, particularly in terms of subset fairness.
+This example suggests that \textit{not all group-fair models are acceptable}, thereby emphasizing the necessity of finding group-fair models corresponding to favorable implicit transport maps.
+
+Suppose that the distribution of the input variable is given as
+$\mathbf{X}|S=s \sim \textup{Unif}(0, 1),$ for $ s \in \{0, 1\}.$
+Consider the following two classification models:
+$\hat{f} (\mathbf{x},s) = \frac{\textup{sign} \left( 2 \mathbf{x} - 1 \right) \left( 1 - 2s \right) + 1}{2} $ and $\tilde{f} (\mathbf{x},s) = \frac{\textup{sign} \left( 2 \mathbf{x} - 1 \right) + 1}{2}.$
+% $\hat{f}(x,s) = \frac{\textup{sign} \left( 2 x - 1 \right) \left( 1 - 2s \right) + 1}{2} \left( \textup{sign} \left( 2 x - 1 \right) \left( 1 - 2s \right) + 1 \right) / 2$ and $\tilde{f}(x, s) = \left( \textup{sign} \left( 2 x - 1 \right) + 1 \right) / 2.$
+
+
+%%%%%%%%%%%%%
+% \begin{figure}[h]
+\begin{wrapfigure}{r}{0.53\linewidth}
+    \vskip -0.2in
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/fig1.png}
+    \vskip -0.1in
+    \caption{
+    (Top) A group-fair model with the risk of discrimination on subsets.
+    (Bottom) A group-fair model without the risk of discrimination on subsets.
+    }
+    \label{fig:example}
+    \vskip -0.2in
+\end{wrapfigure}
+% \end{figure}
+%%%%%%%%%%%%%
+
+It is clear that both $\hat{f}$ and $\tilde{f}$ are perfectly fair, i.e., $\mathcal{P}_{\hat{f}_0} = \mathcal{P}_{\hat{f}_1}$ and $\mathcal{P}_{\tilde{f}_0} = \mathcal{P}_{\tilde{f}_1}$.
+However, $\hat{f}$ has a notable unfairness issue in its treatments of individuals within the subset $\{ \mathbf{x} \ge 1/2 \}$ (as well as $\{ \mathbf{x} < 1/2 \}$);
+for when $\mathbf{x}>1/2,$ $\hat{f}$ assigns label $1$ for all individuals of $s = 0$ while it assigns label $0$ for all individuals of $s = 1.$ 
+This indicates that $\hat{f}$ discriminates against individuals in the subset $\{ \mathbf{x}\ge 1/2 \}$ (and also $\{ \mathbf{x}< 1/2 \}$).
+In contrast, $\tilde{f}$ does not exhibit such undesirable discrimination against the subsets.
+Hence, we can say that $\tilde{f}$ has less discrimination on the subsets than $\hat{f}.$
+Figure \ref{fig:example} provides a comparative illustration of $\hat{f}$ and $\tilde{f}.$ 
+
+
+The observed discrimination of $\hat{f}$ on subsets can be attributed to the unreasonable {fair matching function} of $\hat{f}.$
+It turns out that the {fair matching function} of $\hat{f}$ is $\mathbf{T}^{\hat{f}} ( \mathbf{x}) = \mathbf{x} - \frac{\textup{sign} \left( (2\mathbf{x} - 1) (1 - 2s) \right)}{2} .$
+This function matches an individual in $\{\mathbf{x} < \frac{1}{2}, S = s\}$ with one in $\{\mathbf{x} \ge \frac{1}{2}, S = s'\},$ who are far apart from each other. 
+In contrast, the {fair matching function} of $\tilde{f}$ is $\mathbf{T}^{\tilde{f}} ( \mathbf{x} ) = \mathbf{x}.$
+This example emphasizes the need of group-fair models whose {fair matching function} have low transport costs.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+% \color{Blue} % remove
+\section{The Kantorovich problem}\label{appendix:kanto}
+
+As shortly introduced in Section \ref{sec:related}, the Kantorovich problem is to find the optimal coupling (i.e., joint distribution) between two given distributions.
+It can be mathematically expressed as the following.
+For two given distributions $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2},$
+$
+\inf_{\pi \in \Pi(\mathcal{Q}_{1}, \mathcal{Q}_{2})} \mathbb{E}_{\mathbf{X}, \mathbf{Y} \sim \pi} \left( c(\mathbf{X}, \mathbf{Y}) \right)
+$ 
+where $\Pi(\mathcal{Q}_{1}, \mathcal{Q}_{2})$ is the set of all joint measures with marginals $\mathcal{Q}_{1}$ and $\mathcal{Q}_{2}.$
+Let $c$ be the $L_{2}$ cost function.
+
+For given two empirical distributions on $\mathcal{D}_{0} = \{ \mathbf{x}_{i}^{(0)} \}_{i=1}^{n_{0}}$ and $\mathcal{D}_{1} = \{ \mathbf{x}_{j}^{(1)}\}_{j=1}^{n_{1}},$
+we first define the cost matrix as
+$\mathbf{C} := [c_{i, j}] \in \mathbb{R}_{+}^{n_{0} \times n_{1}},$ where $ c_{i, j} = \Vert \mathbf{x}_{i}^{(0)} - \mathbf{x}_{j}^{(1)} \Vert^{2}.$
+Then, the solution of the Kantorovich problem, i.e., optimal joint distribution between the two distributions, is defined by the coupling matrix $\Gamma = [\gamma_{i, j}] \in \mathbb{R}_{+}^{n_{0} \times n_{1}},$ which is the minimizer of the following objective:
+\begin{equation}
+    % \footnotesize
+    \min_{\Gamma} \Vert \mathbf{C} \odot \Gamma \Vert_{1}
+    = \min_{\gamma_{i, j}} c_{i, j} \gamma_{i, j}
+    \textup{ s.t. }
+    \gamma_{i, j} \ge 0,
+    \sum_{i=1}^{n_{0}} \gamma_{i, j} = \frac{1}{n_{1}},
+    \sum_{j=1}^{n_{1}} \gamma_{i, j} = \frac{1}{n_{0}}.
+\end{equation}
+
+In fact, the Kantorovich problem can be solved by linear programming \citep{Kantorovich2006OnTT, villani2008optimal}.
+To solve the linear program, we use practical implementation such as \texttt{POT} library in \texttt{Python}.
+
+
+% \color{black} % remove
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Implementation details}\label{appendix:D}
+
+In this section, we provide detailed descriptions for the implementation of the experiments.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Datasets}\label{sec:datasets-appendix}
+
+First, the URLs of these datasets are provided.
+
+\begin{itemize}
+
+    \item 
+    \textsc{Adult}:
+    the Adult income dataset \citep{Dua:2019} can be downloaded from the UCI repository\footnote{https://archive.ics.uci.edu/ml/datasets/adult}.
+
+    \item 
+    \textsc{German}:
+    the German credit dataset \citep{Dua:2019} can be downloaded from the UCI repository\footnote{https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)}.
+
+    \item 
+    \textsc{Dutch}:
+    the Dutch census dataset can be downloaded from the public Github of \citet{Le_Quy_2022} \footnote{https://github.com/tailequy/fairness\_dataset/tree/main/experiments/data/dutch.csv}.
+
+    \item 
+    \textsc{Bank}:
+    the Bank marketing dataset can be downloaded from the UCI repository\footnote{https://archive.ics.uci.edu/dataset/222/bank+marketing}.
+
+\end{itemize}
+
+The following Table \ref{table:datasets} describes the basic information of the four datasets.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[ht]
+    \vskip -0.1in
+    \footnotesize
+    \centering
+    \caption{The description of the real benchmark tabular datasets: \textsc{Adult}, \textsc{German}, \textsc{Bank}, and \textsc{Dutch}.
+    $\mathbf{X}, S, Y$ and $d$ denote the input features, the sensitive attribute, the target label information, and the dimension of $\mathbf{X},$ respectively. 
+    Train/Test sizes are the number of samples in the training and test datasets, respectively.}
+    \label{table:datasets}
+    % \vskip 0.1in
+    \begin{tabular}{c||c|c|c||c|c}
+        \toprule
+         Dataset & Variable & Description & Dataset & Variable & Description \\
+         \midrule
+         \multirow{6}{*}{\textsc{Adult}} & $\mathbf{X}$ & Personal attributes & \multirow{6}{*}{\textsc{German}} & $\mathbf{X}$ & Personal attributes \\
+         & $S$ & Gender & & $S$ & Gender \\
+         & $Y$ & Outcome over $\$50k$ & & $Y$ & High credit score \\
+         & $d$ & 101 & & $d$ & 60 \\
+         & Train/Test size & 30,136/15,086 & & Train/Test data size & 800/200 \\ % 24,108 + 6,028
+         % & Test data size & 15,086 & & Test data size & 200 \\
+         \midrule
+         \multirow{6}{*}{\textsc{Bank}} & $\mathbf{X}$ & Personal attributes & \multirow{6}{*}{\textsc{Dutch}} & $\mathbf{X}$ & Personal attributes \\
+         & $S$ & Binarized age & & $S$ & Gender\\
+         & $Y$ & Subscribing a term deposit & & $Y$ & High-level occupation \\
+         & $d$ & 57 & & $d$ & 58 \\
+         & Train/Test size & 24,390/6,098 & & Train/Test data size & 48,336/12,084 \\ % 3,946 + 987 | 162,770 + 19,867
+         % & Test data size & 6,098 & & Test data size & 12,084 \\
+         \bottomrule
+    \end{tabular}
+    \vskip -0.1in
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Second, the following Table \ref{table:datasets} describes the basic information of the four datasets used in our experiments.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{table}[ht]
+%     % \vskip -0.2in
+%     \scriptsize
+%     \centering
+%     \caption{The description of used tabular datasets: \textsc{Adult}, \textsc{German}, \textsc{Bank}, and \textsc{Dutch}.
+%     $\mathbf{X}$ denotes the input vector, $S$ denotes the sensitive attribute, $Y$ denotes the target label information, and $d$ denotes the dimension of $\mathbf{X}.$ 
+%     (Train/Test) data sizes are the number of samples.}
+%     \label{table:datasets}
+%     \vskip 0.1in
+%     \begin{tabular}{c||c|c|c||c|c}
+%         \toprule
+%          Dataset & Variable & Description & Dataset & Variable & Description \\
+%          \midrule
+%          \multirow{6}{*}{\textsc{Adult}} & $\mathbf{X}$ & Personal attributes & \multirow{6}{*}{\textsc{German}} & $\mathbf{X}$ & Personal attributes \\
+%          & $S$ & Gender & & $S$ & Gender \\
+%          & $Y$ & Outcome over $\$50k$ & & $Y$ & High credit score \\
+%          & $d$ & 101 & & $d$ & 60 \\
+%          & Train data size & 30,136 & & Train data size & 800 \\ % 24,108 + 6,028
+%          & Test data size & 15,086 & & Test data size & 200 \\
+%          \midrule
+%          \multirow{6}{*}{\textsc{Bank}} & $\mathbf{X}$ & Personal attributes & \multirow{6}{*}{\textsc{Dutch}} & $\mathbf{X}$ & Personal attributes \\
+%          & $S$ & Binarized age & & $S$ & Gender\\
+%          & $Y$ & Subscribing a term deposit & & $Y$ & High-level occupation \\
+%          & $d$ & 57 & & $d$ & 58 \\
+%          & Train data size & 24,390 & & Train data size & 48,336 \\ % 3,946 + 987 | 162,770 + 19,867
+%          & Test data size & 6,098 & & Test data size & 12,084 \\
+%          \bottomrule
+%     \end{tabular}
+% \end{table}
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+
+Second, we describe pre-processing method of the datasets used.
+For \textsc{Adult}, \textsc{German}, and \textsc{Bank} datasets, we follow the pre-processing of the implementation of IBM's AIF360 \citep{aif360-oct-2018} \footnote{https://aif360.readthedocs.io/en/stable/}.
+For \textsc{Dutch} dataset, we follow the pre-processing of \citet{Le_Quy_2022}'s Github\footnote{https://github.com/tailequy/fairness\_dataset/tree/main/experiments/data/}.
+Basically, continuous input variables are normalized by min-max scaling and categorical input variables are one-hot encoded.
+We set batch size as 1024, 200, 1024, and 512 for \textsc{Adult}, \textsc{German}, \textsc{Dutch}, and \textsc{Bank} datasets, respectively.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algorithms}\label{sec:algorithms-appendix}
+
+This section provides more detailed descriptions of the baseline algorithms used in our experiments.
+
+\begin{itemize}
+    \item Reduction \citep{pmlr-v80-agarwal18a}:
+    This algorithm is an in-processing method that learns a fair classifier with the lowest empirical fairness level $\Delta \textup{DP}.$
+    To implement this method for MLP model architecture, we employ FairTorch\footnote{\url{https://github.com/wbawakate/fairtorch}}.
+    It minimizes cross-entropy + $\lambda \cdot \textup{Reduction regularizer}$ for a given $\lambda > 0.$
+    
+    \item Reg \citep{donini2018empirical, chuang2021fair}:
+    This method is a regularizing approach that minimizes cross-entropy + $\lambda \cdot \Delta \overline{\textup{DP}}^{2}$ for a given $\lambda > 0.$
+    In \citet{chuang2021fair}, they call this algorithm GapReg.
+    This is also similar to the approach of \citet{donini2018empirical} in the sense that the model is learned with a constraint having a given level of $\Delta \overline{\textup{DP}}.$
+
+    \item Adv \citep{10.1145/3278721.3278779}:
+    This algorithm is an in-processing method that regularizes the model outputs with an adversarial network so that the adversarial network is learned to predict the sensitive attribute using the model outputs as the inputs.
+    It minimizes cross-entropy + $\lambda \cdot \textup{Adversarial loss}$ for a given $\lambda > 0.$
+\end{itemize}
+
+Note that Reduction and Adv are ones of the most popular in-processing algorithms, as widely-used libraries AIF360 \citep{aif360-oct-2018} and Fairlearn \citep{bird2020fairlearn} provide the usage and implementation of the two algorithms.
+Reg is a vanilla approach of adding the regularization term in the loss function to learn the most accurate model among models satisfying a given level of group fairness.
+
+We basically train models with various fairness levels by controlling the Lagrangian multiplier $\lambda.$
+The values are presented in the following table.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table*}[ht]
+    \footnotesize
+    \centering
+    \caption{Hyper-parameters used for controlling fairness levels for each algorithm.}
+    \begin{tabular}{c||c}
+        \toprule
+        Algorithm & $\lambda$ \\
+        \midrule
+        % Unfair & \tiny $\{0.0\}$
+        % \\
+        Reduction & 
+        \footnotesize $\{0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 80.0, 100.0, 150.0, 200.0, 300.0, 500.0\}$
+        % $, 1000.0, 2000.0, 5000.0\}$
+        \\
+        Reg & 
+        \footnotesize $\{0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.5, 1.8, 2.0, 3.0, 5.0, 10.0, 20.0, 50.0, 100.0\}$
+        \\
+        Adv & 
+        \footnotesize $\{0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 2.0, 3.0, 5.0, 10.0, 15.0, 20.0, 30.0, 50.0, 100.0\}$
+        \\
+        FTM & 
+        \footnotesize $\{0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 2.0, 3.0, 5.0, 10.0\}$
+        \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Adam optimizer \citep{https://doi.org/10.48550/arxiv.1412.6980} with an initial learning rate of $0.001$ is used, and the learning rate is scheduled by multiplying $0.95$ at each epoch.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Pseudo-code}\label{sec:code-appendix}
+
+\definecolor{commentcolor}{RGB}{110,154,155}   % define comment color
+\newcommand{\PyComment}[1]{\ttfamily\textcolor{commentcolor}{\# #1}}  % add a "#" before the input text "#1"
+\newcommand{\PyCode}[1]{\ttfamily\textcolor{black}{#1}} % \ttfamily is the code font
+
+Here, we provide a \texttt{Pytorch}-style psuedo code of calculating the MDP constraint in FTM.
+
+\begin{algorithm}[h]
+    \footnotesize
+    \PyComment{xs, xt: input vectors from the source, target distribution, respectively.} \\
+    \PyComment{model: a classifier to be trained} \\
+    \PyCode{import ot} \\
+    \PyComment{The matching constraint: matching with the OT map} \\
+    \PyCode{weight\_s = torch.ones(size=(xs.size(0), )) / xs.size(0)} \\
+    \PyCode{weight\_t = torch.ones(size=(xt.size(0), )) / xt.size(0)} 
+    \PyComment{identical to weight\_s}
+    \\
+    \PyCode{M = ot.dist(xs, xt)} \\
+    \PyCode{G = ot.emd(weight\_s, weight\_t, M)} \\
+    \PyCode{matched\_xs = xt[torch.argmax(G, dim=1)]} \\
+    \PyCode{output, matched\_output = model(xs), model(matched\_xs)} \\
+    \PyCode{FTM\_REG = (output - matched\_output).abs().mean()}
+    \caption{\texttt{PyTorch}-style pseudo-code of calculating the MDP constraint in FTM.}
+    \label{alg:FTM}
+\end{algorithm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\section{Auxillary experimental results}\label{sec:results-appendix}
+
+In this section, we provide auxillary experimental results that are not displayed in the main body.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+\subsection{Fairness-prediction trade-off (Section \ref{sec:exp-tradeoff})}
+
+Figure \ref{fig:tradeoff-appen} shows the trade-offs between the fairness levels with respect to $\Delta \textup{DP}, \Delta \overline{\textup{DP}}$ and classification accuracy.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.24\textwidth]{figures/Adult/wo_std/figure_Adult_test_acc_test_dp.png}
+    \includegraphics[width=0.24\textwidth]{figures/German/wo_std/figure_German_test_acc_test_dp.png}
+    \includegraphics[width=0.24\textwidth]{figures/Dutch/wo_std/figure_Dutch_test_acc_test_dp.png}
+    \includegraphics[width=0.24\textwidth]{figures/Bank/wo_std/figure_Bank_test_acc_test_dp.png}
+    \\
+    \includegraphics[width=0.24\textwidth]{figures/Adult/wo_std/figure_Adult_test_acc_test_meandp.png}
+    \includegraphics[width=0.24\textwidth]{figures/German/wo_std/figure_German_test_acc_test_meandp.png}
+    \includegraphics[width=0.24\textwidth]{figures/Dutch/wo_std/figure_Dutch_test_acc_test_meandp.png}
+    \includegraphics[width=0.24\textwidth]{figures/Bank/wo_std/figure_Bank_test_acc_test_meandp.png}
+    \caption{
+    \textbf{Fairness-prediction trade-offs}:
+    (Left to right) \textsc{Adult}, \textsc{German}, \textsc{Dutch}, \textsc{Bank}.
+    (Top to bottom) 
+    % $\Delta \textup{DP}$ vs. \texttt{Acc}, 
+    $\Delta \textup{DP}$ vs. \texttt{Acc}, $\Delta \overline{\textup{DP}}$ vs. \texttt{Acc}.
+    % $\Delta \textup{KSDP}$ vs. \texttt{Acc}.
+    }
+    \label{fig:tradeoff-appen}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
+\subsection{Improvement in subset fairness (Section \ref{sec:exp-subsets})}
+
+Here, we provide experimental results showing fairness levels on subsets defined by input variables.
+Table \ref{table:subgroup-append} and \ref{table:subgroup-2-append} are copies of Table \ref{table:subgroup} with standard errors.
+
+\begin{table}[h]
+    % \vskip -0.2in
+    \scriptsize
+    \centering
+    \caption{
+    \textbf{Fairness on subsets defined by the input variable age}:
+    Fairness levels on subsets defined by the input variable age on \textsc{German} dataset under a given $\Delta \overline{\textup{DP}} = 0.045$ with standard errors (s.e.).
+    }
+    \label{table:subgroup-append}
+    % \vskip 0.1in
+    \begin{tabular}{c|c||c|c|c|c}
+        \toprule
+        \multicolumn{2}{c||}{Algorithm} & Reduction & Reg & Adv & FTM $\checkmark$
+        \\
+        \midrule
+        \midrule
+        \multirow{3}{*}{High age} & $\Delta \textup{DP}$ (s.e.) & 0.073 (0.015) & 0.077 (0.013) & \underline{0.048} (0.020) & \textbf{0.045} (0.021)
+        \\
+        & $\Delta \overline{\textup{DP}}$ (s.e.) & 0.049 (0.006) & 0.029 (0.008) & \underline{0.028} (0.012) & \textbf{0.026} (0.006)
+        \\
+        & $\Delta \textup{WDP}$ (s.e.) & 0.053 (0.005) & \underline{0.039} (0.003) & 0.042 (0.008) & \textbf{0.038} (0.003)
+        \\
+        \midrule
+        \multirow{3}{*}{Low age} & $\Delta \textup{DP}$ (s.e.) & 0.118 (0.035) & \underline{0.116} (0.037) & 0.122 (0.047) & \textbf{0.077} (0.032)
+        \\
+        & $\Delta \overline{\textup{DP}}$ (s.e.) & \textbf{0.047} (0.015) & \underline{0.050} (0.009) & 0.053 (0.017) & \textbf{0.047} (0.007)
+        \\
+        & $\Delta \textup{WDP}$ (s.e.) & \underline{0.058} (0.011) & 0.059 (0.007) & 0.061 (0.015) & \textbf{0.054} (0.006)
+        \\
+        \bottomrule
+    \end{tabular}
+    % \vskip -0.1in
+\end{table}
+
+% Second, Table \ref{table:subgroup-2} is another result analyzed on \textsc{Dutch} dataset, with subsets defined by the input variable marital status.
+% Note that we learn group-fair models only with gender as the sensitive attribute.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[h]
+    % \vskip -0.2in
+    \scriptsize
+    \centering
+    \caption{
+    \textbf{Fairness on subsets defined by the input variable marital status}:
+    Fairness levels on subsets defined by the input variable marital status on \textsc{Dutch} dataset under a given $\Delta \overline{\textup{DP}} = 0.12$ with standard errors (s.e.).
+    }
+    \label{table:subgroup-2-append}
+    \vskip 0.1in
+    \begin{tabular}{c|c||c|c|c|c}
+        \toprule
+        \multicolumn{2}{c||}{Algorithm} & Reduction & Reg & Adv & FTM $\checkmark$
+        \\
+        \midrule
+        \midrule
+        \multirow{3}{*}{Married} & $\Delta \textup{DP}$ (s.e.) & 0.258 (0.005) & 0.372 (0.003) & \underline{0.237} (0.083) & \textbf{0.204} (0.003)
+        \\
+        & $\Delta \overline{\textup{DP}}$ (s.e.) & 0.182 (0.002) & \underline{0.164} (0.001) & 0.187 (0.073) & \textbf{0.152} (0.002)
+        \\
+        & $\Delta \textup{WDP}$ (s.e.) & 0.183 (0.002) & \underline{0.172} (0.001) & 0.193 (0.071) & \textbf{0.152} (0.002)
+        \\
+        \midrule
+        \multirow{3}{*}{Not married} & $\Delta \textup{DP}$ (s.e.) & \textbf{0.061} (0.007) & 0.131 (0.006) & 0.095 (0.038) & \underline{0.068} (0.005)
+        \\
+        & $\Delta \overline{\textup{DP}}$ (s.e.) & \underline{0.045} (0.002) & 0.062 (0.003) & 0.098 (0.035) & \textbf{0.036} (0.003)
+        \\
+        & $\Delta \textup{WDP}$ (s.e.) & \textbf{0.045} (0.003) & 0.072 (0.002) & 0.098 (0.034) & \textbf{0.045} (0.005)
+        \\
+        \bottomrule
+    \end{tabular}
+    % \vskip -0.1in
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Higher equal treatment of FTM (Section \ref{sec:exp-equaltreat})}
+
+% Here, we provide Table \ref{table:equaltreat-append}, which is a copy of Table \ref{table:equaltreat} with standard errors.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{table}[h]
+% % \begin{wraptable}{r}{0.6\linewidth}
+%     \vskip -0.1in
+%     % \scriptsize
+%     \centering
+%     \caption{
+%     Comparison of models learned by different algorithms in terms of equal treatment (i.e., correlation coefficient) with standard errors (s.e.).
+%     \textbf{Bold} faced ones are the bests, and \underline{underlined} ones are the second bests.
+%     }
+%     \label{table:equaltreat-append}
+%     \vskip 0.1in
+%     \begin{tabular}{c||c|c|c|c}
+%         \toprule
+%         Dataset & Algorithm & \texttt{Acc} (s.e.) & $\Delta \overline{\textup{DP}}$ (s.e.) & Correlation coefficient (s.e.)
+%         \\
+%         \midrule
+%         \midrule
+%         % \multirow{5}{*}{\textsc{Adult}} & Unfair model & 0.832 & 0.19 & 0.493
+%         % \\
+%         % & Reduction & 0.808 & 0.07 & 0.547
+%         \multirow{4}{*}{\textsc{Adult}} & Reduction & 0.808 (0.012) & 0.07 (0.002) & 0.547 (0.019)
+%         \\
+%         & Reg & 0.811 (0.010) & 0.07 (0.004) & 0.589 (0.021)
+%         \\
+%         & Adv & 0.800 (0.019) & 0.07 (0.01) & \underline{0.612} (0.032)
+%         \\
+%         & FTM $\checkmark$ & 0.815 (0.018) & 0.07 (0.002) & \textbf{0.686} (0.011)
+%         \\
+%         \midrule
+%         % \multirow{5}{*}{\textsc{Dutch}} & Unfair model & 0.836 & 0.29 & 0.584
+%         % \\
+%         % & Reduction & 0.824 & 0.08 & 0.437
+%         \multirow{4}{*}{\textsc{Dutch}} & Reduction & 0.824 (0.009) & 0.08 (0.005) & 0.437 (0.051)
+%         \\
+%         & Reg & 0.822 (0.007) & 0.07 (0.001) & \underline{0.590} (0.030)
+%         \\
+%         & Adv & 0.810 (0.015) & 0.07 (0.008) & 0.412 (0.088)
+%         \\
+%         & FTM $\checkmark$ & 0.821 (0.002) & 0.08 (0.005) & \textbf{0.672} (0.048)
+%         \\
+%         \bottomrule
+%     \end{tabular}
+%     \vskip -0.1in
+% % \end{wraptable}
+% \end{table}
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\subsection{An additional advantage of using the marginal OT map: reducing the risk of self-fulfilling prophecy}
+
+We compare the risks of discrimination in the context of self-fulfilling prophecy in \citet{10.1145/2090236.2090255}, a critical limitation that can arise when focusing solely on group fairness:
+\textit{unqualified individuals with relatively low scores can be chosen to be qualified, while other individuals with relatively high scores are chosen to be unqualified.}
+To quantify the risk of self-fulfilling prophecy, we assume that the unfair model is optimal for predicting the true score of each individual.
+We consider the following two evaluation approaches under this assumption.
+For the transport map used in MDP constraint, we choose the marginal OT map.
+
+\textbf{(Evaluation 1)}
+The first measure for the risk of self-fulfilling prophecy is the \textit{Spearman's rank correlation} between unfair and fair prediction scores at each protected group: a higher rank correlation implies a lower risk of self-fulfilling prophecy.
+Table \ref{table:interpret} shows that FTM has lower risks of suffering from self-fulfilling prophecy, in most cases.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[h]
+    % \vskip -0.2in
+    \centering
+    \scriptsize
+    \caption{
+    Spearman's correlation coefficients between the scores of the unfair model and group-fair models under fixed levels of $\Delta \overline{\textup{DP}}$ with standard errors (s.e.).
+    \textbf{Bold} faces are the best ones, and \underline{underlined} ones are the second bests.
+    }
+    \label{table:interpret}
+    \vskip 0.1in
+    \begin{tabular}{c||c|c|c|c}
+        \toprule
+        Dataset & \multicolumn{2}{c|}{\textsc{Adult}} & \multicolumn{2}{c}{\textsc{German}} 
+        \\
+        \midrule
+        $\Delta \overline{\textup{DP}}$  & \multicolumn{2}{c|}{$0.10$} & \multicolumn{2}{c}{$0.05$} 
+        \\
+        \midrule
+        \midrule
+        Sensitive attribute $S$ & 0 & 1 & 0 & 1 
+        \\
+        \midrule
+        Reduction (s.e.) & \underline{0.935} (0.006) & \underline{0.987} (0.001) & \underline{0.996} (0.001) & \underline{0.997} (0.001) 
+        \\
+        Reg (s.e.) & 0.762 (0.087) & 0.806 (0.084) & \textbf{0.997} (0.000) & \textbf{0.998} (0.000) 
+        \\
+        Adv (s.e.) & 0.876 (0.003) & 0.979 (0.001) & 0.986 (0.009) & 0.986 (0.010) 
+        \\
+        FTM $\checkmark$ (s.e.) & \textbf{0.968} (0.003) & \textbf{0.989} (0.001) & 0.993 (0.002) & 0.995 (0.001) 
+        \\
+        \bottomrule
+    \end{tabular}
+    \begin{tabular}{c||c|c|c|c}
+        \toprule
+        Dataset & \multicolumn{2}{c|}{\textsc{Dutch}} & \multicolumn{2}{c}{\textsc{Bank}} 
+        \\
+        \midrule
+        $\Delta \overline{\textup{DP}}$  & \multicolumn{2}{c|}{$0.01$} & \multicolumn{2}{c}{$0.02$} 
+        \\
+        \midrule
+        \midrule
+        Sensitive attribute $S$ & 0 & 1 & 0 & 1
+        \\
+        \midrule
+        Reduction (s.e.) & \underline{0.940} (0.001) & 0.922 (0.001) & \underline{0.958} (0.010) & \underline{0.978} (0.005)
+        \\
+        Reg (s.e.) & 0.872 (0.003) & \underline{0.972} (0.003) & 0.784 (0.031) & 0.974 (0.003)
+        \\
+        Adv (s.e.) & 0.659 (0.171) & 0.693 (0.185) & 0.603 (0.207) & 0.505 (0.238)
+        \\
+        FTM $\checkmark$ (s.e.) & \textbf{0.973} (0.002) & \textbf{0.991} (0.000) & \textbf{0.964} (0.007) & \textbf{0.979} (0.004)
+        \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+\textbf{(Evaluation 2)}
+For the second approach, we employ 2 × 2 confusion matrices to compare the predicted labels of the unfair and the group-fair models.
+In specific, in the privileged group $S = 1,$ individuals predicted as $\hat{Y} = 0$ (i.e., unqualified) by the unfair model but ̂$\hat{Y} = 1$ (i.e., chosen to be qualified) by the group-fair model are considered as undesirable instances in the context of self-fulfilling prophecy.
+Likewise, in the unprivileged group $S = 0,$ individuals predicted as $\hat{Y} = 1$ by the unfair model but ̂$\hat{Y} = 0$ by the group-fair model are similarly considered undesirable.
+
+That is, for the risk of self-fulfilling prophecy, we count \textit{the number of individuals whose prediction is undesirably flipped} (i.e., \# of $\hat{Y} = 0 \textup{ (Unfair)} \rightarrow \hat{Y} = 1 \textup{ (Fair)}$ for $S = 1,$ and \# of $\hat{Y} = 1 \textup{ (Unfair)} \rightarrow \hat{Y} = 0 \textup{ (Fair)}$ for $S = 0$).
+Table \ref{table:interpret3} shows that the undesirable treatments of FTM are less observed than those of baseline methods, in most cases.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\largecircled}[1]{%
+    \tikz[baseline=(char.base)]{
+        \node[shape=circle,draw,inner sep=1pt, minimum size=1em] (char) {#1};
+    }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table*}[ht]
+    % \vskip -0.2in
+    \scriptsize
+    \centering
+    \caption{ 
+    $2\times 2$ confusion matrices comparing the predicted labels of the unfair model and the group-fair models.
+    The encircled numbers are the counts of undesirable instances.
+    \textbf{Bold} faces are the best ones and \underline{underlined} ones are the second bests.
+    }
+    \label{table:interpret3}
+    \vskip 0.2in
+    \begin{tabular}{cc|cc|cc|cc|cc}
+        \toprule
+        \multicolumn{2}{c|}{Dataset ($\Delta \overline{\textup{DP}}$)} & \multicolumn{2}{c|}{\textsc{Adult} (0.05)} & \multicolumn{2}{c|}{\textsc{German} (0.05)} & \multicolumn{2}{c|}{\textsc{Dutch} (0.15)} & \multicolumn{2}{c}{\textsc{Bank} (0.04)}
+        \\
+        \midrule
+        &  & \multicolumn{8}{c}{Unfair}
+        \\
+        \multicolumn{2}{c|}{$S = 1$} & $\hat{Y} = 0$ & $\hat{Y} = 1$ & $\hat{Y} = 0$ & $\hat{Y} = 1$ & $\hat{Y} = 0$ & $\hat{Y} = 1$ & $\hat{Y} = 0$ & $\hat{Y} = 1$ 
+        \\
+        \midrule
+        \midrule
+        \multirow{2}{*}{Reduction} & $\hat{Y} = 0$ & 6124 & 629 & 98 & 1 & 2170 & 662 & 5220 & 62
+        \\
+        & $\hat{Y} = 1$ & \largecircled{22} & 1701 & \largecircled{\underline{1}} & 32 & \largecircled{\underline{8}} & 3158 & \largecircled{62} & 579
+        \\
+        \midrule 
+        \multirow{2}{*}{Reg} & $\hat{Y} = 0$ & 6144 & 2198 & 99 & 8 & 2164 & 311 & 5265 & 229
+        \\
+        & $\hat{Y} = 1$ & \largecircled{\underline{2}} & 132 & \largecircled{\textbf{0}} & 25 & \largecircled{14} & 3509 & \largecircled{\underline{17}} & 412
+        \\
+        \midrule 
+        \multirow{2}{*}{Adv} & $\hat{Y} = 0$ & 6121 & 977 & 95 & 0 & 2152 & 1127 & 5255 & 516
+        \\
+        & $\hat{Y} = 1$ & \largecircled{25} & 1353 & \largecircled{4} & 33 & \largecircled{26} & 2693 & \largecircled{27} & 125
+        \\
+        \midrule
+        \multirow{2}{*}{FTM $\checkmark$} & $\hat{Y} = 0$ & 6146 & 1364 & 99 & 1 & 2174 & 862 & 5279 & 397
+        \\
+        & $\hat{Y} = 1$ & \largecircled{\textbf{0}} & 966 & \largecircled{\textbf{0}} & 32 & \largecircled{\textbf{4}} & 2958 & \largecircled{\textbf{3}} & 244
+        \\
+        \midrule
+        &  & \multicolumn{8}{c}{Unfair}
+        \\
+        \multicolumn{2}{c|}{$S = 0$} & $\hat{Y} = 0$ & $\hat{Y} = 1$ & $\hat{Y} = 0$ & $\hat{Y} = 1$ & $\hat{Y} = 0$ & $\hat{Y} = 1$ & $\hat{Y} = 0$ & $\hat{Y} = 1$ 
+        \\
+        \midrule
+        \midrule
+        \multirow{2}{*}{Reduction} & $\hat{Y} = 0$ & 3486 & \largecircled{\underline{13}} & 54 & \largecircled{\textbf{3}} & 4137 & \largecircled{\textbf{0}} & 129 & \largecircled{\underline{14}}
+        \\
+        & $\hat{Y} = 1$ & 262 & 341 & 0 & 11 & 226 & 1723 & 1 & 31
+        \\
+        \midrule 
+        \multirow{2}{*}{Reg} & $\hat{Y} = 0$ & 3748 & \largecircled{104} & 54 & \largecircled{\underline{4}} & 4300 & \largecircled{13} & 128 & \largecircled{45}
+        \\
+        & $\hat{Y} = 1$ & 0 & 250 & 0 & 10 & 63 & 1710 & 2 & 0
+        \\
+        \midrule 
+        \multirow{2}{*}{Adv} & $\hat{Y} = 0$ & 3655 & \largecircled{52} & 53 & \largecircled{\textbf{3}} & 3917 & \largecircled{85} & 125 & \largecircled{34}
+        \\
+        & $\hat{Y} = 1$ & 93 & 302 & 1 & 11 & 446 & 1638 & 5 & 11
+        \\
+        \midrule
+        \multirow{2}{*}{FTM $\checkmark$} & $\hat{Y} = 0$ & 3719 & \largecircled{\textbf{11}} & 54 & \largecircled{\textbf{3}} & 4217 & \largecircled{\underline{6}} & 120 & \largecircled{\textbf{10}}
+        \\
+        & $\hat{Y} = 1$ & 29 & 343 & 0 & 11 & 146 & 1717 & 10 & 35
+        \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+\end{document}
